@@ -7,17 +7,17 @@ using CoreRCON;
 
 namespace MinecraftConnection
 {
-    public class MinecraftConnection
+    public class MCConnection
     {
         private RCON rcon;
 
         /// <summary>
-        /// MinecraftCSharpConnection ライブラリ
+        /// MinecraftConnection ライブラリ
         /// </summary>
         /// <param name="RconIPAddress">RCON接続用IPアドレス</param>
         /// <param name="RconPort">RCON接続用ポート番号</param>
         /// <param name="RconPassword">RCON接続用パスワード</param>
-        public MinecraftConnection(string RconIPAddress, ushort RconPort, string RconPassword)
+        public MCConnection(string RconIPAddress, ushort RconPort, string RconPassword)
         {
             rcon = new RCON(IPAddress.Parse(RconIPAddress), RconPort, RconPassword);
         }
