@@ -11,10 +11,11 @@ namespace ExampleApp
 
             //string result = connection.SendCommand("/time set 0");
             //string result = connection.SetBlock(340, 67, 668, BlockItems.Andesite);
-            string result = connection.DisplayTitle(3.1415);
+            //string result = connection.DisplayTitle(3.1415);
             //string result = connection.DisplayMessage("Hello");
             //string result = connection.GiveItem("takunology", BlockItems.Diorite, 3);
             //string result = connection.GiveEffect("takunology", "poison", 3);
+            string result = connection.Summon("skelton", 100, 100, 100);
 
             Console.WriteLine(result);
 

@@ -3,7 +3,7 @@
 namespace MinecraftConnection
 {
     /// <summary>
-    /// Minecraftのブロック名一覧です。
+    /// Minecraftのブロックアイテムクラスです。
     /// </summary>
     public class BlockItems
     {

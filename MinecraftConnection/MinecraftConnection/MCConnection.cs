@@ -84,6 +84,18 @@ namespace MinecraftConnection
         {
             return Task.Run(async () => { return await AsyncGiveEffect(player, effect, time); }).GetAwaiter().GetResult();
         }
+        /// <summary>
+        /// 指定した座標にエンティティMobを召喚します。
+        /// </summary>
+        /// <param name="entity">エンティティ名</param>
+        /// <param name="x">x座標</param>
+        /// <param name="y">y座標</param>
+        /// <param name="z">z座標</param>
+        /// <returns></returns>
+        public string Summon(string entity, int x, int y, int z)
+        {
+            return Task.Run(async () => { return await AsyncSummon(entity, x, y, z); }).GetAwaiter().GetResult();
+        }
 
         private async Task<string> AsyncSendCommand(string str)
         {
@@ -121,6 +133,12 @@ namespace MinecraftConnection
         {
             await rcon.ConnectAsync();
             return await rcon.SendCommandAsync($"/effect give {player} {effect} {time}");
+        }
+
+        private async Task<string> AsyncSummon(string entity, int x, int y, int z)
+        {
+            await rcon.ConnectAsync();
+            return await rcon.SendCommandAsync($"/summon {entity} {x} {y} {z}");
         }
     }
 }
