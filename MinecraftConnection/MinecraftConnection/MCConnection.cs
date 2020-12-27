@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * === CoreRCON ===
+ * Copyright (c) 2017 Scott Kaye
+ * Released under the MIT license
+ * https://github.com/ScottKaye/CoreRCON/blob/master/LICENSE
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Text;
