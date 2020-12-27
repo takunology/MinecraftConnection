@@ -5,10 +5,7 @@
  * https://github.com/ScottKaye/CoreRCON/blob/master/LICENSE
  */
 
-using System;
-using System.Collections.Generic;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 using CoreRCON;
 

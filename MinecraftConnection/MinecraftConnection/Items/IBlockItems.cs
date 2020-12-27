@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MinecraftConnection
+namespace MinecraftConnection.Items
 {
     interface IBlockItems
     {
