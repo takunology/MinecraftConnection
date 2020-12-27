@@ -15,7 +15,7 @@ namespace ExampleApp
             //string result = connection.DisplayMessage("Hello");
             //string result = connection.GiveItem("takunology", BlockItems.Diorite, 3);
             //string result = connection.GiveEffect("takunology", "poison", 3);
-            string result = connection.Summon("skelton", 100, 100, 100);
+            string result = connection.Summon(Entity.Blaze, 100, 100, 100);
 
             Console.WriteLine(result);
 
