@@ -1,21 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "F:\\GitHub\\MinecraftConnection\\MinecraftConnection\\ExampleApp\\ExampleApp.csproj": {}
+    "C:\\Github\\MinecraftConnection\\MinecraftConnection\\ExampleApp\\ExampleApp.csproj": {}
   },
   "projects": {
-    "F:\\GitHub\\MinecraftConnection\\MinecraftConnection\\ExampleApp\\ExampleApp.csproj": {
+    "C:\\Github\\MinecraftConnection\\MinecraftConnection\\ExampleApp\\ExampleApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\GitHub\\MinecraftConnection\\MinecraftConnection\\ExampleApp\\ExampleApp.csproj",
+        "projectUniqueName": "C:\\Github\\MinecraftConnection\\MinecraftConnection\\ExampleApp\\ExampleApp.csproj",
         "projectName": "ExampleApp",
-        "projectPath": "F:\\GitHub\\MinecraftConnection\\MinecraftConnection\\ExampleApp\\ExampleApp.csproj",
+        "projectPath": "C:\\Github\\MinecraftConnection\\MinecraftConnection\\ExampleApp\\ExampleApp.csproj",
         "packagesPath": "C:\\Users\\takun\\.nuget\\packages\\",
-        "outputPath": "F:\\GitHub\\MinecraftConnection\\MinecraftConnection\\ExampleApp\\obj\\",
+        "outputPath": "C:\\Github\\MinecraftConnection\\MinecraftConnection\\ExampleApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
           "C:\\Users\\takun\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -33,8 +32,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "F:\\GitHub\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection.csproj": {
-                "projectPath": "F:\\GitHub\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection.csproj"
+              "C:\\Github\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection.csproj": {
+                "projectPath": "C:\\Github\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection.csproj"
               }
             }
           }
@@ -63,22 +62,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\GitHub\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection.csproj": {
+    "C:\\Github\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\GitHub\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection.csproj",
+        "projectUniqueName": "C:\\Github\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection.csproj",
         "projectName": "MinecraftConnection",
-        "projectPath": "F:\\GitHub\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection.csproj",
+        "projectPath": "C:\\Github\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection.csproj",
         "packagesPath": "C:\\Users\\takun\\.nuget\\packages\\",
-        "outputPath": "F:\\GitHub\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection\\obj\\",
+        "outputPath": "C:\\Github\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
           "C:\\Users\\takun\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -129,7 +127,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
