@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MinecraftConnection.Items
 {
-    interface IBlockItems
+    public interface IBlockItems
     {
 
     }

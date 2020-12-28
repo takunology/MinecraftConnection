@@ -7,13 +7,14 @@
 
 using System.Net;
 using System.Threading.Tasks;
+using MinecraftConnection.Items;
 using CoreRCON;
 
 namespace MinecraftConnection
 {
     public class MCConnection
     {
-        private RCON rcon;
+        private readonly RCON rcon;
 
         /// <summary>
         /// MinecraftConnection ライブラリ
