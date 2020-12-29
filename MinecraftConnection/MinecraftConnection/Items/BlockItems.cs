@@ -53,7 +53,6 @@ namespace MinecraftConnection.Items
         public static string Sandstone { get; private set; } = "minecraft:sandstone";
         public static string ChiseledSandstone { get; private set; } = "minecraft:chiseled_sandstone";
         public static string CutSandstone { get; private set; } = "minecraft:cut_sandstone";
-        //public static string hoge { get; private set; } = "minecraft:";
 
         //鉱石類
         public static string GoldOre { get; private set; } = "minecraft:gold_ore";
@@ -61,6 +60,8 @@ namespace MinecraftConnection.Items
         public static string CoalOre { get; private set; } = "minecraft:coal_ore";
         public static string LapisOre { get; private set; } = "minecraft:lapis_ore";
         public static string DiamondOre { get; private set; } = "minecraft:diamond_ore";
+        public static string RedstoneOre { get; private set; } = "minecraft:redstone_ore";
+
 
         //原木類
         public static string OakLog { get; private set; } = "minecraft:oak_log";
@@ -115,19 +116,35 @@ namespace MinecraftConnection.Items
         public static string IronBlock { get; private set; } = "minecraft:iron_block";
         public static string GoldBlock { get; private set; } = "minecraft:gold_block";
         public static string DiamondBlock { get; private set; } = "minecraft:diamond_block";
-        //public static string hoge { get; private set; } = "minecraft:";
 
-        //機械・回路類
+        //機械・回路類(レッドストーン)
         public static string Dispenser { get; private set; } = "minecraft:dispenser";
         public static string NoteBlock { get; private set; } = "minecraft:note_block";
         public static string StickyPiston { get; private set; } = "minecSraft:sticky_piston";
         public static string Piston { get; private set; } = "minecraft:piston";
+        public static string Lever { get; private set; } = "minecraft:lever";
+        public static string RedstoneTorch { get; private set; } = "minecraft:redstone_torch";
+        public static string Jukebox { get; private set; } = "minecraft:jukebox";
+
+        //氷類
+        public static string Snow { get; private set; } = "minecraft:snow";
+        public static string Ice { get; private set; } = "minecraft:ice";
+        public static string SnowBlock { get; private set; } = "minecraft:snow_block";
+
+
+        //感圧版類
+        public static string StonePressurePlate { get; private set; } = "minecraft:stone_pressure_plate";
+        public static string OakPressurePlate { get; private set; } = "minecraft:oak_pressure_plate";
+        public static string SprucePressurePlate { get; private set; } = "minecraft:spruce_pressure_plate";
+        public static string BirchPressurePlate { get; private set; } = "minecraft:birch_pressure_plate";
+        public static string JunglePressurePlate { get; private set; } = "minecraft:jungle_pressure_plate";
+        public static string AcaciaPressurePlate { get; private set; } = "minecraft:acacia_pressure_plate";
+        public static string DarkOakPressurePlate { get; private set; } = "minecraft:dark_oak_pressure_plate";
 
         //レール・運搬類
         public static string PoweredRail { get; private set; } = "minecraft:powered_rail";
         public static string DetectorRail { get; private set; } = "minecraft:detector_rail";
         public static string Rail { get; private set; } = "minecraft:rail";
-
 
         //植物・藻類
         public static string Cobweb { get; private set; } = "minecraft:cobweb";
@@ -137,6 +154,7 @@ namespace MinecraftConnection.Items
         public static string Seagrass { get; private set; } = "minecraft:seagrass";
         public static string Tall_seagrass { get; private set; } = "minecraft:tall_seagrass";
         public static string SeaPickle { get; private set; } = "minecraft:sea_pickle";
+        public static string Cactus { get; private set; } = "minecraft:cactus";
 
         //羊毛類
         public static string WhiteWool { get; private set; } = "minecraft:white_wool";
@@ -215,6 +233,7 @@ namespace MinecraftConnection.Items
         public static string Farmland { get; private set; } = "minecraft:farmland";
         public static string Furnace { get; private set; } = "minecraft:furnace";
         public static string Ladder { get; private set; } = "minecraft:ladder";
+        public static string Clay { get; private set; } = "minecraft:clay";
 
         //ジエンド素材類
         public static string EndRod { get; private set; } = "minecraft:end_rod";
@@ -232,6 +251,13 @@ namespace MinecraftConnection.Items
         public static string AcaciaStairs { get; private set; } = "minecraft:acacia_stairs";
         public static string DarkOakStairs { get; private set; } = "minecraft:dark_oak_stairs";
 
+        //フェンス類
+        public static string OakFence { get; private set; } = "minecraft:oak_fence";
+        public static string SpruceFence { get; private set; } = "minecraft:spruce_fence";
+        public static string BirchFence { get; private set; } = "minecraft:birch_fence";
+        public static string JungleFence { get; private set; } = "minecraft:jungle_fence";
+        public static string AcaciaFence { get; private set; } = "minecraft:acacia_fence";
+        public static string DarkOakFence { get; private set; } = "minecraft:dark_oak_fence";
 
     }
 }
