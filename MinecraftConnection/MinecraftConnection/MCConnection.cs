@@ -7,8 +7,10 @@
 
 using System.Net;
 using System.Threading.Tasks;
-using MinecraftConnection.Items;
 using CoreRCON;
+
+using MinecraftConnection.Items;
+using MinecraftConnection.Fireworks;
 
 namespace MinecraftConnection
 {
@@ -43,7 +45,7 @@ namespace MinecraftConnection
         /// <param name="y">y座標</param>
         /// <param name="z">z座標</param>
         /// <param name="item">ブロック名</param>
-        /// <returns></returns>
+        /// <returns>実行結果</returns>
         public string SetBlock(int x, int y, int z, string item)
         {
             return Task.Run(async () => { return await AsyncSetBlock(x, y, z, item); }).GetAwaiter().GetResult();
@@ -53,7 +55,7 @@ namespace MinecraftConnection
         /// 画面の真ん中に文字や数値を表示します。
         /// </summary>
         /// <param name="title">表示したい文字や数値</param>
-        /// <returns></returns>
+        /// <returns>実行結果</returns>
         public string DisplayTitle(object title)
         {
             return Task.Run(async () => { return await AsyncDisplayTitle(title.ToString()); }).GetAwaiter().GetResult();
@@ -62,7 +64,7 @@ namespace MinecraftConnection
         /// チャット欄に文字や数値を表示します。
         /// </summary>
         /// <param name="message">表示したい文字や数値</param>
-        /// <returns></returns>
+        /// <returns>実行結果</returns>
         public string DisplayMessage(object message)
         {
             return Task.Run(async () => { return await AsyncDisplayMessage(message.ToString()); }).GetAwaiter().GetResult();
@@ -73,7 +75,7 @@ namespace MinecraftConnection
         /// <param name="player">プレイヤー名</param>
         /// <param name="item">アイテム名</param>
         /// <param name="count">アイテムの個数</param>
-        /// <returns></returns>
+        /// <returns>実行結果</returns>
         public string GiveItem(string player, string item, int count)
         {
             return Task.Run(async () => { return await AsyncGiveItem(player, item, count); }).GetAwaiter().GetResult();
@@ -84,7 +86,7 @@ namespace MinecraftConnection
         /// <param name="player">プレイヤー名</param>
         /// <param name="effect">バフまたはデバフ名</param>
         /// <param name="time">持続時間</param>
-        /// <returns></returns>
+        /// <returns>実行結果</returns>
         public string GiveEffect(string player, string effect, int time)
         {
             return Task.Run(async () => { return await AsyncGiveEffect(player, effect, time); }).GetAwaiter().GetResult();
@@ -96,10 +98,22 @@ namespace MinecraftConnection
         /// <param name="x">x座標</param>
         /// <param name="y">y座標</param>
         /// <param name="z">z座標</param>
-        /// <returns></returns>
+        /// <returns>実行結果</returns>
         public string Summon(string entity, int x, int y, int z)
         {
             return Task.Run(async () => { return await AsyncSummon(entity, x, y, z); }).GetAwaiter().GetResult();
+        }
+        /// <summary>
+        /// 指定した座標から花火を打ち上げます
+        /// </summary>
+        /// <param name="x">x座標</param>
+        /// <param name="y">y座標</param>
+        /// <param name="z">z座標</param>
+        /// <param name="fireworks">花火の種類</param>
+        /// <returns>実行結果</returns>
+        public string Firework(int x, int y, int z, int time, Fireworks.Fireworks fireworks)
+        {
+            return Task.Run(async () => { return await AsyncFirework(x, y, z, time, fireworks); }).GetAwaiter().GetResult();
         }
 
         private async Task<string> AsyncSendCommand(string str)
@@ -144,6 +158,12 @@ namespace MinecraftConnection
         {
             await rcon.ConnectAsync();
             return await rcon.SendCommandAsync($"/summon {entity} {x} {y} {z}");
+        }
+
+        private async Task<string> AsyncFirework(int x, int y, int z, int time, Fireworks.Fireworks fireworks)
+        {
+            await rcon.ConnectAsync();
+            return await rcon.SendCommandAsync(fireworks.FireworksCommand(x, y, z, time, fireworks));
         }
     }
 }
