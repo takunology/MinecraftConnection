@@ -9,8 +9,7 @@ using System.Net;
 using System.Threading.Tasks;
 using CoreRCON;
 
-using MinecraftConnection.Items;
-using MinecraftConnection.Fireworks;
+using MinecraftConnection.FireworkItems;
 
 namespace MinecraftConnection
 {
@@ -111,9 +110,17 @@ namespace MinecraftConnection
         /// <param name="z">z座標</param>
         /// <param name="fireworks">花火の種類</param>
         /// <returns>実行結果</returns>
-        public string Firework(int x, int y, int z, int time, Fireworks.Fireworks fireworks)
+        public string SetOffFireworks(int x, int y, int z, Firework firework)
         {
-            return Task.Run(async () => { return await AsyncFirework(x, y, z, time, fireworks); }).GetAwaiter().GetResult();
+            return Task.Run(async () => { return await AsyncSetOffFireworks(x, y, z, firework); }).GetAwaiter().GetResult();
+        }
+        /// <summary>
+        /// 指定した時間だけ待機します。
+        /// </summary>
+        /// <param name="time">ミリ秒</param>
+        public void Wait(int time)
+        {
+            Task.Run(async () => { await Task.Delay(time); }).GetAwaiter().GetResult();
         }
 
         private async Task<string> AsyncSendCommand(string str)
@@ -160,10 +167,10 @@ namespace MinecraftConnection
             return await rcon.SendCommandAsync($"/summon {entity} {x} {y} {z}");
         }
 
-        private async Task<string> AsyncFirework(int x, int y, int z, int time, Fireworks.Fireworks fireworks)
+        private async Task<string> AsyncSetOffFireworks(int x, int y, int z, Firework firework)
         {
             await rcon.ConnectAsync();
-            return await rcon.SendCommandAsync(fireworks.FireworksCommand(x, y, z, time, fireworks));
+            return await rcon.SendCommandAsync($"/summon firework_rocket {x} {y} {z} {Fireworks.GetCommand(firework)}");
         }
     }
 }
