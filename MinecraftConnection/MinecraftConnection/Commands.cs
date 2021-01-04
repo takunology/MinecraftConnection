@@ -10,24 +10,21 @@ using System.Threading.Tasks;
 using CoreRCON;
 
 using MinecraftConnection.FireworkItems;
+using MinecraftConnection.Data;
 
 namespace MinecraftConnection
 {
-    public class MCConnection
+    public class Commands
     {
         private readonly RCON rcon;
-
         /// <summary>
-        /// MinecraftConnection ライブラリ
+        /// Minecraft で使用するコマンドクラスです。
         /// </summary>
-        /// <param name="RconIPAddress">RCON接続用IPアドレス</param>
-        /// <param name="RconPort">RCON接続用ポート番号</param>
-        /// <param name="RconPassword">RCON接続用パスワード</param>
-        public MCConnection(string RconIPAddress, ushort RconPort, string RconPassword)
+        /// <param name="rcon">RCONパラメータ</param>
+        public Commands(RCON rcon)
         {
-            rcon = new RCON(IPAddress.Parse(RconIPAddress), RconPort, RconPassword);
+            this.rcon = rcon;
         }
-
         /// <summary>
         /// コマンドを送信します。
         /// </summary>
@@ -36,7 +33,6 @@ namespace MinecraftConnection
         {
             return Task.Run(async () => { return await AsyncSendCommand(Command); }).GetAwaiter().GetResult();
         }
-
         /// <summary>
         /// ブロックを配置します。
         /// </summary>
@@ -49,7 +45,6 @@ namespace MinecraftConnection
         {
             return Task.Run(async () => { return await AsyncSetBlock(x, y, z, item); }).GetAwaiter().GetResult();
         }
-
         /// <summary>
         /// 画面の真ん中に文字や数値を表示します。
         /// </summary>
@@ -170,7 +165,7 @@ namespace MinecraftConnection
         private async Task<string> AsyncSetOffFireworks(int x, int y, int z, Firework firework)
         {
             await rcon.ConnectAsync();
-            return await rcon.SendCommandAsync($"/summon firework_rocket {x} {y} {z} {Fireworks.GetCommand(firework)}");
+            return await rcon.SendCommandAsync($"/summon firework_rocket {x} {y} {z} {Firework.GetFireworkData(firework)}");
         }
     }
 }

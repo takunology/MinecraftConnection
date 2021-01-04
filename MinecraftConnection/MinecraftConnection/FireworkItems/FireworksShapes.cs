@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MinecraftConnection.FireworkItems
 {
-    public enum FireworkShapes
+    public enum FireworksShapes
     {
         SmallBall,
         LargeBall,

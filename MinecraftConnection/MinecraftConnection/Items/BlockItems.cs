@@ -3,9 +3,9 @@
 namespace MinecraftConnection.Items
 {
     /// <summary>
-    /// Minecraftのブロックアイテムクラスです。
+    /// Minecraftのブロックアイテムです。
     /// </summary>
-    public class BlockItems : IBlockItems
+    public class BlockItems
     {
         //石類
         public static string Air { get; private set; } = "minecraft:air";

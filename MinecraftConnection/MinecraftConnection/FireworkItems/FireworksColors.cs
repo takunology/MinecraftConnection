@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MinecraftConnection.FireworkItems
 {
-    public enum MCColors
+    public enum FireworksColors
     {
         BLACK,
         RED,
