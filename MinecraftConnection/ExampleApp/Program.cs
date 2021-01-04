@@ -20,13 +20,20 @@ namespace ExampleApp
         static void Main(string[] args)
         {
             Commands command = new Commands(rcon);
+            PlayerData data = new PlayerData(rcon);
+            string PlayerName = "takunology";
 
-            int locateX = 794;
-            int locateY = 68;
-            int locateZ = 1407 + 20;
+            List<Item> InventoryItems = data.GetInventoryItems(PlayerName);
+            var HandItems = data.GetHandItems(PlayerName);
+            
+            foreach (var item in InventoryItems)
+            {              
+                Console.WriteLine($"{item.GetItemSlot()} {item.GetItemID()} {item.GetItemCount()}");
+            }
 
+            
             Firework MyFirework = new Firework(30, 2, FireworksShapes.LargeBall, true, false, FireworksColors.CYAN, FireworksColors.GREEN);
-            //command.SetOffFireworks(locateX, locateY, locateZ, MyFirework);
+            //command.SetOffFireworks(x, y, z + 20, MyFirework);
 
             //Console.WriteLine(result);
         }

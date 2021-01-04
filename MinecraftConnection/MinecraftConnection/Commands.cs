@@ -117,6 +117,15 @@ namespace MinecraftConnection
         {
             Task.Run(async () => { await Task.Delay(time); }).GetAwaiter().GetResult();
         }
+        /// <summary>
+        /// プレイヤーのデータを取得します。
+        /// </summary>
+        /// <param name="PlayerName">プレイヤー名</param>
+        /// <returns></returns>
+        public string GetPlayerData(string PlayerName)
+        {
+            return Task.Run(async () => { return await AsyncGetPlayerData(PlayerName); }).GetAwaiter().GetResult();
+        }
 
         private async Task<string> AsyncSendCommand(string str)
         {
@@ -166,6 +175,12 @@ namespace MinecraftConnection
         {
             await rcon.ConnectAsync();
             return await rcon.SendCommandAsync($"/summon firework_rocket {x} {y} {z} {Firework.GetFireworkData(firework)}");
+        }
+
+        private async Task<string> AsyncGetPlayerData(string PlayerName)
+        {
+            await rcon.ConnectAsync();
+            return await rcon.SendCommandAsync($"/data get entity {PlayerName}");
         }
     }
 }
