@@ -1,0 +1,240 @@
+{
+  Brain: {
+    memories: {}
+  },
+  HurtByTimestamp: 0,
+  SleepTimer: 0 s,
+  SpawnForced: 1 b,
+  Attributes: [{
+    Base: 20.0 d,
+    Name: "generic.maxHealth"
+  }, {
+    Base: 0.0 d,
+    Name: "generic.knockbackResistance"
+  }, {
+    Base: 0.10000000149011612 d,
+    Name: "generic.movementSpeed"
+  }, {
+    Base: 0.0 d,
+    Modifiers: [],
+    Name: "generic.armor"
+  }, {
+    Base: 0.0 d,
+    Modifiers: [],
+    Name: "generic.armorToughness"
+  }, {
+    Base: 1.0 d,
+    Name: "generic.attackDamage"
+  }, {
+    Base: 4.0 d,
+    Name: "generic.attackSpeed"
+  }, {
+    Base: 0.0 d,
+    Name: "generic.luck"
+  }],
+  Invulnerable: 0b,
+  FallFlying: 0b,
+  PortalCooldown: 0,
+  AbsorptionAmount: 0.0 f,
+  abilities: {
+    invulnerable: 0b,
+    mayfly: 0b,
+    instabuild: 0b,
+    walkSpeed: 0.1 f,
+    mayBuild: 1 b,
+    flying: 0b,
+    flySpeed: 0.05 f
+  },
+  FallDistance: 0.0 f,
+  recipeBook: {
+    recipes: [],
+    isFilteringCraftable: 0b,
+    toBeDisplayed: [],
+    isFurnaceGuiOpen: 0b,
+    isGuiOpen: 0b,
+    isFurnaceFilteringCraftable: 0b
+  },
+  DeathTime: 0 s,
+  XpSeed: 1810691860,
+  XpTotal: 25,
+  playerGameType: 0,
+  SelectedItem: {
+    id: "minecraft:fishing_rod",
+    Count: 1 b,
+    tag: {
+      Damage: 0
+    }
+  },
+  seenCredits: 0b,
+  Motion: [0.0 d, -0.0784000015258789 d, 0.0 d],
+  SpawnY: 64,
+  UUIDLeast: -6389527098279383157 L,
+  Health: 9.333335 f,
+  SpawnZ: 1353,
+  foodSaturationLevel: 0.0 f,
+  SpawnX: 790,
+  Air: 300 s,
+  OnGround: 1 b,
+  Dimension: 0,
+  Rotation: [2.8592153 f, 25.349915 f],
+  XpLevel: 2,
+  Score: 25,
+  UUIDMost: -6270536404567572285 L,
+  Pos: [796.5703987361004 d, 63.0 d, 1411.1120492705138 d],
+  Fire: -20 s,
+  XpP: 0.818182 f,
+  EnderItems: [],
+  DataVersion: 2230,
+  foodLevel: 17,
+  foodExhaustionLevel: 0.5531988 f,
+  HurtTime: 0 s,
+  SelectedItemSlot: 0,
+  Inventory: [{
+    Slot: 0b,
+    id: "minecraft:fishing_rod",
+    Count: 1 b,
+    tag: {
+      Damage: 0
+    }
+  }, {
+    Slot: 1 b,
+    id: "minecraft:bread",
+    Count: 32 b
+  }, {
+    Slot: 2 b,
+    id: "minecraft:bread",
+    Count: 16 b
+  }, {
+    Slot: 3 b,
+    id: "minecraft:porkchop",
+    Count: 32 b
+  }, {
+    Slot: 4 b,
+    id: "minecraft:porkchop",
+    Count: 16 b
+  }, {
+    Slot: 5 b,
+    id: "minecraft:golden_apple",
+    Count: 32 b
+  }, {
+    Slot: 6 b,
+    id: "minecraft:golden_apple",
+    Count: 5 b
+  }, {
+    Slot: 7 b,
+    id: "minecraft:golden_apple",
+    Count: 26 b
+  }, {
+    Slot: 8 b,
+    id: "minecraft:apple",
+    Count: 49 b
+  }, {
+    Slot: 9 b,
+    id: "minecraft:golden_apple",
+    Count: 1 b
+  }, {
+    Slot: 10 b,
+    id: "minecraft:iron_pickaxe",
+    Count: 1 b,
+    tag: {
+      Damage: 0
+    }
+  }, {
+    Slot: 11 b,
+    id: "minecraft:iron_axe",
+    Count: 1 b,
+    tag: {
+      Damage: 0
+    }
+  }, {
+    Slot: 12 b,
+    id: "minecraft:tnt",
+    Count: 1 b
+  }, {
+    Slot: 13 b,
+    id: "minecraft:birch_pressure_plate",
+    Count: 1 b
+  }, {
+    Slot: 14 b,
+    id: "minecraft:cobweb",
+    Count: 1 b
+  }, {
+    Slot: 15 b,
+    id: "minecraft:carrot",
+    Count: 1 b
+  }, {
+    Slot: 16 b,
+    id: "minecraft:red_tulip",
+    Count: 1 b
+  }, {
+    Slot: 17 b,
+    id: "minecraft:glowstone_dust",
+    Count: 2 b
+  }, {
+    Slot: 18 b,
+    id: "minecraft:book",
+    Count: 3 b
+  }, {
+    Slot: 19 b,
+    id: "minecraft:porkchop",
+    Count: 16 b
+  }, {
+    Slot: 20 b,
+    id: "minecraft:bread",
+    Count: 16 b
+  }, {
+    Slot: 21 b,
+    id: "minecraft:leather_boots",
+    Count: 1 b,
+    tag: {
+      Damage: 53
+    }
+  }, {
+    Slot: 27 b,
+    id: "minecraft:apple",
+    Count: 16 b
+  }, {
+    Slot: 35 b,
+    id: "minecraft:potion",
+    Count: 1 b,
+    tag: {
+      Potion: "minecraft:regeneration"
+    }
+  }, {
+    Slot: 100 b,
+    id: "minecraft:diamond_boots",
+    Count: 1 b,
+    tag: {
+      Damage: 0
+    }
+  }, {
+    Slot: 101 b,
+    id: "minecraft:diamond_leggings",
+    Count: 1 b,
+    tag: {
+      Damage: 0
+    }
+  }, {
+    Slot: 102 b,
+    id: "minecraft:diamond_chestplate",
+    Count: 1 b,
+    tag: {
+      Damage: 0
+    }
+  }, {
+    Slot: 103 b,
+    id: "minecraft:diamond_helmet",
+    Count: 1 b,
+    tag: {
+      Damage: 0
+    }
+  }, {
+    Slot: -106 b,
+    id: "minecraft:shield",
+    Count: 1 b,
+    tag: {
+      Damage: 0
+    }
+  }],
+  foodTickTimer: 0
+}

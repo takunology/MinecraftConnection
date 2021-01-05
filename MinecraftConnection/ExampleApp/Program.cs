@@ -21,21 +21,37 @@ namespace ExampleApp
         {
             Commands command = new Commands(rcon);
             PlayerData data = new PlayerData(rcon);
+
             string PlayerName = "takunology";
 
             List<Item> InventoryItems = data.GetInventoryItems(PlayerName);
             var HandItems = data.GetHandItems(PlayerName);
+            var EquipmentItems = data.GetEquipmentItems(PlayerName);
+            var LeftHandItem = data.GetLeftHandItem(PlayerName);
+            var FoodLevel = data.GetFoodLevel("");
             
+            Console.WriteLine("=== インベントリスロットアイテム ===");
             foreach (var item in InventoryItems)
-            {              
-                Console.WriteLine($"{item.GetItemSlot()} {item.GetItemID()} {item.GetItemCount()}");
+            {
+                Console.WriteLine($"{item.GetItemSlot()} 番目のアイテムは {item.GetItemID()} で {item.GetItemCount()} 個所持しています。");
             }
 
-            
-            Firework MyFirework = new Firework(30, 2, FireworksShapes.LargeBall, true, false, FireworksColors.CYAN, FireworksColors.GREEN);
-            //command.SetOffFireworks(x, y, z + 20, MyFirework);
+            Console.WriteLine("=== 手持ちスロットアイテム ===");
+            foreach (var item in HandItems)
+            {
+                Console.WriteLine($"{item.GetItemSlot()} 番目のアイテムは {item.GetItemID()} で {item.GetItemCount()} 個所持しています。");
+            }
 
-            //Console.WriteLine(result);
+            Console.WriteLine("=== 装備アイテム ===");
+            foreach (var item in EquipmentItems)
+            {
+                Console.WriteLine($"{item.GetItemSlot()} 番目のアイテムは {item.GetItemID()} で {item.GetItemCount()} 個所持しています。");
+            }
+
+            Console.WriteLine("=== 左手のアイテム ===");
+            Console.WriteLine($"{LeftHandItem.GetItemSlot()} 番目のアイテムは {LeftHandItem.GetItemID()} で {LeftHandItem.GetItemCount()} 個所持しています。");
+
+            Console.WriteLine($"満腹度は {FoodLevel}");
         }
     }
 }
