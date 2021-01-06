@@ -8,4 +8,8 @@
     <PackageReference Include="CoreRCON" Version="5.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Serialize\" />
+  </ItemGroup>
+
 </Project>

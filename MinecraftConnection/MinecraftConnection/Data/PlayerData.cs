@@ -54,7 +54,6 @@ namespace MinecraftConnection.Data
         {
             Task.Run(async () => { await GetHandItemsAsync(PlayerName); }).GetAwaiter().GetResult();
             return HandItems != null ? this.HandItems : throw new Exception("アイテムが存在しません。");
-            //return this.HandItems;
         }
         /// <summary>
         /// プレイヤーのインベントリアイテムを取得します。
@@ -102,6 +101,7 @@ namespace MinecraftConnection.Data
             {
                 if (item.GetItemSlot() < 9) HandItems.Add(item);
             }
+            AllItems = new List<Item>();
         }
 
         private async Task GetInventoryItemsAsync(string PlayerName)
@@ -111,6 +111,7 @@ namespace MinecraftConnection.Data
             {
                 if (item.GetItemSlot() > 8 && item.GetItemSlot() < 100) InventoryItems.Add(item);
             }
+            AllItems = new List<Item>();
         }
 
         private async Task GetLeftHandItemAsync(string PlayerName)
@@ -120,6 +121,7 @@ namespace MinecraftConnection.Data
             {
                 if (item.GetItemSlot() == 106) LeftHandItem = item;
             }
+            AllItems = new List<Item>();
         }
 
         private async Task GetEquipmentItemsAsync(string PlayerName)
@@ -129,6 +131,7 @@ namespace MinecraftConnection.Data
             {
                 if (item.GetItemSlot() >= 100 && item.GetItemSlot() < 106) Equipmets.Add(item);
             }
+            AllItems = new List<Item>();
         }
 
         private async Task GetFoodLevelAsync(string PlayerName)

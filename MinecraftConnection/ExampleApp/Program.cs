@@ -28,7 +28,6 @@ namespace ExampleApp
             var HandItems = data.GetHandItems(PlayerName);
             var EquipmentItems = data.GetEquipmentItems(PlayerName);
             var LeftHandItem = data.GetLeftHandItem(PlayerName);
-            var FoodLevel = data.GetFoodLevel("");
             
             Console.WriteLine("=== インベントリスロットアイテム ===");
             foreach (var item in InventoryItems)
@@ -51,7 +50,7 @@ namespace ExampleApp
             Console.WriteLine("=== 左手のアイテム ===");
             Console.WriteLine($"{LeftHandItem.GetItemSlot()} 番目のアイテムは {LeftHandItem.GetItemID()} で {LeftHandItem.GetItemCount()} 個所持しています。");
 
-            Console.WriteLine($"満腹度は {FoodLevel}");
+            //Console.WriteLine($"満腹度は {FoodLevel}");
         }
     }
 }
