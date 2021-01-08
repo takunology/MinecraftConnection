@@ -10,7 +10,7 @@ using MinecraftConnection.Items;
 namespace MinecraftConnection.Data
 {
     //プレイヤーごとの情報が欲しいので動的
-    public class PlayerData : PlayerDataBase
+    public partial class PlayerData : PlayerDataBase
     {
         public PlayerData(RCON rcon)
         {
@@ -93,17 +93,39 @@ namespace MinecraftConnection.Data
             Task.Run(async () => { await GetFoodLevelAsync(PlayerName); }).GetAwaiter().GetResult();
             return this.FoodLevel;
         }
+        /// <summary>
+        /// プレイヤーのスコアを取得します。
+        /// </summary>
+        /// <param name="PlayerName">プレイヤー名</param>
+        /// <returns></returns>
+        public int GetScore(string PlayerName)
+        {
+            Task.Run(async () => { await GetScoreAsync(PlayerName); }).GetAwaiter().GetResult();
+            return this.Score;
+        }
+        /// <summary>
+        /// プレイヤーの体力を取得します。(最大20.0)
+        /// </summary>
+        /// <param name="PlayerName">プレイヤー名</param>
+        /// <returns></returns>
+        public float GetHealth(string PlayerName)
+        {
+            Task.Run(async () => { await GetHealthAsync(PlayerName); }).GetAwaiter().GetResult();
+            return this.Health;
+        }
+    }
 
+    public partial class PlayerData
+    {
         private async Task GetHandItemsAsync(string PlayerName)
         {
             await ExtractItemsAsync(PlayerName);
-            foreach(var item in AllItems)
+            foreach (var item in AllItems)
             {
                 if (item.GetItemSlot() < 9) HandItems.Add(item);
             }
             AllItems = new List<Item>();
         }
-
         private async Task GetInventoryItemsAsync(string PlayerName)
         {
             await ExtractItemsAsync(PlayerName);
@@ -113,7 +135,6 @@ namespace MinecraftConnection.Data
             }
             AllItems = new List<Item>();
         }
-
         private async Task GetLeftHandItemAsync(string PlayerName)
         {
             await ExtractItemsAsync(PlayerName);
@@ -123,7 +144,6 @@ namespace MinecraftConnection.Data
             }
             AllItems = new List<Item>();
         }
-
         private async Task GetEquipmentItemsAsync(string PlayerName)
         {
             await ExtractItemsAsync(PlayerName);
@@ -133,10 +153,17 @@ namespace MinecraftConnection.Data
             }
             AllItems = new List<Item>();
         }
-
         private async Task GetFoodLevelAsync(string PlayerName)
         {
             await ExtractFoodLevelAsync(PlayerName);
+        }
+        private async Task GetScoreAsync(string PlayerName)
+        {
+            await ExtractScoreAsync(PlayerName);
+        }
+        private async Task GetHealthAsync(string PlayerName)
+        {
+            await ExtractHealthAsync(PlayerName);
         }
     }
 }

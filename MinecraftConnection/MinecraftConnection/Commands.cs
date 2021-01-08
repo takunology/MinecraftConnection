@@ -14,7 +14,7 @@ using MinecraftConnection.Data;
 
 namespace MinecraftConnection
 {
-    public class Commands
+    public partial class Commands
     {
         private readonly RCON rcon;
         /// <summary>
@@ -138,6 +138,10 @@ namespace MinecraftConnection
             return Task.Run(async () => { return await ClearAsync(PlayerName, Item, Count); }).GetAwaiter().GetResult();
         }
 
+    }
+
+    public partial class Commands
+    {
         private async Task<string> SendCommandAsync(string str)
         {
             await rcon.ConnectAsync();
@@ -145,55 +149,46 @@ namespace MinecraftConnection
                 str = "/" + str;
             return await rcon.SendCommandAsync(str);
         }
-        
         private async Task<string> SetBlockAsync(int x, int y, int z, string item)
         {
             await rcon.ConnectAsync();
             return await rcon.SendCommandAsync($"/setblock {x} {y} {z} {item}");
         }
-
         private async Task<string> DisplayTitleAsync(string str)
         {
             await rcon.ConnectAsync();
             return await rcon.SendCommandAsync($"/title @a title \"{str}\"");
         }
-
         private async Task<string> DisplayMessageAsync(string str)
         {
             await rcon.ConnectAsync();
             return await rcon.SendCommandAsync($"/msg @a {str}");
         }
-
         private async Task<string> GiveItemAsync(string player, string item, int count)
         {
             await rcon.ConnectAsync();
             return await rcon.SendCommandAsync($"/give {player} {item} {count}");
         }
-
         private async Task<string> GiveEffectAsync(string player, string effect, int time)
         {
             await rcon.ConnectAsync();
             return await rcon.SendCommandAsync($"/effect give {player} {effect} {time}");
         }
-
         private async Task<string> SummonAsync(string entity, int x, int y, int z)
         {
             await rcon.ConnectAsync();
             return await rcon.SendCommandAsync($"/summon {entity} {x} {y} {z}");
         }
-
         private async Task<string> SetOffFireworksAsync(int x, int y, int z, Firework firework)
         {
             await rcon.ConnectAsync();
             return await rcon.SendCommandAsync($"/summon firework_rocket {x} {y} {z} {Firework.GetFireworkData(firework)}");
         }
-
         private async Task<string> GetPlayerDataAsync(string PlayerName)
         {
             await rcon.ConnectAsync();
             return await rcon.SendCommandAsync($"/data get entity {PlayerName}");
         }
-
         private async Task<string> ClearAsync(string PlayerName, string Item, int Count)
         {
             await rcon.ConnectAsync();

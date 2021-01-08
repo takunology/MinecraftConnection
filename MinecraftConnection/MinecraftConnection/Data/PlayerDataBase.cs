@@ -21,6 +21,8 @@ namespace MinecraftConnection.Data
         protected List<Item> Equipmets = new List<Item>();
         protected Item LeftHandItem { get; set; }
         protected int FoodLevel { get; set; }
+        protected int Score { get; set; }
+        protected float Health { get; set; }
 
         protected async Task ExtractCoordinateAsync(string PlayerName)
         {
@@ -110,6 +112,28 @@ namespace MinecraftConnection.Data
 
             string filterResult = Regex.Replace(result, @"[^0-9]", "");
             FoodLevel = int.Parse(filterResult);
+        }
+        protected async Task ExtractScoreAsync(string PlayerName)
+        {
+            await rcon.ConnectAsync();
+            string result = await rcon.SendCommandAsync($"/data get entity {PlayerName} Score");
+
+            if (result.Contains("No") || PlayerName == "")
+                throw new Exception("プレイヤーが見つかりません。プレイヤー名が正しいか確認してください。");
+
+            string filterResult = Regex.Replace(result, @"[^0-9]", "");
+            Score = int.Parse(filterResult);
+        }
+        protected async Task ExtractHealthAsync(string PlayerName)
+        {
+            await rcon.ConnectAsync();
+            string result = await rcon.SendCommandAsync($"/data get entity {PlayerName} Health");
+
+            if (result.Contains("No") || PlayerName == "")
+                throw new Exception("プレイヤーが見つかりません。プレイヤー名が正しいか確認してください。");
+
+            string filterResult = Regex.Replace(result, @"[^0-9.]", "");
+            Health = float.Parse(filterResult);
         }
     }
 }
