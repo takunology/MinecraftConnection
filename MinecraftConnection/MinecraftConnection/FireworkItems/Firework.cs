@@ -264,7 +264,9 @@ namespace MinecraftConnection.FireworkItems
             string command = "{LifeTime:" + LifeTimeToString(firework) + ",FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:"
                 + FlightDurationToString(firework) + ",Explosions:[{Type:" + ShapeToString(firework) + ",Flicker:" + FlickerToString(firework)
                 + ",Trail:" + TrailToString(firework) + ",Colors:[I;" + ExplosionColorsToString(firework) + "],FadeColors:[I;" + FadeColorsToString(firework) + "]}]}}}}";
+#if DEBUG
             Console.WriteLine(command);
+#endif
             return command;
         }
     }

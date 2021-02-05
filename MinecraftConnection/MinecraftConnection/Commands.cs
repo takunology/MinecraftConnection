@@ -11,6 +11,7 @@ using CoreRCON;
 
 using MinecraftConnection.FireworkItems;
 using MinecraftConnection.Data;
+using MinecraftConnection.Design;
 
 namespace MinecraftConnection
 {
@@ -137,6 +138,19 @@ namespace MinecraftConnection
         {
             return Task.Run(async () => { return await ClearAsync(PlayerName, Item, Count); }).GetAwaiter().GetResult();
         }
+        /// <summary>
+        /// ドット絵を指定した座標につくります
+        /// </summary>
+        /// <param name="x">x座標</param>
+        /// <param name="y">y座標</param>
+        /// <param name="z">z座標</param>
+        /// <param name="Art">ブロックに変換したドット絵</param>
+        /// <returns></returns>
+        public string ImageDrawing(int x, int y, int z, MinecraftArt Art)
+        {
+            return Task.Run(async () => { return await ImageDrawingAsync(x, y, z, Art); }).GetAwaiter().GetResult();
+        }
+
 
     }
 
@@ -193,6 +207,13 @@ namespace MinecraftConnection
         {
             await rcon.ConnectAsync();
             return await rcon.SendCommandAsync($"/clear {PlayerName} {Item} {Count}");
+        }
+        
+        private async Task<string> ImageDrawingAsync(int x, int y, int z, MinecraftArt Art)
+        {
+            
+            await rcon.ConnectAsync();
+            return await SendCommandAsync("");
         }
     }
 }
