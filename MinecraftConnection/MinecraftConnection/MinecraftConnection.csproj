@@ -9,8 +9,4 @@
     <PackageReference Include="OpenCvSharp4" Version="4.5.1.20210123" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Serialize\" />
-  </ItemGroup>
-
 </Project>

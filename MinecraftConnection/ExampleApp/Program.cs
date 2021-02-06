@@ -16,15 +16,20 @@ namespace ExampleApp
         private static ushort Port = 25575;
         private static string Password = "minecraft";
         private static RCON rcon = new RCON(IP, Port, Password);
-        private static Commands command = new Commands(rcon);
-        private static PlayerData data = new PlayerData(rcon);
+        private static MinecraftCommands command = new MinecraftCommands(rcon);
 
         static void Main(string[] args)
         {
-            
-            string PlayerName = "takunology";
-            
-            
+            //string PlayerName = "takunology";
+
+            var items = new List<Item>();
+            items.Add(new Item("minecraft:diamond", 64, 0));
+            items.Add(new Item("minecraft:chest", 2, 5));
+            items.Add(new Item("minecraft:oak_planks", 8, 1));
+            items.Add(new Item("minecraft:stone", 32, 3));
+
+            ChestItems chestItems = new ChestItems(rcon);
+            chestItems.SetChestItems(244, 74, 2866, items);
         }
     }
 }

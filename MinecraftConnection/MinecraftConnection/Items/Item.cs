@@ -22,21 +22,26 @@ namespace MinecraftConnection.Items
             this.ItemSlot = ItemSlot;
         }
 
-        public Item()
-        {
-            
-        }
-
+        /// <summary>
+        /// アイテム名 (ID) を取得します。
+        /// </summary>
+        /// <returns>string ItemID</returns>
         public string GetItemID()
         {
             return this.ItemID;
         }
-
+        /// <summary>
+        /// アイテム数を取得します。
+        /// </summary>
+        /// <returns>int ItemCount</returns>
         public int GetItemCount()
         {
             return this.ItemCount;
         }
-
+        /// <summary>
+        /// アイテムスロットを取得します。
+        /// </summary>
+        /// <returns>int ItemSlot</returns>
         public int GetItemSlot()
         {
             return this.ItemSlot;

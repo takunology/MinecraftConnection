@@ -12,17 +12,20 @@ using CoreRCON;
 using MinecraftConnection.FireworkItems;
 using MinecraftConnection.Data;
 using MinecraftConnection.Design;
+using System.Collections.Generic;
+using MinecraftConnection.Items;
 
 namespace MinecraftConnection
 {
-    public partial class Commands
+    public partial class MinecraftCommands
     {
-        private readonly RCON rcon;
+        private RCON rcon { get; set; }
+
         /// <summary>
         /// Minecraft で使用するコマンドクラスです。
         /// </summary>
         /// <param name="rcon">RCONパラメータ</param>
-        public Commands(RCON rcon)
+        public MinecraftCommands(RCON rcon)
         {
             this.rcon = rcon;
         }
@@ -99,6 +102,30 @@ namespace MinecraftConnection
             return Task.Run(async () => { return await SummonAsync(entity, x, y, z); }).GetAwaiter().GetResult();
         }
         /// <summary>
+        /// プレイヤーの所持しているアイテムを消去します。
+        /// </summary>
+        /// <param name="PlayerName">プレイヤー名</param>
+        /// <param name="Item">アイテム</param>
+        /// <param name="Count">個数</param>
+        /// <returns></returns>
+        public string ItemClear(string PlayerName, string Item, int Count)
+        {
+            return Task.Run(async () => { return await ClearAsync(PlayerName, Item, Count); }).GetAwaiter().GetResult();
+        }
+
+    }
+    
+    public partial class MinecraftCommands
+    {
+        /// <summary>
+        /// 指定した時間だけ待機します。
+        /// </summary>
+        /// <param name="time">ミリ秒</param>
+        public void Wait(int time)
+        {
+            Task.Run(async () => { await Task.Delay(time); }).GetAwaiter().GetResult();
+        }
+        /// <summary>
         /// 指定した座標から花火を打ち上げます
         /// </summary>
         /// <param name="x">x座標</param>
@@ -111,14 +138,6 @@ namespace MinecraftConnection
             return Task.Run(async () => { return await SetOffFireworksAsync(x, y, z, firework); }).GetAwaiter().GetResult();
         }
         /// <summary>
-        /// 指定した時間だけ待機します。
-        /// </summary>
-        /// <param name="time">ミリ秒</param>
-        public void Wait(int time)
-        {
-            Task.Run(async () => { await Task.Delay(time); }).GetAwaiter().GetResult();
-        }
-        /// <summary>
         /// プレイヤーのデータを取得します。
         /// </summary>
         /// <param name="PlayerName">プレイヤー名</param>
@@ -128,33 +147,120 @@ namespace MinecraftConnection
             return Task.Run(async () => { return await GetPlayerDataAsync(PlayerName); }).GetAwaiter().GetResult();
         }
         /// <summary>
-        /// プレイヤーの所持しているアイテムを消去します。
+        /// プレイヤーのインベントリアイテムを取得します。
         /// </summary>
         /// <param name="PlayerName">プレイヤー名</param>
-        /// <param name="Item">アイテム</param>
-        /// <param name="Count">個数</param>
         /// <returns></returns>
-        public string ItemClear(string PlayerName, string Item, int Count)
+        public List<Item> GetInventoryItems(string PlayerName)
         {
-            return Task.Run(async () => { return await ClearAsync(PlayerName, Item, Count); }).GetAwaiter().GetResult();
+            PlayerData playerData = new PlayerData(rcon);
+            return playerData.GetInventoryItems(PlayerName);
         }
         /// <summary>
-        /// ドット絵を指定した座標につくります
+        /// プレイヤーの手持ちアイテムを取得します。
         /// </summary>
-        /// <param name="x">x座標</param>
-        /// <param name="y">y座標</param>
-        /// <param name="z">z座標</param>
-        /// <param name="Art">ブロックに変換したドット絵</param>
+        /// <param name="PlayerName">プレイヤー名</param>
         /// <returns></returns>
-        public string ImageDrawing(int x, int y, int z, MinecraftArt Art)
+        public List<Item> GetHandItems(string PlayerName)
         {
-            return Task.Run(async () => { return await ImageDrawingAsync(x, y, z, Art); }).GetAwaiter().GetResult();
+            PlayerData playerData = new PlayerData(rcon);
+            return playerData.GetHandItems(PlayerName);
         }
-
-
+        /// <summary>
+        /// プレイヤーの装備アイテムを取得します。
+        /// </summary>
+        /// <param name="PlayerName">プレイヤー名</param>
+        /// <returns></returns>
+        public List<Item> GetEquipmentItems(string PlayerName)
+        {
+            PlayerData playerData = new PlayerData(rcon);
+            return playerData.GetEquipmentItems(PlayerName);
+        }
+        /// <summary>
+        /// プレイヤーの左手のアイテムを取得します。
+        /// </summary>
+        /// <param name="PlayerName">プレイヤー名</param>
+        /// <returns></returns>
+        public Item GetLeftHandItem(string PlayerName)
+        {
+            PlayerData playerData = new PlayerData(rcon);
+            return playerData.GetLeftHandItem(PlayerName);
+        }
+        /// <summary>
+        /// プレイヤーの現在地 (x座標) を取得します。
+        /// </summary>
+        /// <param name="PlayerName">プレイヤー名</param>
+        /// <returns></returns>
+        public int GetPlayerPosX(string PlayerName)
+        {
+            PlayerData playerData = new PlayerData(rcon);
+            return playerData.GetPosX(PlayerName);
+        }
+        /// <summary>
+        /// プレイヤーの現在地 (y座標) を取得します。
+        /// </summary>
+        /// <param name="PlayerName">プレイヤー名</param>
+        /// <returns></returns>
+        public int GetPlayerPosY(string PlayerName)
+        {
+            PlayerData playerData = new PlayerData(rcon);
+            return playerData.GetPosY(PlayerName);
+        }
+        /// <summary>
+        /// プレイヤーの現在地 (z座標) を取得します。
+        /// </summary>
+        /// <param name="PlayerName">プレイヤー名</param>
+        /// <returns></returns>
+        public int GetPlayerPosZ(string PlayerName)
+        {
+            PlayerData playerData = new PlayerData(rcon);
+            return playerData.GetPosZ(PlayerName);
+        }
+        /// <summary>
+        /// プレイヤーの満腹度を取得します(最大20)
+        /// </summary>
+        /// <param name="PlayerName">プレイヤー名</param>
+        /// <returns></returns>
+        public int GetFoodLevel(string PlayerName)
+        {
+            PlayerData playerData = new PlayerData(rcon);
+            return playerData.GetFoodLevel(PlayerName);
+        }
+        /// <summary>
+        /// プレイヤーのスコアを取得します。
+        /// </summary>
+        /// <param name="PlayerName">プレイヤー名</param>
+        /// <returns></returns>
+        public int GetScore(string PlayerName)
+        {
+            PlayerData playerData = new PlayerData(rcon);
+            return playerData.GetScore(PlayerName);
+        }
+        /// <summary>
+        /// プレイヤーの体力を取得します。(最大20.0)
+        /// </summary>
+        /// <param name="PlayerName">プレイヤー名</param>
+        /// <returns></returns>
+        public float GetHealth(string PlayerName)
+        {
+            PlayerData playerData = new PlayerData(rcon);
+            return playerData.GetHealth(PlayerName);
+        }
+        /// <summary>
+        /// チェスト内のアイテムを取得します。
+        /// </summary>
+        /// <param name="x">チェストのx座標</param>
+        /// <param name="y">チェストのy座標</param>
+        /// <param name="z">チェストのz座標</param>
+        /// <returns></returns>
+        public List<Item> GetChestItems(int x, int y, int z)
+        {
+            ChestItems chestItems = new ChestItems(rcon);
+            return chestItems.GetChestItems(x, y, z);
+        }
     }
 
-    public partial class Commands
+    public partial class MinecraftCommands
     {
         private async Task<string> SendCommandAsync(string str)
         {
@@ -207,13 +313,6 @@ namespace MinecraftConnection
         {
             await rcon.ConnectAsync();
             return await rcon.SendCommandAsync($"/clear {PlayerName} {Item} {Count}");
-        }
-        
-        private async Task<string> ImageDrawingAsync(int x, int y, int z, MinecraftArt Art)
-        {
-            
-            await rcon.ConnectAsync();
-            return await SendCommandAsync("");
         }
     }
 }

@@ -16,7 +16,7 @@ namespace ExampleFireworksApp
         private static ushort Port = 25575;
         private static string Password = "minecraft";
         private static RCON rcon = new RCON(IP, Port, Password);
-        protected static Commands command = new Commands(rcon);
+        protected static MinecraftCommands command = new MinecraftCommands(rcon);
         protected static PlayerData data = new PlayerData(rcon);
 
         public static void ExampleFirework_01(int x, int y, int z)
