@@ -23,7 +23,7 @@ namespace ExampleApp
         {
             //string PlayerName = "takunology";
 
-            /*var items = new List<Item>();
+            var items = new List<Item>();
             items.Add(new Item("minecraft:diamond", 4, 0));
             items.Add(new Item("minecraft:chest", 2, 5));
             items.Add(new Item("minecraft:oak_planks", 8, 1)); 
@@ -33,7 +33,7 @@ namespace ExampleApp
             items.Add(new Item("minecraft:torch", 42, 11));
             items.Add(new Item("minecraft:stone", 55, 12));
             items.Add(new Item("minecraft:torch", 23, 16));
-            items.Add(new Item("minecraft:stone", 1, 7));*/
+            items.Add(new Item("minecraft:stone", 1, 7));
 
             ChestItems chestItems = new ChestItems(rcon);
             var getItems = chestItems.GetChestItems(244, 74, 2866);
@@ -44,14 +44,14 @@ namespace ExampleApp
                 Console.WriteLine($"{item.GetItemSlot()} {item.GetItemID()} {item.GetItemCount()}");
             }
 
-            Console.WriteLine("\nソートしたチェストアイテム");
+            /*Console.WriteLine("\nソートしたチェストアイテム");
             var sortedItems = chestItems.SortByItemCount(getItems);
             foreach (var item in sortedItems)
             {
                 Console.WriteLine($"{item.GetItemSlot()} {item.GetItemID()} {item.GetItemCount()}");
-            }
+            }*/
 
-            chestItems.SetChestItems(244, 74, 2866, sortedItems);
+            //chestItems.SetChestItems(244, 74, 2866, sortedItems);
         }
     }
 }

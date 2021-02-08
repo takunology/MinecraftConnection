@@ -44,7 +44,7 @@ namespace MinecraftConnection.Data
         /// アイテムを昇順に並べ替えます。
         /// </summary>
         /// <param name="ItemList">アイテム（リスト）</param>
-        public void ChestItemsCountSort(List<Item> ItemList)
+        private void ChestItemsCountSort(List<Item> ItemList)
         {
             var queryItems = ItemList
                 .OrderByDescending(x => x.GetItemCount())
@@ -61,7 +61,7 @@ namespace MinecraftConnection.Data
         /// アイテムを降順に並べ替えます。
         /// </summary>
         /// <param name="ItemList">アイテム（リスト）</param>
-        public void ChestItemsCountSortReverse(List<Item> ItemList)
+        private void ChestItemsCountSortReverse(List<Item> ItemList)
         {
             var queryItems = ItemList
                 .OrderBy(x => x.GetItemCount())
@@ -97,11 +97,11 @@ namespace MinecraftConnection.Data
 
             for (int i = 0; i < ItemList.Count; i++)
             {
-                foreach(var sum in distinctes)
+                foreach(var element in distinctes)
                 {
-                    if(sum == ItemList[i].GetItemID())
+                    if(element == ItemList[i].GetItemID())
                     {
-                        ItemsSum[sum] += ItemList[i].GetItemCount();
+                        ItemsSum[element] += ItemList[i].GetItemCount();
                     }
                 }
             }
@@ -121,7 +121,7 @@ namespace MinecraftConnection.Data
                     int stack = item.Value / 64;
                     int over = item.Value % 64;
 
-                    for(int j = 0; j < stack; j++)
+                    for(int i = 0; i < stack; i++)
                     {
                         SortByItemCountList.Add(new Item(item.Key, 64, SlotIndex));
                         SlotIndex++;
