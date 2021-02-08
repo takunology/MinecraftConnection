@@ -50,7 +50,7 @@ namespace MinecraftConnection
             return Task.Run(async () => { return await SetBlockAsync(x, y, z, item); }).GetAwaiter().GetResult();
         }
         /// <summary>
-        /// 画面の真ん中に文字や数値を表示します。
+        /// 画面の中央に文字や数値を表示します。
         /// </summary>
         /// <param name="title">表示したい文字や数値</param>
         /// <returns>実行結果</returns>
@@ -257,6 +257,20 @@ namespace MinecraftConnection
         {
             ChestItems chestItems = new ChestItems(rcon);
             return chestItems.GetChestItems(x, y, z);
+        }
+        /// <summary>
+        /// チェスト内のアイテムを書き換えます。
+        /// </summary>
+        /// <param name="x">チェストのx座標</param>
+        /// <param name="y">チェストのy座標</param>
+        /// <param name="z">チェストのz座標</param>
+        /// <param name="ItemList">書きかえるアイテム（リスト）</param>
+        /// <returns></returns>
+        public string SetChestItems(int x, int y, int z, List<Item> ItemList)
+        {
+            ChestItems chestItems = new ChestItems(rcon);
+            chestItems.SetChestItems(x, y, z, ItemList);
+            return "Modified Chest Items";
         }
     }
 

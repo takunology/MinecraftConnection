@@ -15,6 +15,12 @@ namespace MinecraftConnection.Items
         private ItemTypes ItemYype { get; set; } 
         //private ItemDirections ItemDirection { get; set; }
 
+        /// <summary>
+        /// マインクラフトで使用するアイテムを登録します。
+        /// </summary>
+        /// <param name="ItemID">アイテム名(ID)</param>
+        /// <param name="ItemCount">アイテム数</param>
+        /// <param name="ItemSlot">アイテムスロット</param>
         public Item(string ItemID, int ItemCount, int ItemSlot)
         {
             this.ItemID = ItemID;
