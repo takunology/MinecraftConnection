@@ -82,8 +82,8 @@
     },
     "MinecraftConnection/1.0.0": {
       "type": "project",
-      "path": "../MinecraftConnection/MinecraftConnection.csproj",
-      "msbuildProject": "../MinecraftConnection/MinecraftConnection.csproj"
+      "path": "../MinecraftConnection.csproj",
+      "msbuildProject": "../MinecraftConnection.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -99,11 +99,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\GitHub\\MinecraftConnection\\MinecraftConnection\\ExampleApp\\ExampleApp.csproj",
-      "projectName": "ExampleApp",
-      "projectPath": "F:\\GitHub\\MinecraftConnection\\MinecraftConnection\\ExampleApp\\ExampleApp.csproj",
+      "projectUniqueName": "C:\\Users\\takun\\Desktop\\MinecraftConnection\\TestApp\\TestApp.csproj",
+      "projectName": "TestApp",
+      "projectPath": "C:\\Users\\takun\\Desktop\\MinecraftConnection\\TestApp\\TestApp.csproj",
       "packagesPath": "C:\\Users\\takun\\.nuget\\packages\\",
-      "outputPath": "F:\\GitHub\\MinecraftConnection\\MinecraftConnection\\ExampleApp\\obj\\",
+      "outputPath": "C:\\Users\\takun\\Desktop\\MinecraftConnection\\TestApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -125,8 +125,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "F:\\GitHub\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection.csproj": {
-              "projectPath": "F:\\GitHub\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection.csproj"
+            "C:\\Users\\takun\\Desktop\\MinecraftConnection\\MinecraftConnection.csproj": {
+              "projectPath": "C:\\Users\\takun\\Desktop\\MinecraftConnection\\MinecraftConnection.csproj"
             }
           }
         }

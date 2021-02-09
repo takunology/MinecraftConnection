@@ -1,9 +1,8 @@
-F:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\bin\Debug\netstandard2.0\MinecraftConnection.deps.json
-F:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\bin\Debug\netstandard2.0\MinecraftConnection.dll
-F:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\bin\Debug\netstandard2.0\MinecraftConnection.pdb
+C:\Users\takun\Desktop\MinecraftConnection\obj\Debug\netstandard2.0\MinecraftConnection.csprojAssemblyReference.cache
+C:\Users\takun\Desktop\MinecraftConnection\obj\Debug\netstandard2.0\MinecraftConnection.AssemblyInfoInputs.cache
+C:\Users\takun\Desktop\MinecraftConnection\obj\Debug\netstandard2.0\MinecraftConnection.AssemblyInfo.cs
+C:\Users\takun\Desktop\MinecraftConnection\obj\Debug\netstandard2.0\MinecraftConnection.csproj.CoreCompileInputs.cache
 F:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Debug\netstandard2.0\MinecraftConnection.csprojAssemblyReference.cache
 F:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Debug\netstandard2.0\MinecraftConnection.AssemblyInfoInputs.cache
 F:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Debug\netstandard2.0\MinecraftConnection.AssemblyInfo.cs
 F:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Debug\netstandard2.0\MinecraftConnection.csproj.CoreCompileInputs.cache
-F:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Debug\netstandard2.0\MinecraftConnection.dll
-F:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Debug\netstandard2.0\MinecraftConnection.pdb

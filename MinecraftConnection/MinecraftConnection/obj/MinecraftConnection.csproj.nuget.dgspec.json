@@ -54,10 +54,6 @@
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
-            },
-            "OpenCvSharp4": {
-              "target": "Package",
-              "version": "[4.5.1.20210123, )"
             }
           },
           "imports": [
