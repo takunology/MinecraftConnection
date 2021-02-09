@@ -1,4 +1,0 @@
-C:\Users\takun\Desktop\MinecraftConnection\TestApp\obj\Debug\netcoreapp3.1\TestApp.csprojAssemblyReference.cache
-C:\Users\takun\Desktop\MinecraftConnection\TestApp\obj\Debug\netcoreapp3.1\TestApp.AssemblyInfoInputs.cache
-C:\Users\takun\Desktop\MinecraftConnection\TestApp\obj\Debug\netcoreapp3.1\TestApp.AssemblyInfo.cs
-C:\Users\takun\Desktop\MinecraftConnection\TestApp\obj\Debug\netcoreapp3.1\TestApp.csproj.CoreCompileInputs.cache

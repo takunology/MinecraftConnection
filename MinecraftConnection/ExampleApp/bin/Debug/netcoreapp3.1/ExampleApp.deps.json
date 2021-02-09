@@ -1,0 +1,72 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "ExampleApp/1.0.0": {
+        "dependencies": {
+          "MinecraftConnection": "1.0.0"
+        },
+        "runtime": {
+          "ExampleApp.dll": {}
+        }
+      },
+      "CoreRCON/5.0.0": {
+        "dependencies": {
+          "System.IO.Pipelines": "4.7.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/CoreRCON.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.0.0"
+          }
+        }
+      },
+      "System.IO.Pipelines/4.7.2": {
+        "runtime": {
+          "lib/netcoreapp3.0/System.IO.Pipelines.dll": {
+            "assemblyVersion": "4.0.2.1",
+            "fileVersion": "4.700.20.21406"
+          }
+        }
+      },
+      "MinecraftConnection/1.0.0": {
+        "dependencies": {
+          "CoreRCON": "5.0.0"
+        },
+        "runtime": {
+          "MinecraftConnection.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ExampleApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CoreRCON/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hPZWvuIT+nivgTwpRePMtBh28ldy5g2Orsvh/nU9gpNNL7JiWGeN5yh6JO4wxDOT3WhR1RuIeH8jBoRV8cN4ZA==",
+      "path": "corercon/5.0.0",
+      "hashPath": "corercon.5.0.0.nupkg.sha512"
+    },
+    "System.IO.Pipelines/4.7.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rGIIhoY3lUdn9rWeuGdgeZZ0P+SpJ1wZI5g8TnXqgvuhFgUP7iP9Nt5FZebYInQZQxqnwjPxdYYBE5l/8PJmqQ==",
+      "path": "system.io.pipelines/4.7.2",
+      "hashPath": "system.io.pipelines.4.7.2.nupkg.sha512"
+    },
+    "MinecraftConnection/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

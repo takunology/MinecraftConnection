@@ -1,18 +1,19 @@
-﻿using System;
-using CoreRCON;
+﻿using MinecraftConnection.Player;
+using System;
+using System.Collections.Generic;
 using System.Net;
+using System.Text;
 using System.Threading.Tasks;
-
-using MinecraftConnection.Player;
-using MinecraftConnection.Items;
+using CoreRCON;
 
 namespace MinecraftConnection
 {
     /// <summary>
     /// Minecraft のコマンドリストです。
     /// </summary>
-    public partial class MinecraftCommands : RconSettings
+    public partial class MinecraftCommands
     {
+        private RCON Rcon { get; set; }
         /// <summary>
         /// Minecraftのコマンドリストインスタンスを作ります。
         /// </summary>
@@ -21,7 +22,7 @@ namespace MinecraftConnection
         /// <param name="PassWord">MinecraftServerのRCONパスワード</param>
         public MinecraftCommands(IPAddress IpAddress, ushort Port, string PassWord)
         {
-            RconSet(IpAddress, Port, PassWord);
+            Rcon = new RCON(IpAddress, Port, PassWord);
         }
     }
     // Minecraft 標準のコマンドリスト
@@ -155,7 +156,7 @@ namespace MinecraftConnection
         /// <returns></returns>
         public PlayerData GetPlayerData(string PlayerName)
         {
-            return new PlayerData(PlayerName);
+            return new PlayerData(PlayerName, Rcon);
         }
     }
 }
