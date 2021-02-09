@@ -1,17 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "3rM7XaYXByjIGIV1d1Icd2pd9Z3FMya3QA+iuwBhxHpoB0x93uXnwhEpR+A7cw3IicqX5B+8OLIDB3RAmjuVQg==",
+  "dgSpecHash": "jwbu4QpZsf6ehO0ZScvj+2dNEDf6LQUU3f7CT+ZBKnSeeuG3o3eyt1BcQ2IvLLy1t6edT39YMwrNoF6BYECfMA==",
   "success": true,
   "projectFilePath": "F:\\GitHub\\MinecraftConnection\\MinecraftConnection\\ExampleApp\\ExampleApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\takun\\.nuget\\packages\\corercon\\5.0.0\\corercon.5.0.0.nupkg.sha512",
-    "C:\\Users\\takun\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
-    "C:\\Users\\takun\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
-    "C:\\Users\\takun\\.nuget\\packages\\opencvsharp4\\4.5.1.20210123\\opencvsharp4.4.5.1.20210123.nupkg.sha512",
-    "C:\\Users\\takun\\.nuget\\packages\\system.drawing.common\\5.0.0\\system.drawing.common.5.0.0.nupkg.sha512",
-    "C:\\Users\\takun\\.nuget\\packages\\system.io.pipelines\\4.7.2\\system.io.pipelines.4.7.2.nupkg.sha512",
-    "C:\\Users\\takun\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
-    "C:\\Users\\takun\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
+    "C:\\Users\\takun\\.nuget\\packages\\system.io.pipelines\\4.7.2\\system.io.pipelines.4.7.2.nupkg.sha512"
   ],
   "logs": []
 }
