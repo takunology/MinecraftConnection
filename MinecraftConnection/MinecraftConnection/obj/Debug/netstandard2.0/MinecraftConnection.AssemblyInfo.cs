@@ -11,13 +11,16 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("MinecraftConnection")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Minecraft_with_Code_Project")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyCopyrightAttribute("Copyright (c) 2021 Takumi Okawa (Takunology)")]
+[assembly: System.Reflection.AssemblyDescriptionAttribute(@"This library is based on CoreRCON and extended for Minecraft. RCON connections are asynchronous, but this library allows users to use asynchronous methods without declaring them. When you create and run a program using this library, you need to start a minecraft server with RCON connection configured.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("MinecraftConnection")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MinecraftConnection")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/takunology/MinecraftConnection")]
 
 // MSBuild WriteCodeFragment クラスによって生成されました。
 

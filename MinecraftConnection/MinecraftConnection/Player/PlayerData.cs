@@ -1,4 +1,5 @@
 ﻿using MinecraftConnection.Items;
+using MinecraftConnection.NBT;
 using System;
 using System.Collections.Generic;
 using System.Text;

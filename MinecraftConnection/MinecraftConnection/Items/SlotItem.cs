@@ -33,5 +33,6 @@ namespace MinecraftConnection.Items
             this.ItemID = ItemID;
             this.ItemCount = ItemCount;
         }
+
     }
 }

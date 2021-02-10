@@ -1,4 +1,5 @@
 ﻿using MinecraftConnection.Player;
+using MinecraftConnection.Items;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -157,6 +158,30 @@ namespace MinecraftConnection
         public PlayerData GetPlayerData(string PlayerName)
         {
             return new PlayerData(PlayerName, Rcon);
+        }
+        /// <summary>
+        /// チェスト内のアイテムを取得します。
+        /// </summary>
+        /// <param name="x">チェストの座標x</param>
+        /// <param name="y">チェストの座標y</param>
+        /// <param name="z">チェストの座標x</param>
+        /// <returns></returns>
+        public List<SlotItem> GetChestItems(int x, int y, int z)
+        {
+            ChestItem chestItems = new ChestItem(x, y, z, Rcon);
+            return chestItems.GetChestItems();
+        }
+        /// <summary>
+        /// チェスト内のアイテムを変更します。
+        /// </summary>
+        /// <param name="x">チェストの座標x</param>
+        /// <param name="y">チェストの座標y</param>
+        /// <param name="z">チェストの座標x</param>
+        /// <param name="SlotItemList">アイテムリスト</param>
+        public void SetChestItems(int x, int y, int z, List<SlotItem> SlotItemList)
+        {
+            ChestItem chestItems = new ChestItem(x, y, z, Rcon);
+            chestItems.SetChestItems(SlotItemList);
         }
     }
 }
