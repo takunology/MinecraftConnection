@@ -18,15 +18,15 @@ namespace MinecraftConnection.Items
         /// チェスト内のアイテム
         /// </summary>
         public List<SlotItem> ChestItems { get; private set; }
-        private int x { get; set; }
-        private int y { get; set; }
-        private int z { get; set; }
+        private int X { get; set; }
+        private int Y { get; set; }
+        private int Z { get; set; }
 
         public ChestItem(int x, int y, int z, RCON Rcon)
         {
-            this.x = x;
-            this.y = y;
-            this.z = z;
+            this.X = x;
+            this.Y = y;
+            this.Z = z;
             this.Rcon = Rcon;
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace MinecraftConnection.Items
         private async Task GetChestItemsAsync()
         {
             await Rcon.ConnectAsync();
-            string result = await Rcon.SendCommandAsync($"/data get block {x} {y} {z}");
+            string result = await Rcon.SendCommandAsync($"/data get block {X} {Y} {Z}");
 
             if (result.Contains("no")) throw new Exception("チェストが見つかりません。");
 
@@ -67,18 +67,18 @@ namespace MinecraftConnection.Items
 
             for (int i = 0; i < ChestItemSlot; i++)
             {
-                result = await Rcon.SendCommandAsync($"/data get block {x} {y} {z} Items[{i}]");
+                result = await Rcon.SendCommandAsync($"/data get block {X} {Y} {Z} Items[{i}]");
                 if (!result.Contains("no"))
                 {
-                    result = await Rcon.SendCommandAsync($"/data get block {x} {y} {z} Items[{i}].Slot");
+                    result = await Rcon.SendCommandAsync($"/data get block {X} {Y} {Z} Items[{i}].Slot");
                     result = result.Substring(result.IndexOf("data"));
                     int ItemSlot = int.Parse(Regex.Replace(result, @"[^0-9]", ""));
 
-                    result = await Rcon.SendCommandAsync($"/data get block {x} {y} {z} Items[{i}].id");
+                    result = await Rcon.SendCommandAsync($"/data get block {X} {Y} {Z} Items[{i}].id");
                     result = result.Substring(result.IndexOf("\""));
                     string ItemID = Regex.Replace(result, @"[^a-zA-Z:_]", "");
 
-                    result = await Rcon.SendCommandAsync($"/data get block {x} {y} {z} Items[{i}].Count");
+                    result = await Rcon.SendCommandAsync($"/data get block {X} {Y} {Z} Items[{i}].Count");
                     result = result.Substring(result.IndexOf("data"));
                     int ItemCount = int.Parse(Regex.Replace(result, @"[^0-9]", ""));
 
@@ -88,7 +88,7 @@ namespace MinecraftConnection.Items
         }
         private async Task SetChestItemsAsync(List<SlotItem> SlotItemList)
         {
-            string result = await Rcon.SendCommandAsync($"/data get block {x} {y} {z}");
+            string result = await Rcon.SendCommandAsync($"/data get block {X} {Y} {Z}");
             if (result.Contains("no")) throw new Exception("チェストが見つかりません。");
 
             // storage -> append -> merge to chest -> remove
@@ -98,7 +98,7 @@ namespace MinecraftConnection.Items
             foreach (var item in SlotItemList.ToNBT())
             {
                 await Rcon.SendCommandAsync($"/data modify storage chestitems Items append value {item}");
-                await Rcon.SendCommandAsync($"/data modify block {x} {y} {z} Items set from storage chestitems Items");
+                await Rcon.SendCommandAsync($"/data modify block {X} {Y} {Z} Items set from storage chestitems Items");
             }
             await Rcon.SendCommandAsync($"/data remove storage chestitems Items");
         }
