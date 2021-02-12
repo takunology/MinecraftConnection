@@ -3,13 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinecraftConnection", "MinecraftConnection\MinecraftConnection.csproj", "{688633A0-287D-4417-91D8-2117B09B3F6B}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExampleApp", "ExampleApp\ExampleApp.csproj", "{BA932742-5278-4468-B331-5B18C0115299}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExampleFireworksApp", "ExampleFIreworksApp\ExampleFireworksApp.csproj", "{0ABF969B-FAFE-43CF-B80C-77DCAD677DB1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleImageApp", "ImageExampleApp\ExampleImageApp.csproj", "{16CB39AF-3355-4B29-A7AD-D0BCC067C2B6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinecraftConnection", "MinecraftConnection\MinecraftConnection.csproj", "{B19912A9-A832-4941-BA28-3DA26A810EAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,22 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{688633A0-287D-4417-91D8-2117B09B3F6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{688633A0-287D-4417-91D8-2117B09B3F6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{688633A0-287D-4417-91D8-2117B09B3F6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{688633A0-287D-4417-91D8-2117B09B3F6B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BA932742-5278-4468-B331-5B18C0115299}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BA932742-5278-4468-B331-5B18C0115299}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA932742-5278-4468-B331-5B18C0115299}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA932742-5278-4468-B331-5B18C0115299}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0ABF969B-FAFE-43CF-B80C-77DCAD677DB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0ABF969B-FAFE-43CF-B80C-77DCAD677DB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0ABF969B-FAFE-43CF-B80C-77DCAD677DB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0ABF969B-FAFE-43CF-B80C-77DCAD677DB1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{16CB39AF-3355-4B29-A7AD-D0BCC067C2B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{16CB39AF-3355-4B29-A7AD-D0BCC067C2B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{16CB39AF-3355-4B29-A7AD-D0BCC067C2B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{16CB39AF-3355-4B29-A7AD-D0BCC067C2B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B19912A9-A832-4941-BA28-3DA26A810EAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B19912A9-A832-4941-BA28-3DA26A810EAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B19912A9-A832-4941-BA28-3DA26A810EAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B19912A9-A832-4941-BA28-3DA26A810EAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

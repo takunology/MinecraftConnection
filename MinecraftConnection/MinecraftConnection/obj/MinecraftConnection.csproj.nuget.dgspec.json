@@ -27,6 +27,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "F:\\GitHub\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection\\bin\\Debug": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -54,10 +55,6 @@
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
-            },
-            "OpenCvSharp4": {
-              "target": "Package",
-              "version": "[4.5.1.20210123, )"
             }
           },
           "imports": [

@@ -16,12 +16,3 @@ F:\GitHub\MinecraftConnection\MinecraftConnection\ExampleApp\obj\Debug\netcoreap
 F:\GitHub\MinecraftConnection\MinecraftConnection\ExampleApp\obj\Debug\netcoreapp3.1\ExampleApp.dll
 F:\GitHub\MinecraftConnection\MinecraftConnection\ExampleApp\obj\Debug\netcoreapp3.1\ExampleApp.pdb
 F:\GitHub\MinecraftConnection\MinecraftConnection\ExampleApp\obj\Debug\netcoreapp3.1\ExampleApp.genruntimeconfig.cache
-F:\GitHub\MinecraftConnection\MinecraftConnection\ExampleApp\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
-F:\GitHub\MinecraftConnection\MinecraftConnection\ExampleApp\bin\Debug\netcoreapp3.1\OpenCvSharp.Blob.dll
-F:\GitHub\MinecraftConnection\MinecraftConnection\ExampleApp\bin\Debug\netcoreapp3.1\OpenCvSharp.Extensions.dll
-F:\GitHub\MinecraftConnection\MinecraftConnection\ExampleApp\bin\Debug\netcoreapp3.1\OpenCvSharp.dll
-F:\GitHub\MinecraftConnection\MinecraftConnection\ExampleApp\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
-F:\GitHub\MinecraftConnection\MinecraftConnection\ExampleApp\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
-F:\GitHub\MinecraftConnection\MinecraftConnection\ExampleApp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
-F:\GitHub\MinecraftConnection\MinecraftConnection\ExampleApp\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
-F:\GitHub\MinecraftConnection\MinecraftConnection\ExampleApp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll

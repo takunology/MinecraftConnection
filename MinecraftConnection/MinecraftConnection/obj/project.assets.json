@@ -38,24 +38,6 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "OpenCvSharp4/4.5.1.20210123": {
-        "type": "package",
-        "dependencies": {
-          "System.Drawing.Common": "5.0.0",
-          "System.Memory": "4.5.4",
-          "System.Runtime.CompilerServices.Unsafe": "5.0.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/OpenCvSharp.Blob.dll": {},
-          "lib/netstandard2.0/OpenCvSharp.Extensions.dll": {},
-          "lib/netstandard2.0/OpenCvSharp.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/OpenCvSharp.Blob.dll": {},
-          "lib/netstandard2.0/OpenCvSharp.Extensions.dll": {},
-          "lib/netstandard2.0/OpenCvSharp.dll": {}
-        }
-      },
       "System.Buffers/4.5.1": {
         "type": "package",
         "compile": {
@@ -63,15 +45,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/System.Buffers.dll": {}
-        }
-      },
-      "System.Drawing.Common/5.0.0": {
-        "type": "package",
-        "compile": {
-          "ref/netstandard2.0/System.Drawing.Common.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Drawing.Common.dll": {}
         }
       },
       "System.IO.Pipelines/4.7.2": {
@@ -111,7 +84,7 @@
           "lib/netstandard2.0/System.Numerics.Vectors.dll": {}
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/5.0.0": {
+      "System.Runtime.CompilerServices.Unsafe/4.5.3": {
         "type": "package",
         "compile": {
           "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
@@ -290,47 +263,6 @@
         "netstandard.library.nuspec"
       ]
     },
-    "OpenCvSharp4/4.5.1.20210123": {
-      "sha512": "35y42SgvqF4BOKKrTSlwTVYxOgg/8qaZn+FwPgkrbp5VSQcpN22K6kICKMnOxpMRGE+ZIbePwj5Qh6BJonR5Pg==",
-      "type": "package",
-      "path": "opencvsharp4/4.5.1.20210123",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net461/OpenCvSharp.Blob.dll",
-        "lib/net461/OpenCvSharp.Blob.xml",
-        "lib/net461/OpenCvSharp.Extensions.dll",
-        "lib/net461/OpenCvSharp.Extensions.xml",
-        "lib/net461/OpenCvSharp.dll",
-        "lib/net461/OpenCvSharp.xml",
-        "lib/net48/OpenCvSharp.Blob.dll",
-        "lib/net48/OpenCvSharp.Blob.xml",
-        "lib/net48/OpenCvSharp.Extensions.dll",
-        "lib/net48/OpenCvSharp.Extensions.xml",
-        "lib/net48/OpenCvSharp.dll",
-        "lib/net48/OpenCvSharp.xml",
-        "lib/netcoreapp2.1/OpenCvSharp.Blob.dll",
-        "lib/netcoreapp2.1/OpenCvSharp.Blob.xml",
-        "lib/netcoreapp2.1/OpenCvSharp.Extensions.dll",
-        "lib/netcoreapp2.1/OpenCvSharp.Extensions.xml",
-        "lib/netcoreapp2.1/OpenCvSharp.dll",
-        "lib/netcoreapp2.1/OpenCvSharp.xml",
-        "lib/netstandard2.0/OpenCvSharp.Blob.dll",
-        "lib/netstandard2.0/OpenCvSharp.Blob.xml",
-        "lib/netstandard2.0/OpenCvSharp.Extensions.dll",
-        "lib/netstandard2.0/OpenCvSharp.Extensions.xml",
-        "lib/netstandard2.0/OpenCvSharp.dll",
-        "lib/netstandard2.0/OpenCvSharp.xml",
-        "lib/netstandard2.1/OpenCvSharp.Blob.dll",
-        "lib/netstandard2.1/OpenCvSharp.Blob.xml",
-        "lib/netstandard2.1/OpenCvSharp.Extensions.dll",
-        "lib/netstandard2.1/OpenCvSharp.Extensions.xml",
-        "lib/netstandard2.1/OpenCvSharp.dll",
-        "lib/netstandard2.1/OpenCvSharp.xml",
-        "opencvsharp4.4.5.1.20210123.nupkg.sha512",
-        "opencvsharp4.nuspec"
-      ]
-    },
     "System.Buffers/4.5.1": {
       "sha512": "Rw7ijyl1qqRS0YQD/WycNst8hUUMgrMH4FCn1nNm27M4VxchZ1js3fVjQaANHO5f3sN4isvP4a+Met9Y4YomAg==",
       "type": "package",
@@ -358,48 +290,6 @@
         "ref/uap10.0.16299/_._",
         "system.buffers.4.5.1.nupkg.sha512",
         "system.buffers.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    },
-    "System.Drawing.Common/5.0.0": {
-      "sha512": "SztFwAnpfKC8+sEKXAFxCBWhKQaEd97EiOL7oZJZP56zbqnLpmxACWA8aGseaUExciuEAUuR9dY8f7HkTRAdnw==",
-      "type": "package",
-      "path": "system.drawing.common/5.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net461/System.Drawing.Common.dll",
-        "lib/netcoreapp3.0/System.Drawing.Common.dll",
-        "lib/netcoreapp3.0/System.Drawing.Common.xml",
-        "lib/netstandard2.0/System.Drawing.Common.dll",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net461/System.Drawing.Common.dll",
-        "ref/netcoreapp3.0/System.Drawing.Common.dll",
-        "ref/netcoreapp3.0/System.Drawing.Common.xml",
-        "ref/netstandard2.0/System.Drawing.Common.dll",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "runtimes/unix/lib/netcoreapp2.0/System.Drawing.Common.dll",
-        "runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll",
-        "runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.xml",
-        "runtimes/win/lib/netcoreapp2.0/System.Drawing.Common.dll",
-        "runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll",
-        "runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.xml",
-        "system.drawing.common.5.0.0.nupkg.sha512",
-        "system.drawing.common.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
@@ -498,18 +388,17 @@
         "version.txt"
       ]
     },
-    "System.Runtime.CompilerServices.Unsafe/5.0.0": {
-      "sha512": "ZD9TMpsmYJLrxbbmdvhwt9YEgG5WntEnZ/d1eH8JBX9LBp+Ju8BSBhUGbZMNVHHomWo2KVImJhTDl2hIgw/6MA==",
+    "System.Runtime.CompilerServices.Unsafe/4.5.3": {
+      "sha512": "3TIsJhD1EiiT0w2CcDMN/iSSwnNnsrnbzeVHSKkaEgV85txMprmuO+Yq2AdSbeVGcg28pdNDTPK87tJhX7VFHw==",
       "type": "package",
-      "path": "system.runtime.compilerservices.unsafe/5.0.0",
+      "path": "system.runtime.compilerservices.unsafe/4.5.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "lib/net45/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/net45/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/net461/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/net461/System.Runtime.CompilerServices.Unsafe.xml",
         "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll",
         "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.xml",
         "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
@@ -522,9 +411,7 @@
         "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
         "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
         "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "ref/netstandard2.1/System.Runtime.CompilerServices.Unsafe.dll",
-        "ref/netstandard2.1/System.Runtime.CompilerServices.Unsafe.xml",
-        "system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
+        "system.runtime.compilerservices.unsafe.4.5.3.nupkg.sha512",
         "system.runtime.compilerservices.unsafe.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -571,8 +458,7 @@
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "CoreRCON >= 5.0.0",
-      "NETStandard.Library >= 2.0.3",
-      "OpenCvSharp4 >= 4.5.1.20210123"
+      "NETStandard.Library >= 2.0.3"
     ]
   },
   "packageFolders": {
@@ -603,6 +489,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "F:\\GitHub\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection\\bin\\Debug": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -630,10 +517,6 @@
             "target": "Package",
             "version": "[2.0.3, )",
             "autoReferenced": true
-          },
-          "OpenCvSharp4": {
-            "target": "Package",
-            "version": "[4.5.1.20210123, )"
           }
         },
         "imports": [

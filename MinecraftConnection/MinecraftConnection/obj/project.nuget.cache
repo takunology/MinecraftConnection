@@ -1,19 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "PwMoqY6B68TCTvmo1ysnLdsQXlV2v6USs2NGQOFK7o0RbhnSzVRx7JDlsBSnHGJ37OrL9FDw5YMoE4Sjw8+g/Q==",
+  "dgSpecHash": "878D6qZdVGQI7h6zbFHGkgu1XM8bilO7/p+w6jlLqF9/rXhZIXa+88JQZvXObJBanFMNS2L2FAueltol2d72ZQ==",
   "success": true,
   "projectFilePath": "F:\\GitHub\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\takun\\.nuget\\packages\\corercon\\5.0.0\\corercon.5.0.0.nupkg.sha512",
     "C:\\Users\\takun\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
-    "C:\\Users\\takun\\.nuget\\packages\\opencvsharp4\\4.5.1.20210123\\opencvsharp4.4.5.1.20210123.nupkg.sha512",
     "C:\\Users\\takun\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
-    "C:\\Users\\takun\\.nuget\\packages\\system.drawing.common\\5.0.0\\system.drawing.common.5.0.0.nupkg.sha512",
     "C:\\Users\\takun\\.nuget\\packages\\system.io.pipelines\\4.7.2\\system.io.pipelines.4.7.2.nupkg.sha512",
     "C:\\Users\\takun\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\takun\\.nuget\\packages\\system.numerics.vectors\\4.4.0\\system.numerics.vectors.4.4.0.nupkg.sha512",
-    "C:\\Users\\takun\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
+    "C:\\Users\\takun\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.3\\system.runtime.compilerservices.unsafe.4.5.3.nupkg.sha512",
     "C:\\Users\\takun\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
   ],
   "logs": []

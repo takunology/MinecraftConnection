@@ -2,11 +2,34 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Takumi Okawa (Takunology)</Authors>
+    <Company>Minecraft_with_Code_Project</Company>
+    <Version>1.0.0</Version>
+    <PackageId>MinecraftConnection</PackageId>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://www.mcwithcode.com</PackageProjectUrl>
+    <PackageIcon>MinecraftConnection_Icon_128.png</PackageIcon>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/takunology/MinecraftConnection</RepositoryUrl>
+    <Description>This library is based on CoreRCON and extended for Minecraft. RCON connections are asynchronous, but this library allows users to use asynchronous methods without declaring them. When you create and run a program using this library, you need to start a minecraft server with RCON connection configured.</Description>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Copyright>Copyright (c) 2021 Takumi Okawa (Takunology)</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="CoreRCON" Version="5.0.0" />
-    <PackageReference Include="OpenCvSharp4" Version="4.5.1.20210123" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="MinecraftConnection_Icon_128.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
