@@ -2,10 +2,10 @@
 using System.Net;
 using CoreRCON;
 using System.Collections.Generic;
-using MinecraftConnection.NBT;
 
 using MinecraftConnection;
 using MinecraftConnection.Items;
+using MinecraftConnection.NBT;
 
 namespace ExampleApp
 {
@@ -20,10 +20,9 @@ namespace ExampleApp
         {
             string PlayerName = "takunology";
             var PlayerData = Command.GetPlayerData(PlayerName);
-            //Command.SendCommand("/time set 0");
-            //int x = PlayerData.PositionX;
-            //int y = PlayerData.PositionY;
-            //int z = PlayerData.PositionZ;
+            int x = PlayerData.PositionX;
+            int y = PlayerData.PositionY;
+            int z = PlayerData.PositionZ;
 
             var Items = Command.GetChestItems(244, 74, 2866);
            
@@ -31,8 +30,8 @@ namespace ExampleApp
             {
                 Console.WriteLine(item);
             }
-            
-            Command.SetChestItems(244, 74, 2868, Items);
+
+            Command.SetChestItems(244, 74, 2868, Items.CollectItems());
         }
     }
 }

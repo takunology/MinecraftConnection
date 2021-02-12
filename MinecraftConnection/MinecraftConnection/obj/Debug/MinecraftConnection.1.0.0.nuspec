@@ -21,6 +21,6 @@
   <files>
     <file src="F:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\bin\Debug\netstandard2.0\MinecraftConnection.dll" target="lib\netstandard2.0\MinecraftConnection.dll" />
     <file src="F:\GitHub\MinecraftConnection\LICENSE" target="LICENSE" />
-    <file src="C:\Users\takun\OneDrive\ドキュメント\Minecraft With Code\Icon\MinecraftConnection_Logo\MinecraftConnection_Icon_128.png" target="MinecraftConnection_Icon_128.png" />
+    <file src="F:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\MinecraftConnection_Icon_128.png" target="MinecraftConnection_Icon_128.png" />
   </files>
 </package>

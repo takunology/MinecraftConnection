@@ -26,7 +26,7 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-    <None Include="C:\Users\takun\OneDrive\ドキュメント\Minecraft With Code\Icon\MinecraftConnection_Logo\MinecraftConnection_Icon_128.png">
+    <None Include="MinecraftConnection_Icon_128.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>

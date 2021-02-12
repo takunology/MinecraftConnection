@@ -4,6 +4,9 @@ using System.Text;
 
 namespace MinecraftConnection.Items
 {
+    /// <summary>
+    /// 花火を作るためのクラスです。
+    /// </summary>
     public partial class Fireworks
     {
         public int LifeTime { get; set; }
@@ -117,7 +120,7 @@ namespace MinecraftConnection.Items
         Burst
     }
 
-    public enum FireworksColors
+    public enum FireworksColors : int
     {
         BLACK = 1973019,
         RED = 11743532,

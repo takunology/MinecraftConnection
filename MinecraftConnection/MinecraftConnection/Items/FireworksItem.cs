@@ -9,8 +9,8 @@ namespace MinecraftConnection.Items
     /// </summary>
     public static class FireworksItem
     {
-        private static int LifeTime = 30;
-        private static byte FlightDuration = 2;
+        private static readonly int LifeTime = 30;
+        private static readonly byte FlightDuration = 2;
 
         public static Fireworks LeargeBallBlack = new Fireworks(LifeTime, FlightDuration, FireworksShapes.LargeBall, false, false, FireworksColors.BLACK, FireworksColors.BLACK);
         public static Fireworks LeargeBallBlue = new Fireworks(LifeTime, FlightDuration, FireworksShapes.LargeBall, false, false, FireworksColors.BLUE, FireworksColors.BLUE);

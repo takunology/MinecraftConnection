@@ -14,48 +14,32 @@ namespace MinecraftConnection.Items
     public partial class ChestItem
     {
         private RCON Rcon { get; set; }
-        /// <summary>
-        /// チェスト内のアイテム
-        /// </summary>
-        public List<SlotItem> ChestItems { get; private set; }
         private int X { get; set; }
         private int Y { get; set; }
         private int Z { get; set; }
 
-        public ChestItem(int x, int y, int z, RCON Rcon)
+        /// <summary>
+        /// チェストアイテムを操作するためのインスタンスを作ります。
+        /// </summary>
+        /// <param name="X"></param>
+        /// <param name="Y"></param>
+        /// <param name="Z"></param>
+        /// <param name="Rcon"></param>
+        public ChestItem(int X, int Y, int Z, RCON Rcon)
         {
-            this.X = x;
-            this.Y = y;
-            this.Z = z;
+            this.X = X;
+            this.Y = Y;
+            this.Z = Z;
             this.Rcon = Rcon;
-        }
-        /// <summary>
-        /// チェスト内のアイテムを取得します。
-        /// </summary>
-        /// <param name="x">チェストの座標x</param>
-        /// <param name="y">チェストの座標y</param>
-        /// <param name="z">チェストの座標z</param>
-        public List<SlotItem> GetChestItems()
-        {
-            Task.Run(async () => { await GetChestItemsAsync(); }).GetAwaiter().GetResult();
-            return ChestItems;
-        }
-        /// <summary>
-        /// チェスト内のアイテムを書き換えます。
-        /// </summary>
-        /// <param name="x">チェストの座標x</param>
-        /// <param name="y">チェストの座標y</param>
-        /// <param name="z">チェストの座標z</param>
-        /// <param name="SlotItemList">スロットアイテムのリスト</param>
-        public void SetChestItems(List<SlotItem> SlotItemList)
-        {
-            Task.Run(async () => { await SetChestItemsAsync(SlotItemList); }).GetAwaiter().GetResult();
         }
     }
 
     public partial class ChestItem
     {
-        private async Task GetChestItemsAsync()
+        /// <summary>
+        /// チェスト内のアイテムを取得します。
+        /// </summary>
+        public async Task<List<SlotItem>> GetChestItemsAsync()
         {
             await Rcon.ConnectAsync();
             string result = await Rcon.SendCommandAsync($"/data get block {X} {Y} {Z}");
@@ -63,7 +47,7 @@ namespace MinecraftConnection.Items
             if (result.Contains("no")) throw new Exception("チェストが見つかりません。");
 
             int ChestItemSlot = 27;
-            ChestItems = new List<SlotItem>();
+            List<SlotItem> ChestItems = new List<SlotItem>();
 
             for (int i = 0; i < ChestItemSlot; i++)
             {
@@ -85,8 +69,16 @@ namespace MinecraftConnection.Items
                     ChestItems.Add(new SlotItem(ItemSlot, ItemID, ItemCount));
                 }
             }
+            return ChestItems;
         }
-        private async Task SetChestItemsAsync(List<SlotItem> SlotItemList)
+        /// <summary>
+        /// チェスト内のアイテムを書き換えます。
+        /// </summary>
+        /// <param name="x">チェストの座標x</param>
+        /// <param name="y">チェストの座標y</param>
+        /// <param name="z">チェストの座標z</param>
+        /// <param name="SlotItemList">スロットアイテムのリスト</param>
+        public async Task SetChestItemsAsync(List<SlotItem> SlotItemList)
         {
             string result = await Rcon.SendCommandAsync($"/data get block {X} {Y} {Z}");
             if (result.Contains("no")) throw new Exception("チェストが見つかりません。");

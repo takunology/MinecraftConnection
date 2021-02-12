@@ -1,11 +1,12 @@
-﻿using MinecraftConnection.Player;
-using MinecraftConnection.Items;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using CoreRCON;
+using MinecraftConnection.Player;
+using MinecraftConnection.Items;
+using MinecraftConnection.NBT;
 
 namespace MinecraftConnection
 {
@@ -53,7 +54,7 @@ namespace MinecraftConnection
             return Task.Run(async () =>
             {
                 await Rcon.ConnectAsync();
-                return await Rcon.SendCommandAsync($"/title @a title \"{Text.ToString()}\"");
+                return await Rcon.SendCommandAsync($"/title @a title \"{Text}\"");
             }).GetAwaiter().GetResult();
         }
         /// <summary>
@@ -168,8 +169,11 @@ namespace MinecraftConnection
         /// <returns></returns>
         public List<SlotItem> GetChestItems(int x, int y, int z)
         {
-            ChestItem chestItems = new ChestItem(x, y, z, Rcon);
-            return chestItems.GetChestItems();
+            return Task.Run(async () => 
+            {
+                ChestItem chestItem = new ChestItem(x, y, z, Rcon);
+                return await chestItem.GetChestItemsAsync();
+            }).GetAwaiter().GetResult();
         }
         /// <summary>
         /// チェスト内のアイテムを変更します。
@@ -180,8 +184,26 @@ namespace MinecraftConnection
         /// <param name="SlotItemList">アイテムリスト</param>
         public void SetChestItems(int x, int y, int z, List<SlotItem> SlotItemList)
         {
-            ChestItem chestItems = new ChestItem(x, y, z, Rcon);
-            chestItems.SetChestItems(SlotItemList);
+            Task.Run(async () =>
+            {
+                ChestItem chestItem = new ChestItem(x, y, z, Rcon);
+                await chestItem.SetChestItemsAsync(SlotItemList);
+            }).GetAwaiter().GetResult();
+        }
+        /// <summary>
+        /// 指定した座標から花火を打ち上げます。
+        /// </summary>
+        /// <param name="x">x座標</param>
+        /// <param name="y">y座標</param>
+        /// <param name="z">z座標</param>
+        /// <param name="fireworks">花火アイテム</param>
+        public string SetOffFireworks(int x, int y, int z, Fireworks fireworks)
+        {
+            return Task.Run(async () =>
+            {
+                await Rcon.ConnectAsync();
+                return await Rcon.SendCommandAsync($"/summon firework_rocket {x} {y} {z} {fireworks.ToNBT()}");
+            }).GetAwaiter().GetResult();
         }
     }
 }
