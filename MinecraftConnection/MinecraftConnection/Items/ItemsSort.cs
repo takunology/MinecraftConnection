@@ -60,13 +60,6 @@ namespace MinecraftConnection.Items
                     SlotIndex++;
                 }
             }
-#if DEBUG
-            Console.WriteLine("\nItemSLOT \t\t ItemID \t\t ItemCOUNT");
-            foreach (var item in SlotItemList)
-            {
-                Console.WriteLine($"{item.ItemSlot} \t\t {item.ItemID} \t\t {item.ItemCount}");
-            }
-#endif
             return SortedItemList;
         }
         /// <summary>
@@ -123,7 +116,8 @@ namespace MinecraftConnection.Items
                             .ToList();
             return SlotNumbering(SortedItemList);
         }
-        //同名のアイテムを横一列に並べ替える
+
+        //同名のアイテムを横一列に並べ替える        
         //同名のアイテムを縦一列に並べ替える  ->　横、縦の数を超える場合はなるべく揃えるようにする
 
         private static List<SlotItem> SlotNumbering(List<SlotItem> SlotItemList)

@@ -19,19 +19,19 @@ namespace ExampleApp
         static void Main(string[] args)
         {
             string PlayerName = "takunology";
-            var PlayerData = Command.GetPlayerData(PlayerName);
+            /*var PlayerData = Command.GetPlayerData(PlayerName);
             int x = PlayerData.PositionX;
             int y = PlayerData.PositionY;
-            int z = PlayerData.PositionZ;
+            int z = PlayerData.PositionZ;*/
 
-            var Items = Command.GetChestItems(244, 74, 2866);
-           
-            foreach(var item in Items.ToNBT())
-            {
-                Console.WriteLine(item);
-            }
+            var Enchant = new Dictionary<Enchantments, int>();
+            Enchant.Add(Enchantments.AquaAffinity, 1);
+            Enchant.Add(Enchantments.FireProtection, 2);
+            Enchant.Add(Enchantments.FeatherFalling, 1);
+            Enchant.Add(Enchantments.Fortune, 3);
 
-            Command.SetChestItems(244, 74, 2868, Items.CollectItems());
+            EnchantedBook enchantedBook = new EnchantedBook(Enchant);
+            Command.GiveEnchantedBook(PlayerName, enchantedBook, 1);
         }
     }
 }

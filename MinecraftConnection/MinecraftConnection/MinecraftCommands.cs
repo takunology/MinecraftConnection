@@ -205,5 +205,20 @@ namespace MinecraftConnection
                 return await Rcon.SendCommandAsync($"/summon firework_rocket {x} {y} {z} {fireworks.ToNBT()}");
             }).GetAwaiter().GetResult();
         }
+        /// <summary>
+        /// プレイヤーにエンチャント本を与えます。
+        /// </summary>
+        /// <param name="PlayerName">プレイヤー名</param>
+        /// <param name="Book">定義したエンチャント本</param>
+        /// <param name="Count">本の数</param>
+        /// <returns></returns>
+        public string GiveEnchantedBook(string PlayerName, EnchantedBook Book, int Count)
+        {
+            return Task.Run(async () =>
+            {
+                await Rcon.ConnectAsync();
+                return await Rcon.SendCommandAsync($"/give {PlayerName} enchanted_book{Book.ToNBT()} {Count}");
+            }).GetAwaiter().GetResult();
+        }
     }
 }
