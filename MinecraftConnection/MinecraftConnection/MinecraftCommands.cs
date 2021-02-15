@@ -108,7 +108,7 @@ namespace MinecraftConnection
         /// <param name="Effect">バフまたはデバフ名</param>
         /// <param name="Count">効果時間</param>
         /// <returns></returns>
-        public string GiveEffect(string PlayerName, string Effect, int Time)
+        public string GiveEffect(string PlayerName, Effects Effect, int Time)
         {
             return Task.Run(async () =>
             {
@@ -218,6 +218,21 @@ namespace MinecraftConnection
             {
                 await Rcon.ConnectAsync();
                 return await Rcon.SendCommandAsync($"/give {PlayerName} enchanted_book{Book.ToNBT()} {Count}");
+            }).GetAwaiter().GetResult();
+        }
+        /// <summary>
+        /// プレイヤーにポーションを与えます。
+        /// </summary>
+        /// <param name="PlayerName">プレイヤー名</param>
+        /// <param name="Potion">ポーション</param>
+        /// <param name="Count">数量</param>
+        /// <returns></returns>
+        public string GivePotion(string PlayerName, Potion Potion, int Count)
+        {
+            return Task.Run(async () =>
+            {
+                await Rcon.ConnectAsync();
+                return await Rcon.SendCommandAsync($"/give {PlayerName} potion{Potion.ToNBT()} {Count}");
             }).GetAwaiter().GetResult();
         }
     }

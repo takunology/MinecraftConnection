@@ -24,14 +24,9 @@ namespace ExampleApp
             int y = PlayerData.PositionY;
             int z = PlayerData.PositionZ;*/
 
-            var Enchant = new Dictionary<Enchantments, int>();
-            Enchant.Add(Enchantments.AquaAffinity, 1);
-            Enchant.Add(Enchantments.FireProtection, 2);
-            Enchant.Add(Enchantments.FeatherFalling, 1);
-            Enchant.Add(Enchantments.Fortune, 3);
+            Potion potion = new Potion(Effects.JumpBoost, false, true);
+            Command.GivePotion(PlayerName, potion, 1);
 
-            EnchantedBook enchantedBook = new EnchantedBook(Enchant);
-            Command.GiveEnchantedBook(PlayerName, enchantedBook, 1);
         }
     }
 }

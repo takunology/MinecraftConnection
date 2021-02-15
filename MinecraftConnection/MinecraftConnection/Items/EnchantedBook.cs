@@ -13,7 +13,7 @@ namespace MinecraftConnection.Items
         /// <summary>
         /// エンチャント本を作成します。
         /// </summary>
-        /// <param name="Enchantments">エンチャントのリスト</param>
+        /// <param name="Enchantments">エンチャントを定義した Dictionary </param>
         public EnchantedBook(Dictionary<Enchantments, int> Enchantments)
         {
             this.Enchantments = Enchantments;
