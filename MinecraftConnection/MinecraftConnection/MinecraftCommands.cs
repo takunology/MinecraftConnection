@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 using CoreRCON;
-using MinecraftConnection.Player;
+using MinecraftConnection.Entity;
 using MinecraftConnection.Items;
 using MinecraftConnection.NBT;
+using MinecraftConnection.ItemsBase;
+using MinecraftConnection.Data;
 
 namespace MinecraftConnection
 {
@@ -107,6 +107,7 @@ namespace MinecraftConnection
         /// <param name="PlayerName">プレイヤー名</param>
         /// <param name="Effect">バフまたはデバフ名</param>
         /// <param name="Count">効果時間</param>
+        /// <remarks>Effect は名前空間 MinecraftConnection.Data を参照してください。</remarks>
         /// <returns></returns>
         public string GiveEffect(string PlayerName, Effects Effect, int Time)
         {

@@ -1,5 +1,5 @@
-﻿using System;
-using MinecraftConnection.Items;
+﻿using MinecraftConnection.Data;
+using MinecraftConnection.ItemsBase;
 
 namespace MinecraftConnection.NBT
 {
@@ -7,19 +7,15 @@ namespace MinecraftConnection.NBT
     {
         public static string ToNBT(this Potion Potion)
         {
-            string NBT = "";
-            if(Potion.Long == true)
-            {
+            string NBT;
+
+            if (Potion.Long == true)
                 NBT = "{Potion:\"" + "long_" + Potion.Effect.GetMinecraftID() + "\"}";
-            }
-            else if(Potion.Strong == true)
-            {
+            else if (Potion.Strong == true)
                 NBT = "{Potion:\"" + "strong_" + Potion.Effect.GetMinecraftID() + "\"}";
-            }
             else
-            {
                 NBT = "{Potion:\"" + Potion.Effect.GetMinecraftID() + "\"}";
-            }
+
             return NBT;
         }
     }

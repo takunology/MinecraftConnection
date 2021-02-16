@@ -1,13 +1,11 @@
 ﻿using MinecraftConnection.Items;
-using MinecraftConnection.NBT;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using CoreRCON;
 
-namespace MinecraftConnection.Player
+namespace MinecraftConnection.Entity
 {
     /// <summary>
     /// プレイヤーデータに関するクラスです。

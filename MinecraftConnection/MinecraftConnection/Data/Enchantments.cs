@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MinecraftConnection.Items
+namespace MinecraftConnection.Data
 {
     /// <summary>
     /// エンチャント

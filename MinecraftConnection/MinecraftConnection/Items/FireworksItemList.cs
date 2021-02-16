@@ -1,6 +1,5 @@
-﻿using System;
+﻿using MinecraftConnection.ItemsBase;
 using System.Collections.Generic;
-using System.Text;
 
 namespace MinecraftConnection.Items
 {

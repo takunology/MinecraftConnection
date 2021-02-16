@@ -1,5 +1,6 @@
-﻿
-namespace MinecraftConnection.Items
+﻿using MinecraftConnection.Data;
+
+namespace MinecraftConnection.ItemsBase
 {
     /// <summary>
     /// ポーションに関するクラスです。
@@ -27,7 +28,7 @@ namespace MinecraftConnection.Items
         /// <exception cref=""></exception>
         public Potion(Effects Effect, bool IsLong, bool IsStrong)
         {
-            if (IsLong == IsStrong == true)
+            if (IsLong && IsStrong == true)
                 throw new System.Exception("延長効果と強力効果は併用できません。");
 
             this.Effect = Effect;

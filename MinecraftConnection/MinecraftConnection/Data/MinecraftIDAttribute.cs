@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace MinecraftConnection.Items
+namespace MinecraftConnection.Data
 {
     /// <summary>
     /// マインクラフトのIDを付与するクラスです。

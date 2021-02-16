@@ -1,4 +1,4 @@
-﻿namespace MinecraftConnection.Items
+﻿namespace MinecraftConnection.Data
 {
     /// <summary>
     /// ステータスの状態
@@ -196,6 +196,24 @@
         /// <para>体力ゲージが黒くなり、時間と共にダメージを受けて死に至ります。</para>
         /// </summary>
         [MinecraftID("wither")]
-        Wither
+        Wither,
+        /// <summary>
+        /// タートルマスター (ポーション)
+        /// <para>耐性は付きますが、移動速度が低下します。</para>
+        /// </summary>
+        [MinecraftID("turtle_master")]
+        TurtleMaster,
+        /// <summary>
+        /// 即時ダメージ (ポーション)
+        /// <para>Mob にダメージを与えますが、アンデッド系には回復します。</para>
+        /// </summary>
+        [MinecraftID("healing")]
+        Healing,
+        /// <summary>
+        /// 即時回復 (ポーション)
+        /// <para>Mob の体力は回復しますが、アンデッド系にはダメージを与えます。</para>
+        /// </summary>
+        [MinecraftID("harming")]
+        Harming,
     }
 }

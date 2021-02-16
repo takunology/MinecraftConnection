@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using MinecraftConnection.Items;
+﻿using System.Collections.Generic;
+using MinecraftConnection.ItemsBase;
 
 namespace MinecraftConnection.NBT
 {

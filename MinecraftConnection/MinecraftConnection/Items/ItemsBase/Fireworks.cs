@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace MinecraftConnection.Items
+namespace MinecraftConnection.ItemsBase
 {
     /// <summary>
     /// 花火を作るためのクラスです。

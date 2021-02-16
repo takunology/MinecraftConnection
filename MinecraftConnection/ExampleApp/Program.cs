@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 using MinecraftConnection;
 using MinecraftConnection.Items;
-using MinecraftConnection.NBT;
+using MinecraftConnection.Data;
 
 namespace ExampleApp
 {
@@ -23,10 +23,11 @@ namespace ExampleApp
             int x = PlayerData.PositionX;
             int y = PlayerData.PositionY;
             int z = PlayerData.PositionZ;*/
+            
+            EnchantedBook Book = new EnchantedBook(Enchantments.Channeling, 116);
 
-            Potion potion = new Potion(Effects.JumpBoost, false, true);
-            Command.GivePotion(PlayerName, potion, 1);
-
+            Command.GivePotion(PlayerName, PotionItem.StrongPoisonPotion, 1);
+            Command.GiveEnchantedBook(PlayerName, Book, 1);
         }
     }
 }
