@@ -15,7 +15,7 @@ namespace MinecraftConnection
     /// </summary>
     public partial class MinecraftCommands
     {
-        private RCON Rcon { get; set; }
+        private readonly RCON rcon;
         /// <summary>
         /// Minecraftのコマンドリストインスタンスを作ります。
         /// </summary>
@@ -24,7 +24,7 @@ namespace MinecraftConnection
         /// <param name="PassWord">MinecraftServerのRCONパスワード</param>
         public MinecraftCommands(IPAddress IpAddress, ushort Port, string PassWord)
         {
-            Rcon = new RCON(IpAddress, Port, PassWord);
+            rcon = new RCON(IpAddress, Port, PassWord);
         }
     }
     // Minecraft 標準のコマンドリスト
@@ -40,8 +40,8 @@ namespace MinecraftConnection
             return Task.Run(async () =>
             {
                 if (!Command.Contains("/")) Command = "/" + Command;
-                await Rcon.ConnectAsync();
-                return await Rcon.SendCommandAsync(Command);
+                await rcon.ConnectAsync();
+                return await rcon.SendCommandAsync(Command);
             }).GetAwaiter().GetResult();
         }
         /// <summary>
@@ -53,8 +53,8 @@ namespace MinecraftConnection
         {
             return Task.Run(async () =>
             {
-                await Rcon.ConnectAsync();
-                return await Rcon.SendCommandAsync($"/title @a title \"{Text}\"");
+                await rcon.ConnectAsync();
+                return await rcon.SendCommandAsync($"/title @a title \"{Text}\"");
             }).GetAwaiter().GetResult();
         }
         /// <summary>
@@ -66,8 +66,8 @@ namespace MinecraftConnection
         {
             return Task.Run(async () =>
             {
-                await Rcon.ConnectAsync();
-                return await Rcon.SendCommandAsync(Text.ToString());
+                await rcon.ConnectAsync();
+                return await rcon.SendCommandAsync(Text.ToString());
             }).GetAwaiter().GetResult();
         }
         /// <summary>
@@ -82,8 +82,8 @@ namespace MinecraftConnection
         {
             return Task.Run(async () =>
             {
-                await Rcon.ConnectAsync();
-                return await Rcon.SendCommandAsync($"/setblock {x} {y} {z} {BlockItem}");
+                await rcon.ConnectAsync();
+                return await rcon.SendCommandAsync($"/setblock {x} {y} {z} {BlockItem}");
             }).GetAwaiter().GetResult();
         }
         /// <summary>
@@ -97,8 +97,8 @@ namespace MinecraftConnection
         {
             return Task.Run(async () =>
             {
-                await Rcon.ConnectAsync();
-                return await Rcon.SendCommandAsync($"/give {PlayerName} {Item} {Count}");
+                await rcon.ConnectAsync();
+                return await rcon.SendCommandAsync($"/give {PlayerName} {Item} {Count}");
             }).GetAwaiter().GetResult();
         }
         /// <summary>
@@ -113,8 +113,8 @@ namespace MinecraftConnection
         {
             return Task.Run(async () =>
             {
-                await Rcon.ConnectAsync();
-                return await Rcon.SendCommandAsync($"/effect give {PlayerName} {Effect} {Time}");
+                await rcon.ConnectAsync();
+                return await rcon.SendCommandAsync($"/effect give {PlayerName} {Effect} {Time}");
             }).GetAwaiter().GetResult();
         }
         /// <summary>
@@ -129,8 +129,8 @@ namespace MinecraftConnection
         {
             return Task.Run(async () =>
             {
-                await Rcon.ConnectAsync();
-                return await Rcon.SendCommandAsync($"/summon {Entity} {x} {y} {z}");
+                await rcon.ConnectAsync();
+                return await rcon.SendCommandAsync($"/summon {Entity} {x} {y} {z}");
             }).GetAwaiter().GetResult();
         }
         /// <summary>
@@ -144,8 +144,8 @@ namespace MinecraftConnection
         {
             return Task.Run(async () =>
             {
-                await Rcon.ConnectAsync();
-                return await Rcon.SendCommandAsync($"/clear {PlayerName} {Item} {Count}");
+                await rcon.ConnectAsync();
+                return await rcon.SendCommandAsync($"/clear {PlayerName} {Item} {Count}");
             }).GetAwaiter().GetResult();
         }
     }
@@ -159,7 +159,7 @@ namespace MinecraftConnection
         /// <returns></returns>
         public PlayerData GetPlayerData(string PlayerName)
         {
-            return new PlayerData(PlayerName, Rcon);
+            return new PlayerData(PlayerName, rcon);
         }
         /// <summary>
         /// チェスト内のアイテムを取得します。
@@ -172,7 +172,7 @@ namespace MinecraftConnection
         {
             return Task.Run(async () => 
             {
-                ChestItem chestItem = new ChestItem(x, y, z, Rcon);
+                ChestItem chestItem = new ChestItem(x, y, z, rcon);
                 return await chestItem.GetChestItemsAsync();
             }).GetAwaiter().GetResult();
         }
@@ -187,7 +187,7 @@ namespace MinecraftConnection
         {
             Task.Run(async () =>
             {
-                ChestItem chestItem = new ChestItem(x, y, z, Rcon);
+                ChestItem chestItem = new ChestItem(x, y, z, rcon);
                 await chestItem.SetChestItemsAsync(SlotItemList);
             }).GetAwaiter().GetResult();
         }
@@ -202,8 +202,8 @@ namespace MinecraftConnection
         {
             return Task.Run(async () =>
             {
-                await Rcon.ConnectAsync();
-                return await Rcon.SendCommandAsync($"/summon firework_rocket {x} {y} {z} {fireworks.ToNBT()}");
+                await rcon.ConnectAsync();
+                return await rcon.SendCommandAsync($"/summon firework_rocket {x} {y} {z} {fireworks.ToNBT()}");
             }).GetAwaiter().GetResult();
         }
         /// <summary>
@@ -217,8 +217,8 @@ namespace MinecraftConnection
         {
             return Task.Run(async () =>
             {
-                await Rcon.ConnectAsync();
-                return await Rcon.SendCommandAsync($"/give {PlayerName} enchanted_book{Book.ToNBT()} {Count}");
+                await rcon.ConnectAsync();
+                return await rcon.SendCommandAsync($"/give {PlayerName} enchanted_book{Book.ToNBT()} {Count}");
             }).GetAwaiter().GetResult();
         }
         /// <summary>
@@ -232,8 +232,8 @@ namespace MinecraftConnection
         {
             return Task.Run(async () =>
             {
-                await Rcon.ConnectAsync();
-                return await Rcon.SendCommandAsync($"/give {PlayerName} potion{Potion.ToNBT()} {Count}");
+                await rcon.ConnectAsync();
+                return await rcon.SendCommandAsync($"/give {PlayerName} potion{Potion.ToNBT()} {Count}");
             }).GetAwaiter().GetResult();
         }
     }

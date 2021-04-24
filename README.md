@@ -1,7 +1,7 @@
 # MinecraftConnection
 <div>
 <img src="./logo.png" width="350" hspace="0" vspace="10">
- </div>
+</div>
 
 ![](https://img.shields.io/badge/Minecraft%20Version-1.16.3-brightgreen)
  

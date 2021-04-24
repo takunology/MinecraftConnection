@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Product>MinecraftConnectionCore</Product>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageIcon>Icon.png</PackageIcon>
+    <Company>Minecraft_with_Code_Project</Company>
+    <Authors>Takumi Okawa (Takunology)</Authors>
+    <Copyright>Copyright (c) 2021 Takumi Okawa (Takunology)</Copyright>
+    <Description>It is based on CoreRCON and extended for minecraft. This library can be used without being aware of asynchronous processing. It also provides basic minecraft commands, so that you can easily execute commands without knowing them.</Description>
+    <PackageLicenseFile></PackageLicenseFile>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Minecraft, RCON</PackageTags>
+    <RepositoryUrl>https://github.com/takunology/MinecraftConnectionCore</RepositoryUrl>
+    <Version>1.1.0</Version>
+    <PackageProjectUrl>https://www.mcwithcode.com</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReleaseNotes>- Add Wait() Method</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="LICENSE" />
+    <None Include="C:\Users\takun\OneDrive\ドキュメント\Minecraft With Code Project\Minecraft with Code のロゴ\MinecraftConnectionCore_Logo\Icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CoreRCON" Version="5.0.0" />
+  </ItemGroup>
+
+</Project>

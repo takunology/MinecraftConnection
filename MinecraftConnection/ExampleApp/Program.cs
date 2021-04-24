@@ -4,6 +4,7 @@ using CoreRCON;
 using System.Collections.Generic;
 
 using MinecraftConnection;
+using MinecraftConnection.Blocks;
 using MinecraftConnection.Items;
 using MinecraftConnection.Data;
 
@@ -14,7 +15,7 @@ namespace ExampleApp
         private static IPAddress Address = IPAddress.Parse("127.0.0.1");
         private static ushort Port = 25575;
         private static string Pass = "minecraft";
-        private static MinecraftCommands Command = new MinecraftCommands(Address, Port, Pass);
+        private static MinecraftCommands command = new MinecraftCommands(Address, Port, Pass);
 
         static void Main(string[] args)
         {
@@ -23,11 +24,9 @@ namespace ExampleApp
             int x = PlayerData.PositionX;
             int y = PlayerData.PositionY;
             int z = PlayerData.PositionZ;*/
+            //Command.SetBlock(x, y-1, z, Blocks.AirBlock.BlockID);
             
-            EnchantedBook Book = new EnchantedBook(Enchantments.Channeling, 116);
-
-            Command.GivePotion(PlayerName, PotionItem.StrongPoisonPotion, 1);
-            Command.GiveEnchantedBook(PlayerName, Book, 1);
+            Console.WriteLine(Blocks.AirBlock.GetMinecraftID());
         }
     }
 }

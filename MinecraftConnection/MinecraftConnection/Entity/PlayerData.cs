@@ -12,7 +12,7 @@ namespace MinecraftConnection.Entity
     /// </summary>
     public partial class PlayerData
     {
-        private RCON Rcon { get; set; }
+        private readonly RCON rcon;
         private string PlayerName { get; set; }
         /// <summary>
         /// プレイヤーのX座標
@@ -59,10 +59,10 @@ namespace MinecraftConnection.Entity
         /// </summary>
         public float Health { get; set; }
 
-        public PlayerData(string PlayerName, RCON Rcon)
+        public PlayerData(string PlayerName, RCON rcon)
         {
             this.PlayerName = PlayerName;
-            this.Rcon = Rcon;
+            this.rcon = rcon;
             Initialize();
         }
     }
@@ -84,8 +84,8 @@ namespace MinecraftConnection.Entity
 
         private async Task GetPositionAsync()
         {
-            await Rcon.ConnectAsync();
-            string result = await Rcon.SendCommandAsync($"/data get entity {PlayerName} Pos");
+            await rcon.ConnectAsync();
+            string result = await rcon.SendCommandAsync($"/data get entity {PlayerName} Pos");
 
             if (result.Contains("Not") || PlayerName == null)
                 throw new Exception("プレイヤーが見つかりません。");
@@ -104,8 +104,8 @@ namespace MinecraftConnection.Entity
         }
         private async Task GetItemsAsync()
         {
-            await Rcon.ConnectAsync();
-            string result = await Rcon.SendCommandAsync($"/data get entity {PlayerName} Inventory");
+            await rcon.ConnectAsync();
+            string result = await rcon.SendCommandAsync($"/data get entity {PlayerName} Inventory");
 
             if (result.Contains("No") || PlayerName == null)
                 throw new Exception("プレイヤーが見つかりません。");
@@ -203,8 +203,8 @@ namespace MinecraftConnection.Entity
         }
         private async Task GetFoodLevelAsync()
         {
-            await Rcon.ConnectAsync();
-            string result = await Rcon.SendCommandAsync($"/data get entity {PlayerName} foodLevel");
+            await rcon.ConnectAsync();
+            string result = await rcon.SendCommandAsync($"/data get entity {PlayerName} foodLevel");
 
             if (result.Contains("No") || PlayerName == "")
                 throw new Exception("プレイヤーが見つかりません。プレイヤー名が正しいか確認してください。");
@@ -214,8 +214,8 @@ namespace MinecraftConnection.Entity
         }
         private async Task GetScoreAsync()
         {
-            await Rcon.ConnectAsync();
-            string result = await Rcon.SendCommandAsync($"/data get entity {PlayerName} Score");
+            await rcon.ConnectAsync();
+            string result = await rcon.SendCommandAsync($"/data get entity {PlayerName} Score");
 
             if (result.Contains("No") || PlayerName == "")
                 throw new Exception("プレイヤーが見つかりません。プレイヤー名が正しいか確認してください。");
@@ -225,8 +225,8 @@ namespace MinecraftConnection.Entity
         }
         private async Task GetHealthAsync()
         {
-            await Rcon.ConnectAsync();
-            string result = await Rcon.SendCommandAsync($"/data get entity {PlayerName} Health");
+            await rcon.ConnectAsync();
+            string result = await rcon.SendCommandAsync($"/data get entity {PlayerName} Health");
 
             if (result.Contains("No") || PlayerName == "")
                 throw new Exception("プレイヤーが見つかりません。プレイヤー名が正しいか確認してください。");

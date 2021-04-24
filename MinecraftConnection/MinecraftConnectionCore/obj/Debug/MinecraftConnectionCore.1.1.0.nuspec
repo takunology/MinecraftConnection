@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>MinecraftConnectionCore</id>
+    <version>1.1.0</version>
+    <authors>Takumi Okawa (Takunology)</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <icon>Icon.png</icon>
+    <projectUrl>https://www.mcwithcode.com/</projectUrl>
+    <description>It is based on CoreRCON and extended for minecraft. This library can be used without being aware of asynchronous processing. It also provides basic minecraft commands, so that you can easily execute commands without knowing them.</description>
+    <releaseNotes>- Add Wait() Method</releaseNotes>
+    <copyright>Copyright (c) 2021 Takumi Okawa (Takunology)</copyright>
+    <tags>Minecraft, RCON</tags>
+    <repository type="git" url="https://github.com/takunology/MinecraftConnectionCore" />
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="CoreRCON" version="5.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnectionCore\bin\Debug\netstandard2.0\MinecraftConnectionCore.dll" target="lib\netstandard2.0\MinecraftConnectionCore.dll" />
+    <file src="C:\Users\takun\OneDrive\ドキュメント\Minecraft With Code Project\Minecraft with Code のロゴ\MinecraftConnectionCore_Logo\Icon.png" target="Icon.png" />
+  </files>
+</package>
