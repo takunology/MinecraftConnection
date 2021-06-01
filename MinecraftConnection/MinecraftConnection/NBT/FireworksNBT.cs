@@ -26,6 +26,7 @@ namespace MinecraftConnection.NBT
         {
             return Item == true ? "1" : "0";
         }
+
         private static string ColorToString(List<FireworksColors> ColorsList)
         {
             string Colors = "";

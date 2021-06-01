@@ -20,13 +20,11 @@ namespace ExampleApp
         static void Main(string[] args)
         {
             string PlayerName = "takunology";
-            /*var PlayerData = Command.GetPlayerData(PlayerName);
+            var PlayerData = command.GetPlayerData(PlayerName);
             int x = PlayerData.PositionX;
             int y = PlayerData.PositionY;
-            int z = PlayerData.PositionZ;*/
-            //Command.SetBlock(x, y-1, z, Blocks.AirBlock.BlockID);
-            
-            Console.WriteLine(Blocks.AirBlock.GetMinecraftID());
+            int z = PlayerData.PositionZ;
+           
         }
     }
 }
