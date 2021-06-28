@@ -1,6 +1,6 @@
 ﻿using MinecraftConnection.Data;
 
-namespace MinecraftConnection.ItemsBase
+namespace MinecraftConnection.Items
 {
     /// <summary>
     /// ポーションに関するクラスです。
