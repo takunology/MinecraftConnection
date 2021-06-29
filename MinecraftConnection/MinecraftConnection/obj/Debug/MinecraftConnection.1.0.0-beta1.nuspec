@@ -8,7 +8,7 @@
     <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
     <icon>MCLogo.png</icon>
     <projectUrl>https://www.mcwithcode.com/</projectUrl>
-    <description>This library is based on CoreRCON and extended for Minecraft. RCON connections are asynchronous, but this library allows users to use asynchronous methods without declaring them. When you create and run a program using this library, you need to start a minecraft server with RCON connection configured.</description>
+    <description>This library is based on CoreRCON and extended for Minecraft that uses the C# language to enable Minecraft programming by sending commands to Minecraft. RCON connections are asynchronous, but this library allows users to use asynchronous methods without declaring them. When you create and run a program using this library, you need to start a minecraft server with RCON connection configured.</description>
     <releaseNotes>Beta Release.</releaseNotes>
     <copyright>Copyright (c) 2021 Takumi Okawa (Takunology)</copyright>
     <tags>Minecraft</tags>
