@@ -4,17 +4,20 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Takumi Okawa (Takunology)</Authors>
     <Company>Minecraft_with_Code_Project</Company>
-    <Version>1.0.0</Version>
+    <Version>1.0.0-beta1</Version>
     <PackageId>MinecraftConnection</PackageId>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://www.mcwithcode.com</PackageProjectUrl>
-    <PackageIcon>MinecraftConnection_Icon_128.png</PackageIcon>
+    <PackageIcon>MCLogo.png</PackageIcon>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/takunology/MinecraftConnection</RepositoryUrl>
-    <Description>This library is based on CoreRCON and extended for Minecraft. RCON connections are asynchronous, but this library allows users to use asynchronous methods without declaring them. When you create and run a program using this library, you need to start a minecraft server with RCON connection configured.</Description>
+    <Description>This library is based on CoreRCON and extended for Minecraft that uses the C# language to enable Minecraft programming by sending commands to Minecraft. RCON connections are asynchronous, but this library allows users to use asynchronous methods without declaring them. When you create and run a program using this library, you need to start a minecraft server with RCON connection configured.</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Copyright>Copyright (c) 2021 Takumi Okawa (Takunology)</Copyright>
+    <PackageIconUrl />
+    <PackageTags>Minecraft</PackageTags>
+    <PackageReleaseNotes>Beta Release.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,7 +29,7 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-    <None Include="MinecraftConnection_Icon_128.png">
+    <None Include="MCLogo.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>

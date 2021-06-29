@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>MinecraftConnection</id>
+    <version>1.0.0-beta1</version>
+    <authors>Takumi Okawa (Takunology)</authors>
+    <license type="file">LICENSE</license>
+    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <icon>MCLogo.png</icon>
+    <projectUrl>https://www.mcwithcode.com/</projectUrl>
+    <description>This library is based on CoreRCON and extended for Minecraft. RCON connections are asynchronous, but this library allows users to use asynchronous methods without declaring them. When you create and run a program using this library, you need to start a minecraft server with RCON connection configured.</description>
+    <releaseNotes>Beta Release.</releaseNotes>
+    <copyright>Copyright (c) 2021 Takumi Okawa (Takunology)</copyright>
+    <tags>Minecraft</tags>
+    <repository type="git" url="https://github.com/takunology/MinecraftConnection" />
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="CoreRCON" version="5.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\bin\Release\netstandard2.0\MinecraftConnection.dll" target="lib\netstandard2.0\MinecraftConnection.dll" />
+    <file src="D:\GitHub\MinecraftConnection\LICENSE" target="LICENSE" />
+    <file src="D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\MCLogo.png" target="MCLogo.png" />
+  </files>
+</package>
