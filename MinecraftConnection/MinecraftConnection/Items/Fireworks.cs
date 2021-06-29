@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using MinecraftConnection.Data;
+using System.Collections;
+using System.Collections.Generic;
 
-namespace MinecraftConnection.ItemsBase
+namespace MinecraftConnection.Items
 {
     /// <summary>
     /// 花火を作るためのクラスです。
@@ -14,6 +16,9 @@ namespace MinecraftConnection.ItemsBase
         public bool Trail { get; set; }
         public List<FireworksColors> ExplosionColors { get; set; }
         public List<FireworksColors> FadeColors { get; set; }
+        public double MotionX { get; set; } = 0.0;
+        public double MotionY { get; set; } = 0.0;
+        public double MotionZ { get; set; } = 0.0;
 
         /// <summary>
         /// 花火をつくります。
@@ -108,14 +113,14 @@ namespace MinecraftConnection.ItemsBase
             return Colors;
         }
     }
-
-    public enum FireworksShapes
+        
+    public enum FireworksShapes : int
     {
-        SmallBall,
-        LargeBall,
-        Star,
-        Creeper,
-        Burst
+        SmallBall = 0,
+        LargeBall = 1,
+        Star = 2,
+        Creeper = 3,
+        Burst = 4
     }
 
     public enum FireworksColors : int
@@ -136,5 +141,18 @@ namespace MinecraftConnection.ItemsBase
         MAGENTA = 12801229,
         ORANGE = 15435844,
         WHITE = 15790320
+    }
+
+    public static class FireworksMotion
+    {
+        public static Fireworks Motion(this Fireworks fireworks, double x, double y, double z)
+        {
+            return new Fireworks(fireworks.LifeTime, (byte)fireworks.FlightDuration, fireworks.Shape, fireworks.Flicker, fireworks.Trail, fireworks.ExplosionColors, fireworks.FadeColors)
+            {
+                MotionX = x,
+                MotionY = y,
+                MotionZ = z
+            };
+        }
     }
 }

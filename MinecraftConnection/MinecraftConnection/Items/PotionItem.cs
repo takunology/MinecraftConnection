@@ -1,5 +1,4 @@
 ﻿using MinecraftConnection.Data;
-using MinecraftConnection.ItemsBase;
 
 namespace MinecraftConnection.Items
 {

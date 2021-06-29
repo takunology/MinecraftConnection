@@ -5,7 +5,6 @@ using CoreRCON;
 using MinecraftConnection.Entity;
 using MinecraftConnection.Items;
 using MinecraftConnection.NBT;
-using MinecraftConnection.ItemsBase;
 using MinecraftConnection.Data;
 
 namespace MinecraftConnection
@@ -146,6 +145,17 @@ namespace MinecraftConnection
             {
                 await rcon.ConnectAsync();
                 return await rcon.SendCommandAsync($"/clear {PlayerName} {Item} {Count}");
+            }).GetAwaiter().GetResult();
+        }
+        /// <summary>
+        /// 指定した時間だけ待機します。
+        /// </summary>
+        /// <param name="Time">ミリ秒</param>
+        public void Wait(int Time)
+        {
+            Task.Run(async () =>
+            {
+                await Task.Delay(Time);
             }).GetAwaiter().GetResult();
         }
     }

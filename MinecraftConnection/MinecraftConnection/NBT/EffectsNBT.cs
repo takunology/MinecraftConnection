@@ -1,5 +1,5 @@
 ﻿using MinecraftConnection.Data;
-using MinecraftConnection.ItemsBase;
+using MinecraftConnection.Items;
 
 namespace MinecraftConnection.NBT
 {

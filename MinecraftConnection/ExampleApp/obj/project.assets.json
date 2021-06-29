@@ -23,7 +23,7 @@
           "lib/netcoreapp3.0/System.IO.Pipelines.dll": {}
         }
       },
-      "MinecraftConnection/1.0.0": {
+      "MinecraftConnection/1.0.0-beta1": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
@@ -80,7 +80,7 @@
         "version.txt"
       ]
     },
-    "MinecraftConnection/1.0.0": {
+    "MinecraftConnection/1.0.0-beta1": {
       "type": "project",
       "path": "../MinecraftConnection/MinecraftConnection.csproj",
       "msbuildProject": "../MinecraftConnection/MinecraftConnection.csproj"
@@ -88,7 +88,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "MinecraftConnection >= 1.0.0"
+      "MinecraftConnection >= 1.0.0-beta1"
     ]
   },
   "packageFolders": {
@@ -120,6 +120,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "D:\\GitHub\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection\\bin\\Release": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -156,7 +157,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

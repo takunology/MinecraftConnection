@@ -1,11 +1,9 @@
-﻿using MinecraftConnection.ItemsBase;
-
-namespace MinecraftConnection.Items
+﻿namespace MinecraftConnection.Items
 {
     /// <summary>
     /// 花火アイテムのサンプルです。
     /// </summary>
-    public static class FireworksItem
+    public static class FireworksItems
     {
         private static readonly int LifeTime = 30;
         private static readonly byte FlightDuration = 2;
