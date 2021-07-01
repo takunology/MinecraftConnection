@@ -1,12 +1,5 @@
-﻿using System;
-using System.Net;
-using CoreRCON;
-using System.Collections.Generic;
-
+﻿using System.Net;
 using MinecraftConnection;
-using MinecraftConnection.Items;
-using MinecraftConnection.Data;
-using MinecraftConnection.NBT;
 
 namespace ExampleApp
 {
@@ -19,27 +12,7 @@ namespace ExampleApp
 
         static void Main(string[] args)
         {
-            string playerName = "takunology";
-
-            var playerData = command.GetPlayerData(playerName);
-            int x = playerData.PositionX + 30;
-            int y = playerData.PositionY - 10;
-            int z = playerData.PositionZ;
-
-            List<FireworksColors> excolor = new List<FireworksColors>() { FireworksColors.BLUE };
-            List<FireworksColors> fadecolor = new List<FireworksColors>() { FireworksColors.CYAN };
-
-            Fireworks fireworks = new Fireworks(0, 2, FireworksShapes.Burst, false, true, excolor, fadecolor);
-
-            for(int i = 0; i < 10; i++)
-            {
-                command.SetOffFireworks(x, y + i * 2, z, fireworks.Motion(0.0, 1.0, 3.0));
-                command.SetOffFireworks(x, y + i * 2, z, fireworks.Motion(0.0, -1.0, -3.0));
-                command.SetOffFireworks(x, y + i * 2, z, fireworks.Motion(0.0, -1.0, 3.0));
-                command.SetOffFireworks(x, y + i * 2, z, fireworks.Motion(0.0, 1.0, -3.0));
-                command.Wait(200);
-            }
-            
+            command.SendCommand("/time set 0");
         }
     }
 }
