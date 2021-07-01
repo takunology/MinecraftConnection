@@ -4,8 +4,8 @@
 </div>
 
 ![](https://img.shields.io/badge/Minecraft%20Version-1.15~-brightgreen)
-[![CircleCI](https://circleci.com/gh/takunology/MinecraftConnection/tree/circleci-project-setup.svg?style=shield)](https://circleci.com/gh/takunology/MinecraftConnection/tree/main)
- 
+[![CircleCI](https://circleci.com/gh/takunology/MinecraftConnection/tree/main.svg?style=shield)](https://circleci.com/gh/takunology/MinecraftConnection/tree/main)
+
 日本語版は[こちら](https://github.com/takunology/MinecraftConnection/blob/main/README_JP.md)
 
 This library is based on CoreRCON and extended for Minecraft that uses the C# language to enable Minecraft programming by sending commands to Minecraft. RCON connections are asynchronous, but this library allows users to use asynchronous methods without declaring them. When you create and run a program using this library, you need to start a minecraft server with RCON connection configured.
