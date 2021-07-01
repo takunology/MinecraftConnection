@@ -1,9 +1,10 @@
 # MinecraftConnection
 <div>
-<img src="./logo.png" width="350" hspace="0" vspace="10">
+<img src="./images/logo.png" width="350" hspace="0" vspace="10">
 </div>
 
 ![](https://img.shields.io/badge/Minecraft%20Version-1.15~-brightgreen)
+[![CircleCI](https://circleci.com/gh/takunology/MinecraftConnection/tree/circleci-project-setup.svg?style=shield)](https://circleci.com/gh/takunology/MinecraftConnection/tree/circleci-project-setup)
  
 日本語版は[こちら](https://github.com/takunology/MinecraftConnection/blob/main/README_JP.md)
 
