@@ -4,7 +4,7 @@
 </div>
 
 ![](https://img.shields.io/badge/Minecraft%20Version-1.15~-brightgreen)
-[![CircleCI](https://circleci.com/gh/takunology/MinecraftConnection/tree/circleci-project-setup.svg?style=shield)](https://circleci.com/gh/takunology/MinecraftConnection/tree/circleci-project-setup)
+[![CircleCI](https://circleci.com/gh/takunology/MinecraftConnection/tree/main.svg?style=shield)](https://circleci.com/gh/takunology/MinecraftConnection/tree/main)
  
 本ライブラリは、CoreRCONをベースにMinecraft用に拡張したものです。C#言語を用いてMinecraftにコマンドを送信することで、Minecraftプログラミングを可能にします。RCONの接続は非同期ですが、本ライブラリでは非同期のメソッドを宣言せずに使用することができます。本ライブラリを使用してプログラムを作成・実行する際には、RCON接続が設定されたマインクラフトサーバーを起動する必要があります。</br>
 
