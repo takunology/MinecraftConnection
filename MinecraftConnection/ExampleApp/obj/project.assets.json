@@ -2,33 +2,9 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "CoreRCON/5.0.0": {
-        "type": "package",
-        "dependencies": {
-          "System.IO.Pipelines": "4.7.2"
-        },
-        "compile": {
-          "lib/netstandard2.0/CoreRCON.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/CoreRCON.dll": {}
-        }
-      },
-      "System.IO.Pipelines/4.7.2": {
-        "type": "package",
-        "compile": {
-          "ref/netcoreapp2.0/System.IO.Pipelines.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.0/System.IO.Pipelines.dll": {}
-        }
-      },
-      "MinecraftConnection/1.0.0-beta1": {
+      "MinecraftConnection/1.0.0-beta2": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "CoreRCON": "5.0.0"
-        },
         "compile": {
           "bin/placeholder/MinecraftConnection.dll": {}
         },
@@ -39,48 +15,7 @@
     }
   },
   "libraries": {
-    "CoreRCON/5.0.0": {
-      "sha512": "hPZWvuIT+nivgTwpRePMtBh28ldy5g2Orsvh/nU9gpNNL7JiWGeN5yh6JO4wxDOT3WhR1RuIeH8jBoRV8cN4ZA==",
-      "type": "package",
-      "path": "corercon/5.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "corercon.5.0.0.nupkg.sha512",
-        "corercon.nuspec",
-        "lib/netstandard2.0/CoreRCON.dll",
-        "logo.png"
-      ]
-    },
-    "System.IO.Pipelines/4.7.2": {
-      "sha512": "rGIIhoY3lUdn9rWeuGdgeZZ0P+SpJ1wZI5g8TnXqgvuhFgUP7iP9Nt5FZebYInQZQxqnwjPxdYYBE5l/8PJmqQ==",
-      "type": "package",
-      "path": "system.io.pipelines/4.7.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net461/System.IO.Pipelines.dll",
-        "lib/net461/System.IO.Pipelines.xml",
-        "lib/netcoreapp3.0/System.IO.Pipelines.dll",
-        "lib/netcoreapp3.0/System.IO.Pipelines.xml",
-        "lib/netstandard1.3/System.IO.Pipelines.dll",
-        "lib/netstandard1.3/System.IO.Pipelines.xml",
-        "lib/netstandard2.0/System.IO.Pipelines.dll",
-        "lib/netstandard2.0/System.IO.Pipelines.xml",
-        "ref/net461/System.IO.Pipelines.dll",
-        "ref/net461/System.IO.Pipelines.xml",
-        "ref/netcoreapp2.0/System.IO.Pipelines.dll",
-        "ref/netcoreapp2.0/System.IO.Pipelines.xml",
-        "system.io.pipelines.4.7.2.nupkg.sha512",
-        "system.io.pipelines.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    },
-    "MinecraftConnection/1.0.0-beta1": {
+    "MinecraftConnection/1.0.0-beta2": {
       "type": "project",
       "path": "../MinecraftConnection/MinecraftConnection.csproj",
       "msbuildProject": "../MinecraftConnection/MinecraftConnection.csproj"
@@ -88,7 +23,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "MinecraftConnection >= 1.0.0-beta1"
+      "MinecraftConnection >= 1.0.0-beta2"
     ]
   },
   "packageFolders": {

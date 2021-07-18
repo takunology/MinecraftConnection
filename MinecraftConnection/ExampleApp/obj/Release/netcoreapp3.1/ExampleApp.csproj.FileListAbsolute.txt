@@ -4,8 +4,6 @@ D:\GitHub\MinecraftConnection\MinecraftConnection\ExampleApp\bin\Release\netcore
 D:\GitHub\MinecraftConnection\MinecraftConnection\ExampleApp\bin\Release\netcoreapp3.1\ExampleApp.runtimeconfig.dev.json
 D:\GitHub\MinecraftConnection\MinecraftConnection\ExampleApp\bin\Release\netcoreapp3.1\ExampleApp.dll
 D:\GitHub\MinecraftConnection\MinecraftConnection\ExampleApp\bin\Release\netcoreapp3.1\ExampleApp.pdb
-D:\GitHub\MinecraftConnection\MinecraftConnection\ExampleApp\bin\Release\netcoreapp3.1\CoreRCON.dll
-D:\GitHub\MinecraftConnection\MinecraftConnection\ExampleApp\bin\Release\netcoreapp3.1\System.IO.Pipelines.dll
 D:\GitHub\MinecraftConnection\MinecraftConnection\ExampleApp\bin\Release\netcoreapp3.1\MinecraftConnection.dll
 D:\GitHub\MinecraftConnection\MinecraftConnection\ExampleApp\bin\Release\netcoreapp3.1\MinecraftConnection.pdb
 D:\GitHub\MinecraftConnection\MinecraftConnection\ExampleApp\obj\Release\netcoreapp3.1\ExampleApp.csproj.AssemblyReference.cache

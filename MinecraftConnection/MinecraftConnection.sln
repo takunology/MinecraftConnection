@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExampleApp", "ExampleApp\Ex
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinecraftConnection", "MinecraftConnection\MinecraftConnection.csproj", "{B19912A9-A832-4941-BA28-3DA26A810EAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinecraftConnectionCore", "MinecraftConnectionCore\MinecraftConnectionCore.csproj", "{B5B4DAB5-1FAE-437E-BC63-089DEE095444}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{B19912A9-A832-4941-BA28-3DA26A810EAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B19912A9-A832-4941-BA28-3DA26A810EAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B19912A9-A832-4941-BA28-3DA26A810EAD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B5B4DAB5-1FAE-437E-BC63-089DEE095444}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B5B4DAB5-1FAE-437E-BC63-089DEE095444}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B5B4DAB5-1FAE-437E-BC63-089DEE095444}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B5B4DAB5-1FAE-437E-BC63-089DEE095444}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
