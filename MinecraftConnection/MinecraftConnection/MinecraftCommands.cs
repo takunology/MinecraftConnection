@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
-using CoreRCON;
+using MinecraftConnection.RCON;
 using MinecraftConnection.Entity;
 using MinecraftConnection.Items;
 using MinecraftConnection.NBT;
 using MinecraftConnection.Data;
+using System;
 
 namespace MinecraftConnection
 {
@@ -14,16 +15,16 @@ namespace MinecraftConnection
     /// </summary>
     public partial class MinecraftCommands
     {
-        private readonly RCON rcon;
+        private readonly MinecraftRCON rcon;
         /// <summary>
         /// Minecraftのコマンドリストインスタンスを作ります。
         /// </summary>
         /// <param name="IpAddress">MinecraftServerのIPアドレス</param>
         /// <param name="Port">MinecraftServerのRCONポート番号</param>
         /// <param name="PassWord">MinecraftServerのRCONパスワード</param>
-        public MinecraftCommands(IPAddress IpAddress, ushort Port, string PassWord)
+        public MinecraftCommands(string address, ushort port, string password)
         {
-            rcon = new RCON(IpAddress, Port, PassWord);
+            rcon = new MinecraftRCON(address, port, password);
         }
     }
     // Minecraft 標準のコマンドリスト
@@ -32,15 +33,23 @@ namespace MinecraftConnection
         /// <summary>
         /// コマンドを送信します。
         /// </summary>
-        /// <param name="Command">Minecraftコマンド</param>
+        /// <param name="command">Minecraftコマンド</param>
         /// <returns></returns>
-        public string SendCommand(string Command)
+        public string SendCommand(string command)
         {
-            return Task.Run(async () =>
+            return rcon.SendCommand(command);
+        }
+
+        public string SetOffFireworks(int x, int y, int z, Fireworks fireworks)
+        {
+            return rcon.SendCommand($"summon firework_rocket {x} {y} {z} {fireworks.ToNBT()}");
+        }
+
+        public void Wait(int Time)
+        {
+            Task.Run(async () =>
             {
-                if (!Command.Contains("/")) Command = "/" + Command;
-                await rcon.ConnectAsync();
-                return await rcon.SendCommandAsync(Command);
+                await Task.Delay(Time);
             }).GetAwaiter().GetResult();
         }
         /// <summary>
@@ -48,7 +57,7 @@ namespace MinecraftConnection
         /// </summary>
         /// <param name="Text">表示する文字や数値</param>
         /// <returns></returns>
-        public string DisplayTitle(object Text)
+        /*public string DisplayTitle(object Text)
         {
             return Task.Run(async () =>
             {
@@ -245,6 +254,6 @@ namespace MinecraftConnection
                 await rcon.ConnectAsync();
                 return await rcon.SendCommandAsync($"/give {PlayerName} potion{Potion.ToNBT()} {Count}");
             }).GetAwaiter().GetResult();
-        }
+        }*/
     }
 }

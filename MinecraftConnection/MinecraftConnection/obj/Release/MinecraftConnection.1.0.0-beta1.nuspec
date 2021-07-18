@@ -14,9 +14,7 @@
     <tags>Minecraft</tags>
     <repository type="git" url="https://github.com/takunology/MinecraftConnection" />
     <dependencies>
-      <group targetFramework=".NETStandard2.0">
-        <dependency id="CoreRCON" version="5.0.0" exclude="Build,Analyzers" />
-      </group>
+      <group targetFramework=".NETStandard2.0" />
     </dependencies>
   </metadata>
   <files>

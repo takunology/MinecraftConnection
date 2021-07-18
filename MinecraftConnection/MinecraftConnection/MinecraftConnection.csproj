@@ -21,10 +21,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CoreRCON" Version="5.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="..\..\LICENSE">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
