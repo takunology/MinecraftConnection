@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5btZHfaJzgBl69FKgHGDD438O3HmKQDKCtTX39J76QP/sXNM9huWymXds2Lok2l4KXOMjiBQHQMIZ1ILjhDzJg==",
+  "dgSpecHash": "ER2rZ9WTRasfLNGb1qGP21iNZzLQcRaheL1fgkcLMnyxoTTQ+nTAeyv9y65ZIYvP13PJNcieFFU7S2hJJpegBg==",
   "success": true,
   "projectFilePath": "D:\\GitHub\\MinecraftConnection\\MinecraftConnection\\ExampleApp\\ExampleApp.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\takun\\.nuget\\packages\\minecraftconnection\\1.0.0-beta1\\minecraftconnection.1.0.0-beta1.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

@@ -6,7 +6,7 @@
 ![](https://img.shields.io/badge/Minecraft%20Version-1.15~-brightgreen)
 [![CircleCI](https://circleci.com/gh/takunology/MinecraftConnection/tree/main.svg?style=shield)](https://circleci.com/gh/takunology/MinecraftConnection/tree/main)
  
-本ライブラリは、CoreRCONをベースにMinecraft用に拡張したものです。C#言語を用いてMinecraftにコマンドを送信することで、Minecraftプログラミングを可能にします。RCONの接続は非同期ですが、本ライブラリでは非同期のメソッドを宣言せずに使用することができます。本ライブラリを使用してプログラムを作成・実行する際には、RCON接続が設定されたマインクラフトサーバーを起動する必要があります。</br>
+MinecraftConnectionはC#を用いてRCONでコマンドを送るためのライブラリです。マイクラによるC#プログラミングの学習や自動化に応用することができます。バニラ版（通常版）のサーバーだけでなく、プラグインを含むSpigotサーバーでも実行できます。プログラムを実行する前に、RCON 接続が可能な Minecraft サーバーを起動する必要があります。 </br>
 
 # 1. 準備
 まずは Minecraft Server ソフトウェアをダウンロードし、任意のゲームディレクトリにて起動します。 `server.properties` というサーバ設定ファイルが作成されるので、RCON接続用のパスワードとポート番号を指定し、接続を有効にしてください。
@@ -45,10 +45,11 @@ namespace ExampleApp
 {
     class Program
     {
-        private static readonly IPAddress _address = IPAddress.Parse("127.0.0.1");
-        private static readonly ushort _port = 25575;
-        private static readonly string _pass = "minecraft";
-        private static MinecraftCommands command = new MinecraftCommands(_address, _port, _pass);
+        //接続先のIPアドレスまたはDNS名も利用可能です。
+        static string address = "127.0.0.1";
+        static ushort port = 25575;
+        static string pass = "minecraft"
+        static MinecraftCommands command = new MinecraftCommands(address, port, pass);
 
         static void Main(string[] args)
         {
@@ -69,10 +70,10 @@ namespace ExampleApp
 {
     class Program
     {
-        private static readonly IPAddress _address = IPAddress.Parse("127.0.0.1");
-        private static readonly ushort _port = 25575;
-        private static readonly string _pass = "minecraft";
-        private static MinecraftCommands command = new MinecraftCommands(_address, _port, _pass);
+        static string address = "127.0.0.1";
+        static ushort port = 25575;
+        static string pass = "minecraft"
+        static MinecraftCommands command = new MinecraftCommands(address, port, pass);
 
         static void Main(string[] args)
         {

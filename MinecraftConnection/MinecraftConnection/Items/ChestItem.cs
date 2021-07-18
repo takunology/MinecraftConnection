@@ -13,34 +13,24 @@ namespace MinecraftConnection.Items
     public partial class ChestItem
     {
         private readonly MinecraftRCON rcon;
-        private int X { get; set; }
-        private int Y { get; set; }
-        private int Z { get; set; }
+        private int x;
+        private int y;
+        private int z;
 
-        /// <summary>
-        /// チェストアイテムを操作するためのインスタンスを作ります。
-        /// </summary>
-        /// <param name="X"></param>
-        /// <param name="Y"></param>
-        /// <param name="Z"></param>
-        /// <param name="Rcon"></param>
-        public ChestItem(int X, int Y, int Z, MinecraftRCON rcon)
+        public ChestItem(int x, int y, int z, MinecraftRCON rcon)
         {
-            this.X = X;
-            this.Y = Y;
-            this.Z = Z;
+            this.x = x;
+            this.y = y;
+            this.z = z;
             this.rcon = rcon;
         }
     }
 
     public partial class ChestItem
     {
-        /// <summary>
-        /// チェスト内のアイテムを取得します。
-        /// </summary>
-        public async Task<List<SlotItem>> GetChestItemsAsync()
+        public List<SlotItem> GetChestItems()
         {
-            string result = rcon.SendCommand($"data get block {X} {Y} {Z}");
+            string result = rcon.SendCommand($"data get block {x} {y} {z}");
 
             if (result.Contains("no")) throw new Exception("チェストが見つかりません。");
 
@@ -49,18 +39,18 @@ namespace MinecraftConnection.Items
 
             for (int i = 0; i < ChestItemSlot; i++)
             {
-                result = rcon.SendCommand($"data get block {X} {Y} {Z} Items[{i}]");
+                result = rcon.SendCommand($"data get block {x} {y} {z} Items[{i}]");
                 if (!result.Contains("no"))
                 {
-                    result = rcon.SendCommand($"/data get block {X} {Y} {Z} Items[{i}].Slot");
+                    result = rcon.SendCommand($"/data get block {x} {y} {z} Items[{i}].Slot");
                     result = result.Substring(result.IndexOf("data"));
                     int ItemSlot = int.Parse(Regex.Replace(result, @"[^0-9]", ""));
 
-                    result = rcon.SendCommand($"/data get block {X} {Y} {Z} Items[{i}].id");
+                    result = rcon.SendCommand($"/data get block {x} {y} {z} Items[{i}].id");
                     result = result.Substring(result.IndexOf("\""));
                     string ItemID = Regex.Replace(result, @"[^a-zA-Z:_]", "");
 
-                    result = rcon.SendCommand($"/data get block {X} {Y} {Z} Items[{i}].Count");
+                    result = rcon.SendCommand($"/data get block {x} {y} {z} Items[{i}].Count");
                     result = result.Substring(result.IndexOf("data"));
                     int ItemCount = int.Parse(Regex.Replace(result, @"[^0-9]", ""));
 
@@ -69,27 +59,21 @@ namespace MinecraftConnection.Items
             }
             return ChestItems;
         }
-        /// <summary>
-        /// チェスト内のアイテムを書き換えます。
-        /// </summary>
-        /// <param name="x">チェストの座標x</param>
-        /// <param name="y">チェストの座標y</param>
-        /// <param name="z">チェストの座標z</param>
-        /// <param name="SlotItemList">スロットアイテムのリスト</param>
-        public async Task SetChestItemsAsync(List<SlotItem> SlotItemList)
+
+        public void SetChestItems(List<SlotItem> SlotItemList)
         {
-            string result = rcon.SendCommand($"/data get block {X} {Y} {Z}");
+            string result = rcon.SendCommand($"data get block {x} {y} {z}");
             if (result.Contains("no")) throw new Exception("チェストが見つかりません。");
 
             // storage -> append -> merge to chest -> remove
-            rcon.SendCommand("/data merge storage chestitems {Items:[]}");
+            rcon.SendCommand("data merge storage chestitems {Items:[]}");
 
             foreach (var item in SlotItemList.ToNBT())
             {
-                rcon.SendCommand($"/data modify storage chestitems Items append value {item}");
-                rcon.SendCommand($"/data modify block {X} {Y} {Z} Items set from storage chestitems Items");
+                rcon.SendCommand($"data modify storage chestitems Items append value {item}");
+                rcon.SendCommand($"data modify block {x} {y} {z} Items set from storage chestitems Items");
             }
-            rcon.SendCommand($"/data remove storage chestitems Items");
+            rcon.SendCommand($"data remove storage chestitems Items");
         }
     }
 }

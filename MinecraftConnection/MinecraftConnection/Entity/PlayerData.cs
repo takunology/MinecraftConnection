@@ -71,18 +71,14 @@ namespace MinecraftConnection.Entity
     {
         private void Initialize()
         {
-            Task.Run(async () =>
-            {
-                await GetPositionAsync();
-                await GetItemsAsync();
-                await GetFoodLevelAsync();
-                await GetScoreAsync();
-                await GetHealthAsync();
-
-            }).GetAwaiter().GetResult();
+            GetPosition();
+            GetItems();
+            GetFoodLevel();
+            GetScore();
+            GetHealth();
         }
 
-        private async Task GetPositionAsync()
+        private void GetPosition()
         {
             string result = rcon.SendCommand($"data get entity {PlayerName} Pos");
 
@@ -101,9 +97,9 @@ namespace MinecraftConnection.Entity
             PositionY = (int)value[1];
             PositionZ = (int)value[2];
         }
-        private async Task GetItemsAsync()
+        private void GetItems()
         {
-            string result = rcon.SendCommand($"/data get entity {PlayerName} Inventory");
+            string result = rcon.SendCommand($"data get entity {PlayerName} Inventory");
 
             if (result.Contains("No") || PlayerName == null)
                 throw new Exception("プレイヤーが見つかりません。");
@@ -199,9 +195,9 @@ namespace MinecraftConnection.Entity
                     LeftHandItem = item;
             }
         }
-        private async Task GetFoodLevelAsync()
+        private void GetFoodLevel()
         {
-            string result = rcon.SendCommand($"/data get entity {PlayerName} foodLevel");
+            string result = rcon.SendCommand($"data get entity {PlayerName} foodLevel");
 
             if (result.Contains("No") || PlayerName == "")
                 throw new Exception("プレイヤーが見つかりません。プレイヤー名が正しいか確認してください。");
@@ -209,9 +205,9 @@ namespace MinecraftConnection.Entity
             string filterResult = Regex.Replace(result, @"[^0-9]", "");
             FoodLevel = int.Parse(filterResult);
         }
-        private async Task GetScoreAsync()
+        private void GetScore()
         {
-            string result = rcon.SendCommand($"/data get entity {PlayerName} Score");
+            string result = rcon.SendCommand($"data get entity {PlayerName} Score");
 
             if (result.Contains("No") || PlayerName == "")
                 throw new Exception("プレイヤーが見つかりません。プレイヤー名が正しいか確認してください。");
@@ -219,9 +215,9 @@ namespace MinecraftConnection.Entity
             string filterResult = Regex.Replace(result, @"[^0-9]", "");
             Score = int.Parse(filterResult);
         }
-        private async Task GetHealthAsync()
+        private void GetHealth()
         {
-            string result = rcon.SendCommand($"/data get entity {PlayerName} Health");
+            string result = rcon.SendCommand($"data get entity {PlayerName} Health");
 
             if (result.Contains("No") || PlayerName == "")
                 throw new Exception("プレイヤーが見つかりません。プレイヤー名が正しいか確認してください。");

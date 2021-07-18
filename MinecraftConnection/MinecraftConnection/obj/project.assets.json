@@ -183,7 +183,7 @@
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
-    "version": "1.0.0-beta1",
+    "version": "1.0.0-beta2",
     "restore": {
       "projectUniqueName": "D:\\GitHub\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection.csproj",
       "projectName": "MinecraftConnection",

@@ -6,7 +6,7 @@ namespace ExampleApp
 {
     class Program
     {
-        static string address = "mstechcamp10.japaneast.cloudapp.azure.com";
+        static string address = "127.0.0.1";
         static readonly ushort port = 25575;
         static readonly string password = "minecraft";
         static MinecraftCommands commands = new MinecraftCommands(address, port, password);
@@ -15,17 +15,22 @@ namespace ExampleApp
         {
             string result = commands.SendCommand("time set midnight");
 
-            int x = -52 - 40;
+            // Azure用の座標
+            /*int x = -52 - 40;
             int y = 68;
-            int z = 92;
+            int z = 92;*/
+
+            // Local用の座標
+            int x = -961 + 20;
+            int y = 70;
+            int z = -798;
+
             while (true)
             {
                 Kiku(x, y, z, 30);
                 commands.Wait(2000);
             }
 
-            //Console.WriteLine(result);
-            
         }
 
         static void Kiku(int x, int y, int z, int time)

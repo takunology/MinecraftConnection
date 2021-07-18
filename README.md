@@ -8,7 +8,7 @@
 
 日本語版は[こちら](https://github.com/takunology/MinecraftConnection/blob/main/README_JP.md)
 
-This library is based on CoreRCON and extended for Minecraft that uses the C# language to enable Minecraft programming by sending commands to Minecraft. RCON connections are asynchronous, but this library allows users to use asynchronous methods without declaring them. When you create and run a program using this library, you need to start a minecraft server with RCON connection configured.
+MinecraftConnection is a library for sending commands via RCON using C# to help you learn and automate your programming. It can be run on a vanilla server as well as a Spigot server, including plugins. Before running the program, you need to start a Minecraft server that allows RCON connections.
 
 # 1. Preparation
 First, download the Minecraft Server software and run it in any game directory. A server configuration file called `server.properties` will be created. Specify the password and port number for the RCON connection, and enable the connection.
@@ -41,21 +41,21 @@ To run the program, start Minecraft Server and Minecraft itself (already logged 
 Set the time to 0 :
 
 ```cs
-using System.Net;
 using MinecraftConnection;
 
 namespace ExampleApp
 {
     class Program
     {
-        private static readonly IPAddress _address = IPAddress.Parse("127.0.0.1");
-        private static readonly ushort _port = 25575;
-        private static readonly string _pass = "minecraft";
-        private static MinecraftCommands command = new MinecraftCommands(_address, _port, _pass);
+        // IP address or DNS name.
+        static string address = "127.0.0.1";
+        static ushort port = 25575;
+        static string pass = "minecraft"
+        static MinecraftCommands command = new MinecraftCommands(address, port, pass);
 
         static void Main(string[] args)
         {
-            command.SendCommand("/time set 0");
+            command.SendCommand("time set 0");
         }
     }
 }
@@ -72,10 +72,10 @@ namespace ExampleApp
 {
     class Program
     {
-        private static readonly IPAddress _address = IPAddress.Parse("127.0.0.1");
-        private static readonly ushort _port = 25575;
-        private static readonly string _pass = "minecraft";
-        private static MinecraftCommands command = new MinecraftCommands(_address, _port, _pass);
+        static string address = "127.0.0.1";
+        static ushort port = 25575;
+        static string pass = "minecraft"
+        static MinecraftCommands command = new MinecraftCommands(address, port, pass);
 
         static void Main(string[] args)
         {

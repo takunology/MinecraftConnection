@@ -13,7 +13,7 @@ namespace MinecraftConnection.RCON
 {
     public class MinecraftRCON
     {
-        private const int MaximumPacketPayloadLength = 4110;
+        private const int MaximumPacketLength = 4110;
 
         private TcpClient _client;
         private NetworkStream _networkStream;
@@ -50,7 +50,7 @@ namespace MinecraftConnection.RCON
             _networkStream.Write(encodedPacket, 0, encodedPacket.Length);
 
             // 実行結果受け取り
-            var responcePacket = new byte[MaximumPacketPayloadLength];
+            var responcePacket = new byte[MaximumPacketLength];
             var readPacket = _networkStream.Read(responcePacket, 0, responcePacket.Length);
             Array.Resize(ref responcePacket, readPacket);
 
