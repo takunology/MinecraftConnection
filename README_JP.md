@@ -27,7 +27,7 @@ enable-rcon=true
 NuGet パッケージマネージャにて `MinecraftConnection` をインストールするか、パッケージマネージャコンソールにて次のコマンドを実行します。（現在はプレリリース版です。）
 
 ```
-Install-Package MinecraftConnection -Version 1.0.0-beta1
+Install-Package MinecraftConnection -Version 1.0.0-beta2
 ```
 詳細：https://www.nuget.org/packages/MinecraftConnection
 </br>
@@ -38,7 +38,6 @@ Install-Package MinecraftConnection -Version 1.0.0-beta1
 例）時間を 0 に設定するプログラム
 
 ```cs
-using System.Net;
 using MinecraftConnection;
 
 namespace ExampleApp
@@ -62,7 +61,6 @@ namespace ExampleApp
 例）花火を打ち上げるプログラム
 
 ```cs
-using System.Net;
 using MinecraftConnection;
 using MinecraftConnection.Items;
 

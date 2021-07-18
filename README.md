@@ -29,7 +29,7 @@ This library is intended for `.NET Standard 2.0` and above. This section describ
 Install `MinecraftConnection` with the NuGet package manager, or run the following command in the package manager console. (This is currently a pre-release version.)
 
 ```
-Install-Package MinecraftConnection -Version 1.0.0-beta1
+Install-Package MinecraftConnection -Version 1.0.0-beta2
 ```
 
 Detail：https://www.nuget.org/packages/MinecraftConnection
@@ -64,7 +64,6 @@ namespace ExampleApp
 Set off fireworks :
 
 ```cs
-using System.Net;
 using MinecraftConnection;
 using MinecraftConnection.Items;
 
