@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Takumi Okawa (Takunology)</Authors>
     <Company>Minecraft_with_Code_Project</Company>
-    <Version>1.0.0-beta2</Version>
+    <Version>1.0.0</Version>
     <PackageId>MinecraftConnection</PackageId>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -17,10 +17,10 @@
     <Copyright>Copyright (c) 2021 Takumi Okawa (Takunology)</Copyright>
     <PackageIconUrl />
     <PackageTags>Minecraft</PackageTags>
-    <PackageReleaseNotes>- Implemented RCON connection.
-- Spigot server support.
-- Minecraft 1.17.1 support
-- Support to DNS name server</PackageReleaseNotes>
+    <PackageReleaseNotes>- Add TimeSet Method
+- Disable "stop" command
+
+The stop command is disabled due to the risk of stopping the server by RCON remote control. Executing the stop command in SendCommand method will raise an exception.</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 

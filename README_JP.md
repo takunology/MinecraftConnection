@@ -24,10 +24,10 @@ enable-rcon=true
 # 2. プロジェクト作成
 本ライブラリは `.NET Standard 2.0` 以上が対象となっています。ここでは、.NET 5 コンソールアプリケーションを用いた作成方法をについて説明します。
 
-NuGet パッケージマネージャにて `MinecraftConnection` をインストールするか、パッケージマネージャコンソールにて次のコマンドを実行します。（現在はプレリリース版です。）
+NuGet パッケージマネージャにて `MinecraftConnection` をインストールするか、パッケージマネージャコンソールにて次のコマンドを実行します。
 
 ```
-Install-Package MinecraftConnection -Version 1.0.0-beta2
+Install-Package MinecraftConnection
 ```
 詳細：https://www.nuget.org/packages/MinecraftConnection
 </br>
@@ -95,6 +95,8 @@ namespace ExampleApp
 実行結果
 
 <img src="./images/fireworks_sample.png" width="550" hspace="0" vspace="10">
+
+セキュリティ強化のため、`stop` コマンドは使用出来ないようになっています。`SendCommand` メソッドで `stop` コマンドを実行使用とすると例外が発生し、プログラムが止まるようになっています。
 
 </br>
 

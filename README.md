@@ -26,10 +26,10 @@ After adding it save the file and restart the server.   Launch Minecraft launche
 # 2. Create Project
 This library is intended for `.NET Standard 2.0` and above. This section describes how to create a .NET 5 console application. 
 
-Install `MinecraftConnection` with the NuGet package manager, or run the following command in the package manager console. (This is currently a pre-release version.)
+Install `MinecraftConnection` with the NuGet package manager, or run the following command in the package manager console. 
 
 ```
-Install-Package MinecraftConnection -Version 1.0.0-beta2
+Install-Package MinecraftConnection
 ```
 
 Detail：https://www.nuget.org/packages/MinecraftConnection
@@ -99,6 +99,8 @@ namespace ExampleApp
 Result :
 
 <img src="./images/fireworks_sample.png" width="550" hspace="0" vspace="10">
+
+The stop command is disabled due to the risk of stopping the server by RCON remote control. Executing the stop command in SendCommand method will raise an exception.
 
 </br>
 
