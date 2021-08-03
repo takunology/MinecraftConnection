@@ -22,7 +22,19 @@ namespace MinecraftConnection
     {
         public string SendCommand(string command)
         {
+            if (command.Equals("stop")) 
+                throw new System.Exception("stopコマンドは直接サーバコンソールから実行してください。");
             return rcon.SendCommand(command);
+        }
+
+        public string TimeSet(int time)
+        {
+            return rcon.SendCommand($"time set {time}");
+        }
+
+        public string TimeSet(MinecraftTime.TimeSet Time)
+        {
+            return rcon.SendCommand($"time set {Time.GetHashCode()}");
         }
 
         public string DisplayTitle(object Text)
@@ -101,6 +113,18 @@ namespace MinecraftConnection
         public string GivePotion(string PlayerName, Potion Potion, int Count)
         {
             return  rcon.SendCommand($"give {PlayerName} potion{Potion.ToNBT()} {Count}");
+        }
+    }
+
+    //列挙体
+    public static class MinecraftTime
+    {
+        public enum TimeSet : int
+        {
+            DAY = 1000,
+            NOON = 6000, 
+            NIGHT = 13000,
+            MIDNIGHT = 18000
         }
     }
 }
