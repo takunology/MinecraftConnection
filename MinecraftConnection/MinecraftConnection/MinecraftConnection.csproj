@@ -12,7 +12,7 @@
     <PackageIcon>MCLogo.png</PackageIcon>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/takunology/MinecraftConnection</RepositoryUrl>
-    <Description>MinecraftConnection is a library for sending commands via RCON using C# to help you learn and automate your programming. It can be run on a vanilla server as well as a Spigot server, including plugins. Before running the program, you need to start a Minecraft server that allows RCON connections.</Description>
+    <Description>MinecraftConnection is a library for sending commands via RCON using C# to support you learn and automate your programming. It can be run on a vanilla server as well as a Spigot server, including plugins. Before running the program, you need to start a Minecraft server that allows RCON connections.</Description>
     <PackageLicenseFile></PackageLicenseFile>
     <Copyright>Copyright (c) 2021 Takumi Okawa (Takunology)</Copyright>
     <PackageIconUrl />

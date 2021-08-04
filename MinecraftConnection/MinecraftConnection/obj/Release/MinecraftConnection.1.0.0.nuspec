@@ -8,7 +8,7 @@
     <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
     <icon>MCLogo.png</icon>
     <projectUrl>https://www.mcwithcode.com/</projectUrl>
-    <description>MinecraftConnection is a library for sending commands via RCON using C# to help you learn and automate your programming. It can be run on a vanilla server as well as a Spigot server, including plugins. Before running the program, you need to start a Minecraft server that allows RCON connections.</description>
+    <description>MinecraftConnection is a library for sending commands via RCON using C# to support you learn and automate your programming. It can be run on a vanilla server as well as a Spigot server, including plugins. Before running the program, you need to start a Minecraft server that allows RCON connections.</description>
     <releaseNotes>- Add TimeSet Method
 - Disable "stop" command
 
