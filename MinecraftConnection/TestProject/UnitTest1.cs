@@ -15,10 +15,10 @@ namespace TestProject
         [TestMethod]
         public void CommandTest()
         {
-            commands.TimeSet(MinecraftTime.TimeSet.MIDNIGHT);
+            commands.DisplayMessage("Hello");
         }
 
-        [TestMethod]
+        //[TestMethod]
         public void FireworksTest()
         {
             // AzureópÇÃç¿ïW

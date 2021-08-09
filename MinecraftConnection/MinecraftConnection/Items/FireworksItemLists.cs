@@ -5,7 +5,7 @@ namespace MinecraftConnection.Items
     /// <summary>
     /// 花火の形ごとにまとめた花火アイテムリストです。
     /// </summary>
-    public class FireworksItemItemList
+    public class FireworksItemLists
     {
         public static List<Fireworks> LeargeBallList = new List<Fireworks>
         {
