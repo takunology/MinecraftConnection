@@ -1,24 +1,24 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MinecraftConnection;
 using MinecraftConnection.Items;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestProject
-{
+{ 
     [TestClass]
-    public class UnitTest1
+    public class Sample
     {
         static string address = "127.0.0.1";
         static ushort port = 25575;
         static string pass = "minecraft";
         static MinecraftCommands commands = new MinecraftCommands(address, port, pass);
-        
+
         [TestMethod]
         public void CommandTest()
         {
-            commands.TimeSet(MinecraftTime.TimeSet.MIDNIGHT);
+            commands.DisplayMessage("Hello");
         }
-        
-        [TestMethod]
+
+        //[TestMethod]
         public void FireworksTest()
         {
             // AzureópÇÃç¿ïW
@@ -60,4 +60,5 @@ namespace TestProject
             commands.SetOffFireworks(x, y, z + 28, fireworksIn);
         }
     }
+
 }

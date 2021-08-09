@@ -44,7 +44,7 @@ namespace MinecraftConnection
 
         public string DisplayMessage(object Text)
         {
-            return rcon.SendCommand(Text.ToString());
+            return rcon.SendCommand($"say {Text}");
         }
 
         public string SetBlock(int x, int y, int z, string BlockItem)
@@ -62,7 +62,7 @@ namespace MinecraftConnection
             return rcon.SendCommand($"effect give {PlayerName} {Effect} {Time}");
         }
 
-        public string GiveEffect(int x, int y, int z, string Entity)
+        public string Summon(int x, int y, int z, string Entity)
         {
             return rcon.SendCommand($"summon {Entity} {x} {y} {z}");
         }

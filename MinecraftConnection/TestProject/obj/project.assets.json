@@ -1661,7 +1661,7 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "MinecraftConnection/1.0.0": {
+      "MinecraftConnection/1.0.1": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "compile": {
@@ -6114,7 +6114,7 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "MinecraftConnection/1.0.0": {
+    "MinecraftConnection/1.0.1": {
       "type": "project",
       "path": "../MinecraftConnection/MinecraftConnection.csproj",
       "msbuildProject": "../MinecraftConnection/MinecraftConnection.csproj"
@@ -6125,7 +6125,7 @@
       "MSTest.TestAdapter >= 2.2.3",
       "MSTest.TestFramework >= 2.2.3",
       "Microsoft.NET.Test.Sdk >= 16.9.4",
-      "MinecraftConnection >= 1.0.0",
+      "MinecraftConnection >= 1.0.1",
       "coverlet.collector >= 3.0.2"
     ]
   },

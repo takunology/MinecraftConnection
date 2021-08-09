@@ -96,7 +96,7 @@ namespace ExampleApp
 
 <img src="./images/fireworks_sample.png" width="550" hspace="0" vspace="10">
 
-RCONの遠隔操作によってサーバを停止させる危険性があるため、`stop` コマンドは使用出来ないようになっています。`SendCommand` メソッドで `stop` コマンドを実行しようとすると例外が発生し、プログラムが止まるようになっています。
+RCONの遠隔操作によってサーバを停止させる危険性があるため、`stop` コマンドは使用出来ないようになっています。`SendCommand` メソッドで `stop` コマンドを実行使用とすると例外が発生し、プログラムが止まるようになっています。
 
 </br>
 

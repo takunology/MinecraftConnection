@@ -2,17 +2,16 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>MinecraftConnection</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <authors>Takumi Okawa (Takunology)</authors>
     <license type="expression">MIT</license>
     <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
     <icon>MCLogo.png</icon>
     <projectUrl>https://www.mcwithcode.com/</projectUrl>
     <description>MinecraftConnection is a library for sending commands via RCON using C# to support you learn and automate your programming. It can be run on a vanilla server as well as a Spigot server, including plugins. Before running the program, you need to start a Minecraft server that allows RCON connections.</description>
-    <releaseNotes>- Add TimeSet Method
-- Disable "stop" command
+    <releaseNotes>- Fixed MinecraftConnection Methods
 
-The stop command is disabled due to the risk of stopping the server by RCON remote control. Executing the stop command in SendCommand method will raise an exception.</releaseNotes>
+Some of the method names in MinecraftConnection were wrong, they have been fixed.</releaseNotes>
     <copyright>Copyright (c) 2021 Takumi Okawa (Takunology)</copyright>
     <tags>Minecraft</tags>
     <repository type="git" url="https://github.com/takunology/MinecraftConnection" />

@@ -11,7 +11,7 @@
           "MSTest.TestAdapter": "2.2.3",
           "MSTest.TestFramework": "2.2.3",
           "Microsoft.NET.Test.Sdk": "16.9.4",
-          "MinecraftConnection": "1.0.0-beta2",
+          "MinecraftConnection": "1.0.0",
           "coverlet.collector": "3.0.2"
         },
         "runtime": {
@@ -1077,7 +1077,7 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-      "MinecraftConnection/1.0.0-beta2": {
+      "MinecraftConnection/1.0.0": {
         "runtime": {
           "MinecraftConnection.dll": {}
         }
@@ -1706,7 +1706,7 @@
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
     },
-    "MinecraftConnection/1.0.0-beta2": {
+    "MinecraftConnection/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
