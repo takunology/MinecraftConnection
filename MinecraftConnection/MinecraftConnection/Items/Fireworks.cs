@@ -1,117 +1,71 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace MinecraftConnection.Items
 {
     /// <summary>
     /// 花火を作るためのクラスです。
     /// </summary>
-    public partial class Fireworks
+    public class Fireworks
     {
-        public int LifeTime { get; set; }
-        public int FlightDuration { get; set; }
-        public FireworksShapes Shape { get; set; }
-        public bool Flicker { get; set; }
-        public bool Trail { get; set; }
-        public List<FireworksColors> ExplosionColors { get; set; }
-        public List<FireworksColors> FadeColors { get; set; }
-        public double MotionX { get; set; } = 0.0;
-        public double MotionY { get; set; } = 0.0;
-        public double MotionZ { get; set; } = 0.0;
+        public int LifeTime = 0;
+        public FireworksShapes Shape;
+        public bool Flicker;
+        public bool Trail;
+        public List<FireworksColors> ExplosionColors;
+        public List<FireworksColors> FadeColors;
+        public double MotionX = 0.0;
+        public double MotionY = 0.0;
+        public double MotionZ = 0.0;
+        /// <summary>
+        /// 花火をつくります。
+        /// </summary>
+        public Fireworks(int LifeTime, FireworksShapes Shape, FireworksColors ExplosionColors, FireworksColors FadeColors)
+        {
+            this.LifeTime = LifeTime;
+            this.Shape = Shape;
+            this.ExplosionColors = SetColor(ExplosionColors);
+            this.FadeColors = SetColor(FadeColors);
+        }
+        /// <summary>
+        /// 花火をつくります。
+        /// </summary>
+        public Fireworks(int LifeTime, FireworksShapes Shape, List<FireworksColors> ExplosionColors, List<FireworksColors> FadeColors)
+        {
+            this.LifeTime = LifeTime;
+            this.Shape = Shape;
+            this.ExplosionColors = ExplosionColors;
+            this.FadeColors = FadeColors;
+        }
+        /// <summary>
+        /// 花火をつくります。
+        /// </summary>
+        public Fireworks(int LifeTime, FireworksShapes Shape, FireworksColors ExplosionColors, List<FireworksColors> FadeColors)
+        {
+            this.LifeTime = LifeTime;
+            this.Shape = Shape;
+            this.ExplosionColors = SetColor(ExplosionColors);
+            this.FadeColors = FadeColors;
+        }
+        /// <summary>
+        /// 花火をつくります。
+        /// </summary>
+        public Fireworks(int LifeTime, FireworksShapes Shape, List<FireworksColors> ExplosionColors, FireworksColors FadeColors)
+        {
+            this.LifeTime = LifeTime;
+            this.Shape = Shape;
+            this.ExplosionColors = ExplosionColors;
+            this.FadeColors = SetColor(FadeColors);
+        }
 
-        /// <summary>
-        /// 花火をつくります。
-        /// </summary>
-        /// <param name="LifeTime">花火が咲くまでの時間</param>
-        /// <param name="FlightDuration">飛行距離(1～3段階)</param>
-        /// <param name="Shape">花火が咲いたときの形状</param>
-        /// <param name="Flicker">きらめきの有無</param>
-        /// <param name="Trail">流星の有無</param>
-        /// <param name="ExplosionColors">咲いたときの色</param>
-        /// <param name="FadeColors">散るときの色</param>
-        public Fireworks(int LifeTime, byte FlightDuration, FireworksShapes Shape, bool Flicker, bool Trail, List<FireworksColors> ExplosionColors, List<FireworksColors> FadeColors)
-        {
-            this.LifeTime = LifeTime;
-            this.FlightDuration = SetFlightDuration(FlightDuration);
-            this.Shape = Shape;
-            this.Flicker = Flicker;
-            this.Trail = Trail;
-            this.ExplosionColors = ExplosionColors;
-            this.FadeColors = FadeColors;
-        }
-        /// <summary>
-        /// 花火をつくります。
-        /// </summary>
-        /// <param name="LifeTime">花火が咲くまでの時間</param>
-        /// <param name="FlightDuration">飛行距離(1～3段階)</param>
-        /// <param name="Shape">花火が咲いたときの形状</param>
-        /// <param name="Flicker">きらめきの有無</param>
-        /// <param name="Trail">流星の有無</param>
-        /// <param name="ExplosionColors">咲いたときの色（単色）</param>
-        /// <param name="FadeColors">散るときの色（単色）</param>
-        public Fireworks(int LifeTime, byte FlightDuration, FireworksShapes Shape, bool Flicker, bool Trail, FireworksColors ExplosionColors, FireworksColors FadeColors)
-        {
-            this.LifeTime = LifeTime;
-            this.FlightDuration = SetFlightDuration(FlightDuration);
-            this.Shape = Shape;
-            this.Flicker = Flicker;
-            this.Trail = Trail;
-            this.ExplosionColors = SetColor(ExplosionColors);
-            this.FadeColors = SetColor(FadeColors);
-        }
-        /// <summary>
-        /// 花火をつくります。
-        /// </summary>
-        /// <param name="LifeTime">花火が咲くまでの時間</param>
-        /// <param name="FlightDuration">飛行距離(1～3段階)</param>
-        /// <param name="Shape">花火が咲いたときの形状</param>
-        /// <param name="Flicker">きらめきの有無</param>
-        /// <param name="Trail">流星の有無</param>
-        /// <param name="ExplosionColors">咲いたときの色（単色）</param>
-        /// <param name="FadeColors">散るときの色</param>
-        public Fireworks(int LifeTime, byte FlightDuration, FireworksShapes Shape, bool Flicker, bool Trail, FireworksColors ExplosionColors, List<FireworksColors> FadeColors)
-        {
-            this.LifeTime = LifeTime;
-            this.FlightDuration = SetFlightDuration(FlightDuration);
-            this.Shape = Shape;
-            this.Flicker = Flicker;
-            this.Trail = Trail;
-            this.ExplosionColors = SetColor(ExplosionColors);
-            this.FadeColors = FadeColors;
-        }
-        /// <summary>
-        /// 花火をつくります。
-        /// </summary>
-        /// <param name="LifeTime">花火が咲くまでの時間</param>
-        /// <param name="FlightDuration">飛行距離(1～3段階)</param>
-        /// <param name="Shape">花火が咲いたときの形状</param>
-        /// <param name="Flicker">きらめきの有無</param>
-        /// <param name="Trail">流星の有無</param>
-        /// <param name="ExplosionColors">咲いたときの色</param>
-        /// <param name="FadeColors">散るときの色（単色）</param>
-        public Fireworks(int LifeTime, byte FlightDuration, FireworksShapes Shape, bool Flicker, bool Trail, List<FireworksColors> ExplosionColors, FireworksColors FadeColors)
-        {
-            this.LifeTime = LifeTime;
-            this.FlightDuration = SetFlightDuration(FlightDuration);
-            this.Shape = Shape;
-            this.Flicker = Flicker;
-            this.Trail = Trail;
-            this.ExplosionColors = ExplosionColors;
-            this.FadeColors = SetColor(FadeColors);
-        }
-        
-        private int SetFlightDuration(int FlightDuration)
-        {
-            if (FlightDuration == 0) return 1;
-            else if (FlightDuration > 3) return 3;
-            else return FlightDuration;
-        }
+        //もしかしたらいらないかも？
         private List<FireworksColors> SetColor(FireworksColors Color)
         {
             List<FireworksColors> Colors = new List<FireworksColors> { Color };
             return Colors;
         }
     }
-        
+
     public enum FireworksShapes : int
     {
         SmallBall = 0,
@@ -139,18 +93,5 @@ namespace MinecraftConnection.Items
         MAGENTA = 12801229,
         ORANGE = 15435844,
         WHITE = 15790320
-    }
-
-    public static class FireworksMotion
-    {
-        public static Fireworks Motion(this Fireworks fireworks, double x, double y, double z)
-        {
-            return new Fireworks(fireworks.LifeTime, (byte)fireworks.FlightDuration, fireworks.Shape, fireworks.Flicker, fireworks.Trail, fireworks.ExplosionColors, fireworks.FadeColors)
-            {
-                MotionX = x,
-                MotionY = y,
-                MotionZ = z
-            };
-        }
     }
 }
