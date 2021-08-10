@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Takumi Okawa (Takunology)</Authors>
     <Company>Minecraft_with_Code_Project</Company>
-    <Version>1.0.1</Version>
+    <Version>1.1.0</Version>
     <PackageId>MinecraftConnection</PackageId>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -17,9 +17,14 @@
     <Copyright>Copyright (c) 2021 Takumi Okawa (Takunology)</Copyright>
     <PackageIconUrl />
     <PackageTags>Minecraft</PackageTags>
-    <PackageReleaseNotes>- Fixed MinecraftConnection Methods
+    <PackageReleaseNotes>Version 1.1.0 - Fireworks Update
 
-Some of the method names in MinecraftConnection were wrong, they have been fixed.</PackageReleaseNotes>
+- Modify the constructor of the Fireworks class
+- Add a method to set the color of fireworks to random.
+
+Some of the constructor arguments have been reduced because they are too many. Instead, an extension method is able to used to set the Flicker and Trail.
+
+Setting the colors of the fireworks to random makes it easy to set off colorful fireworks.</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 

@@ -88,7 +88,7 @@ namespace ExampleApp
             List<FireworksColors> explosionColor = new List<FireworksColors>() { FireworksColors.BLUE };
             List<FireworksColors> fadeColor = new List<FireworksColors>() { FireworksColors.CYAN };
             // Make the fireworks item
-            Fireworks fireworks = new Fireworks(20, 2, FireworksShapes.LargeBall, false, true, explosionColor, fadeColor);
+            Fireworks fireworks = new Fireworks(20, FireworksShapes.LargeBall, explosionColor, fadeColor).Trail();
             // Set off fireworks
             command.SetOffFireworks(x + 10, y, z, fireworks);
         }

@@ -8,15 +8,13 @@ namespace MinecraftConnection.NBT
         /// <summary>
         /// 花火のNBTタグを取得します。
         /// </summary>
-        /// <param name="Item"></param>
-        /// <returns></returns>
         public static string ToNBT(this Fireworks Item)
         {
             string nbt = "";
             if(Item.MotionX.Equals(0.0) && Item.MotionY.Equals(0.0) && Item.MotionZ.Equals(0.0))
             {
                 nbt = "{LifeTime:" + Item.LifeTime
-                    + ",FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:" + Item.FlightDuration
+                    + ",FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:" + "2"
                     + ",Explosions:[{Type:" + Item.Shape.GetHashCode()
                     + ",Flicker:" + BoolToString(Item.Flicker)
                     + ",Trail:" + BoolToString(Item.Trail)
@@ -26,7 +24,7 @@ namespace MinecraftConnection.NBT
             else
             {
                 nbt = "{LifeTime:" + Item.LifeTime
-                    + ",FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:" + Item.FlightDuration
+                    + ",FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:" + "2"
                     + ",Explosions:[{Type:" + Item.Shape.GetHashCode()
                     + ",Flicker:" + BoolToString(Item.Flicker)
                     + ",Trail:" + BoolToString(Item.Trail)

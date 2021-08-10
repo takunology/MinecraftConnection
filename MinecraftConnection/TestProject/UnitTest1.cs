@@ -1,5 +1,7 @@
 using MinecraftConnection;
 using MinecraftConnection.Items;
+using MinecraftConnection.NBT;
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestProject
@@ -15,7 +17,20 @@ namespace TestProject
         [TestMethod]
         public void CommandTest()
         {
-            commands.DisplayMessage("Hello");
+            int x = -961 + 20;
+            int y = 70;
+            int z = -798;
+
+            var rnd = new Random();
+
+            for (int i = 0; i < 100; i++)
+            {
+                Fireworks fireworks = new Fireworks(20, FireworksShapes.LargeBall, FireworksOptions.RandomColors(0, 5), FireworksOptions.RandomColors(0, 5)).Trail();
+                Console.WriteLine(fireworks.ToNBT());
+                commands.SetOffFireworks(x + rnd.Next(0, 20), y + rnd.Next(-5, 10), z + rnd.Next(-30, 30), fireworks);
+                commands.Wait(100);
+            }
+            
         }
 
         //[TestMethod]
@@ -42,20 +57,20 @@ namespace TestProject
 
         public void Kiku(int x, int y, int z, int time)
         {
-            Fireworks fireworksIn = new Fireworks(time, 2, FireworksShapes.SmallBall, false, true, FireworksColors.RED, FireworksColors.RED);
-            Fireworks fireworksOut = new Fireworks(time, 2, FireworksShapes.LargeBall, false, true, FireworksColors.ORANGE, FireworksColors.ORANGE);
+            Fireworks fireworksIn = new Fireworks(time, FireworksShapes.SmallBall, FireworksColors.RED, FireworksColors.RED).Trail();
+            Fireworks fireworksOut = new Fireworks(time, FireworksShapes.LargeBall, FireworksColors.ORANGE, FireworksColors.ORANGE).Trail();
             commands.SetOffFireworks(x, y, z, fireworksOut);
             commands.SetOffFireworks(x, y, z, fireworksIn);
             commands.Wait(1000);
 
-            fireworksIn = new Fireworks(time, 2, FireworksShapes.SmallBall, false, true, FireworksColors.GREEN, FireworksColors.GREEN);
-            fireworksOut = new Fireworks(time, 2, FireworksShapes.LargeBall, false, true, FireworksColors.LIME, FireworksColors.LIME);
+            fireworksIn = new Fireworks(time, FireworksShapes.SmallBall, FireworksColors.GREEN, FireworksColors.GREEN).Trail();
+            fireworksOut = new Fireworks(time, FireworksShapes.LargeBall, FireworksColors.LIME, FireworksColors.LIME).Trail();
             commands.SetOffFireworks(x, y, z + 14, fireworksOut);
             commands.SetOffFireworks(x, y, z + 14, fireworksIn);
             commands.Wait(1000);
 
-            fireworksIn = new Fireworks(time, 2, FireworksShapes.SmallBall, false, true, FireworksColors.BLUE, FireworksColors.BLUE);
-            fireworksOut = new Fireworks(time, 2, FireworksShapes.LargeBall, false, true, FireworksColors.LIGHTBLUE, FireworksColors.LIGHTBLUE);
+            fireworksIn = new Fireworks(time, FireworksShapes.SmallBall, FireworksColors.BLUE, FireworksColors.BLUE);
+            fireworksOut = new Fireworks(time, FireworksShapes.LargeBall, FireworksColors.LIGHTBLUE, FireworksColors.LIGHTBLUE);
             commands.SetOffFireworks(x, y, z + 28, fireworksOut);
             commands.SetOffFireworks(x, y, z + 28, fireworksIn);
         }
