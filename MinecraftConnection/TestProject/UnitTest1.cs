@@ -14,7 +14,7 @@ namespace TestProject
         static string pass = "minecraft";
         static MinecraftCommands commands = new MinecraftCommands(address, port, pass);
 
-        [TestMethod]
+        //[TestMethod]
         public void CommandTest()
         {
             int x = -961 + 20;
@@ -29,8 +29,14 @@ namespace TestProject
                 Console.WriteLine(fireworks.ToNBT());
                 commands.SetOffFireworks(x + rnd.Next(0, 20), y + rnd.Next(-5, 10), z + rnd.Next(-30, 30), fireworks);
                 commands.Wait(100);
-            }
-            
+            }     
+        }
+
+        [TestMethod]
+        public void GetPos()
+        {
+            var playerData = commands.GetPlayerData("takunology");
+            Console.WriteLine($"{playerData.PositionX} {playerData.PositionY} {playerData.PositionZ}");
         }
 
         //[TestMethod]

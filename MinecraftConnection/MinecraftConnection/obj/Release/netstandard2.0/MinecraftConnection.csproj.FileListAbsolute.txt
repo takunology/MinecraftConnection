@@ -7,3 +7,4 @@ D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Releas
 D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Release\netstandard2.0\MinecraftConnection.dll
 D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Release\netstandard2.0\MinecraftConnection.pdb
 D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Release\netstandard2.0\MinecraftConnection.csproj.AssemblyReference.cache
+D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Release\netstandard2.0\MinecraftConnection.GeneratedMSBuildEditorConfig.editorconfig

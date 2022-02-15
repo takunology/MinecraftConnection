@@ -85,8 +85,9 @@ namespace MinecraftConnection.Entity
             if (result.Contains("Not") || PlayerName == null)
                 throw new Exception("プレイヤーが見つかりません。");
 
-            string filterResult = Regex.Replace(result, @"[^0-9-,.]", "");
-            string[] splitResult = filterResult.Split(',');
+            result.Substring(result.IndexOf("data"));
+            result = Regex.Replace(result, @"[^0-9-,.]", "");
+            string[] splitResult = result.Split(',');
             float[] value = new float[]
             {
                 float.Parse(splitResult[0]),

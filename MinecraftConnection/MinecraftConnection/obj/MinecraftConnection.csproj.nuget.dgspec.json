@@ -5,7 +5,7 @@
   },
   "projects": {
     "D:\\GitHub\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection.csproj": {
-      "version": "1.1.0",
+      "version": "1.1.1",
       "restore": {
         "projectUniqueName": "D:\\GitHub\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection.csproj",
         "projectName": "MinecraftConnection",
@@ -28,6 +28,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "D:\\GitHub\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection\\bin\\Release": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -64,7 +65,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

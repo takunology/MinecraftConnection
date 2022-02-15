@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Takumi Okawa (Takunology)</Authors>
     <Company>Minecraft_with_Code_Project</Company>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
     <PackageId>MinecraftConnection</PackageId>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -17,14 +17,9 @@
     <Copyright>Copyright (c) 2021 Takumi Okawa (Takunology)</Copyright>
     <PackageIconUrl />
     <PackageTags>Minecraft</PackageTags>
-    <PackageReleaseNotes>Version 1.1.0 - Fireworks Update
+    <PackageReleaseNotes>Version 1.1.1 - Fixed GetplayerData().Position
 
-- Modify the constructor of the Fireworks class
-- Add a method to set the color of fireworks to random.
-
-Some of the constructor arguments have been reduced because they are too many. Instead, an extension method is able to used to set the Flicker and Trail.
-
-Setting the colors of the fireworks to random makes it easy to set off colorful fireworks.</PackageReleaseNotes>
+Fixed a bug that prevented the correct coordinates from being retrieved if the player name contained numbers or symbols.</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
