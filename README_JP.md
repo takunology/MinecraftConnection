@@ -4,7 +4,6 @@
 </div>
 
 ![](https://img.shields.io/badge/Minecraft%20Version-1.15~-brightgreen)
-[![CircleCI](https://circleci.com/gh/takunology/MinecraftConnection/tree/main.svg?style=shield)](https://circleci.com/gh/takunology/MinecraftConnection/tree/main)
  
 MinecraftConnectionはC#を用いてRCONでコマンドを送るためのライブラリです。マイクラによるC#プログラミングの学習や自動化に応用することができます。バニラ版（通常版）のサーバーだけでなく、プラグインを含むSpigotサーバーでも実行できます。プログラムを実行する前に、RCON 接続が可能な Minecraft サーバーを起動する必要があります。 </br>
 

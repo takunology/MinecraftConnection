@@ -4,7 +4,6 @@
 </div>
 
 ![](https://img.shields.io/badge/Minecraft%20Version-1.15~-brightgreen)
-[![CircleCI](https://circleci.com/gh/takunology/MinecraftConnection/tree/main.svg?style=shield)](https://circleci.com/gh/takunology/MinecraftConnection/tree/main)
 
 日本語版は[こちら](https://github.com/takunology/MinecraftConnection/blob/main/README_JP.md)
 
