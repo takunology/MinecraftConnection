@@ -16,7 +16,9 @@ Fixed a bug that prevented the correct coordinates from being retrieved if the p
     <tags>Minecraft</tags>
     <repository type="git" url="https://github.com/takunology/MinecraftConnection" />
     <dependencies>
-      <group targetFramework=".NETStandard2.0" />
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="System.Text.Json" version="6.0.3" exclude="Build,Analyzers" />
+      </group>
     </dependencies>
   </metadata>
   <files>

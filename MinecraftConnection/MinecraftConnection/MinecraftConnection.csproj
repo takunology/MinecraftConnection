@@ -31,4 +31,8 @@ Fixed a bug that prevented the correct coordinates from being retrieved if the p
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="6.0.3" />
+  </ItemGroup>
+
 </Project>
