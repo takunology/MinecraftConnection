@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using MinecraftConnection.Extends;
@@ -9,14 +10,9 @@ namespace MinecraftConnection.Entity
     public class EntityBase
     {
         public string EntityId { get; protected set; }
-        public double PosX { get; protected set; }
-        public double PosY { get; protected set; }
-        public double PosZ { get; protected set; }
-        public double RotationX { get; protected set; }
-        public double RotationY { get; protected set; }
-        public double MotionX { get; protected set; }
-        public double MotionY { get; protected set; }
-        public double MotionZ { get; protected set; }
+        public Position Postision { get; set; }
+        public Rotation Rotation { get; set; }
+        public Motion Motion { get; set; }
         public double FallDistance { get; protected set; }
         public short Fire { get; protected set; }
         public short Air { get; protected set; }
@@ -33,22 +29,25 @@ namespace MinecraftConnection.Entity
 
         public void GetPosition()
         {     
-            PosX = PublicRcon.Rcon.SendCommand($"data get entity {EntityId} Pos[0]").DataToDouble();
-            PosY = PublicRcon.Rcon.SendCommand($"data get entity {EntityId} Pos[1]").DataToDouble();
-            PosZ = PublicRcon.Rcon.SendCommand($"data get entity {EntityId} Pos[2]").DataToDouble();
+            double posX = PublicRcon.Rcon.SendCommand($"data get entity {EntityId} Pos[0]").DataToDouble();
+            double posY = PublicRcon.Rcon.SendCommand($"data get entity {EntityId} Pos[1]").DataToDouble();
+            double posZ = PublicRcon.Rcon.SendCommand($"data get entity {EntityId} Pos[2]").DataToDouble();
+            this.Postision = new Position(posX, posY, posZ);
         }
 
         public void GetRotation()
         {
-            RotationX = PublicRcon.Rcon.SendCommand($"data get entity {EntityId} Rotation[0]").DataToDouble();
-            RotationY = PublicRcon.Rcon.SendCommand($"data get entity {EntityId} Rotation[1]").DataToDouble();
+            double rotX = PublicRcon.Rcon.SendCommand($"data get entity {EntityId} Rotation[0]").DataToDouble();
+            double rotY = PublicRcon.Rcon.SendCommand($"data get entity {EntityId} Rotation[1]").DataToDouble();
+            this.Rotation = new Rotation(rotX, rotY);
         }
 
         public void GetMotion()
         {
-            MotionX = PublicRcon.Rcon.SendCommand($"data get entity {EntityId} Motion[0]").DataToDouble();
-            MotionY = PublicRcon.Rcon.SendCommand($"data get entity {EntityId} Motion[1]").DataToDouble();
-            MotionZ = PublicRcon.Rcon.SendCommand($"data get entity {EntityId} Motion[2]").DataToDouble();
+            double motX = PublicRcon.Rcon.SendCommand($"data get entity {EntityId} Motion[0]").DataToDouble();
+            double motY = PublicRcon.Rcon.SendCommand($"data get entity {EntityId} Motion[1]").DataToDouble();
+            double motZ = PublicRcon.Rcon.SendCommand($"data get entity {EntityId} Motion[2]").DataToDouble();
+            this.Motion = new Motion(motX, motY, motZ);
         }
 
         public void GetFallDistance()
@@ -81,5 +80,50 @@ namespace MinecraftConnection.Entity
             PortalCooldown = PublicRcon.Rcon.SendCommand($"data get entity {EntityId} Invulnerable").DataToInt();
         }
 
+        protected void MotionToNBT()
+        {
+
+        }
+
+    }
+
+    public struct Position
+    {
+        public readonly double X;
+        public readonly double Y;
+        public readonly double Z;
+
+        public Position(double x, double y, double z)
+        {
+            this.X = x;
+            this.Y = y;
+            this.Z = z;
+        }
+    }
+
+    public struct Rotation
+    {
+        public readonly double X;
+        public readonly double Y;
+
+        public Rotation(double x, double y)
+        {
+            this.X = x;
+            this.Y = y;
+        }
+    }
+
+    public struct Motion
+    {
+        public readonly double X;
+        public readonly double Y;
+        public readonly double Z;
+
+        public Motion(double x, double y, double z)
+        {
+            this.X = x;
+            this.Y = y;
+            this.Z = z;
+        }
     }
 }

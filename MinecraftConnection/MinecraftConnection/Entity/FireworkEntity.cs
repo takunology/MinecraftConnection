@@ -4,20 +4,22 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Linq;
+using System.Numerics;
 
 namespace MinecraftConnection.Entity
 {
-    public class FireworkEntity
+    public class FireworkEntity : EntityBase
     {
+        private string _id = "firework_rocket";
+        private int _count = 1;
+
         public ushort LifeTime { get; set; } = 30;
-        public string Id { get; } = "firework_rocket";
-        public int Count { get; } = 1;
         public int Flight { get; } = 2;
         public FireworkType Type { get; set; }
         public bool Flicker { get; set; }
         public bool Trail { get; set; }
         public List<FireworkColors> Colors { get; set; } = new List<FireworkColors>();
-        public List<FireworkColors> FadeColors { get; set; } = new List<FireworkColors>();
+        public List<FireworkColors> FadeColors { get; set; } = new List<FireworkColors>();  
 
         private class FireworkNBT
         {
@@ -44,6 +46,8 @@ namespace MinecraftConnection.Entity
                     {
                         [JsonPropertyName("Flight")]
                         public int _Flight { get; set; }
+                        [JsonPropertyName("Motion")]
+                        public float[] _Motion { get; set; } = new float[3];
                         [JsonPropertyName("Explosions")]
                         public List<Explosions> _Explotions { get; set; } = new List<Explosions>();
 
@@ -72,13 +76,14 @@ namespace MinecraftConnection.Entity
                 _LifeTime = LifeTime,
                 _FireworksItem = new FireworkNBT.FireworksItem()
                 {
-                    _Count = Count,
-                    _Id = Id,
+                    _Count = this._count,
+                    _Id = this._id,
                     _Tag = new FireworkNBT.FireworksItem.Tag()
                     {
                         _Fireworks = new FireworkNBT.FireworksItem.Tag.Fireworks()
                         {
                             _Flight = Flight,
+                            //_Motion = Motion,
                             _Explotions = new List<FireworkNBT.FireworksItem.Tag.Fireworks.Explosions>()
                             {
                                 new FireworkNBT.FireworksItem.Tag.Fireworks.Explosions()

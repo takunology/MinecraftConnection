@@ -48,9 +48,14 @@ namespace MinecraftConnection
             return _rcon.SendCommand($"title @a subtitle \"{subTitle}\"");
         }
 
+        public string SetOffFireworks(Position position, FireworkEntity fireworks)
+        {
+            return _rcon.SendCommand($"summon firework_rocket {position.X} {position.Y} {position.Z} {fireworks.GetNBT()}");
+        }
+
         public string SetOffFireworks(int x, int y, int z, FireworkEntity fireworks)
         {
-            return _rcon.SendCommand($"summon {fireworks.Id} {x} {y} {z} {fireworks.GetNBT()}");
+            return _rcon.SendCommand($"summon firework_rocket {x} {y} {z} {fireworks.GetNBT()}");
         }
     }
 }
