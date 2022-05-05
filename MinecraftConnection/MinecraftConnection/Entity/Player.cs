@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.RegularExpressions;
-using MinecraftConnection.RCON;
+﻿using MinecraftConnection.Entity.Base;
 
 namespace MinecraftConnection.Entity
 {
-    public class PlayerEntity : EntityBase
+    public class Player : LivingEntityBase
     {
         
-        public PlayerEntity(string playerName) : base(playerName)
+        public Player(string playerName) : base(playerName)
         {
             GetPosition();
             GetRotation();

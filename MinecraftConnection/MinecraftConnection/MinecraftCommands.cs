@@ -4,20 +4,18 @@ using System.Threading.Tasks;
 using MinecraftConnection.RCON;
 using MinecraftConnection.Entity;
 using MinecraftConnection.Extends;
+using MinecraftConnection.Block;
 
 namespace MinecraftConnection
 {
     public partial class MinecraftCommands
     {
-        private MinecraftRCON _rcon;
-
         public MinecraftCommands(string address, ushort port, string password)
         {
             PublicRcon.Address = address;
             PublicRcon.Port = port;
             PublicRcon.Password = password;
-            this._rcon = new MinecraftRCON(address, port, password);
-            PublicRcon.Rcon = this._rcon;
+            PublicRcon.Rcon = new MinecraftRCON(address, port, password);
         }
     }
     /// <summary>
@@ -29,33 +27,43 @@ namespace MinecraftConnection
         {
             if (command.Equals("stop"))
                 throw new System.Exception("The stop command can only be sent from the server console.");
-            return _rcon.SendCommand(command);
+            return PublicRcon.Rcon.SendCommand(command);
         }
 
-        public string TimeSet(ushort time) => _rcon.SendCommand($"time set {time}");
+        public string TimeSet(ushort time) => PublicRcon.Rcon.SendCommand($"time set {time}");
 
         public void Wait(ushort time) => Thread.Sleep(time);
 
-        public PlayerEntity GetPlayerData(string playerName) => new PlayerEntity(playerName);
+        public Player GetPlayerData(string playerName) => new Player(playerName);
 
         public string DisplayTitle(string title)
         {
-            return _rcon.SendCommand($"title @a title \"{title}\"");
+            return PublicRcon.Rcon.SendCommand($"title @a title \"{title}\"");
         }
 
         public string SetSubTitle(string subTitle)
         {
-            return _rcon.SendCommand($"title @a subtitle \"{subTitle}\"");
+            return PublicRcon.Rcon.SendCommand($"title @a subtitle \"{subTitle}\"");
         }
 
-        public string SetOffFireworks(Position position, FireworkEntity fireworks)
+        public string SetOffFireworks(Position position, Fireworks fireworks)
         {
-            return _rcon.SendCommand($"summon firework_rocket {position.X} {position.Y} {position.Z} {fireworks.GetNBT()}");
+            return PublicRcon.Rcon.SendCommand($"summon firework_rocket {position.X} {position.Y} {position.Z} {fireworks.GetNBT()}");
         }
 
-        public string SetOffFireworks(int x, int y, int z, FireworkEntity fireworks)
+        public string SetOffFireworks(int x, int y, int z, Fireworks fireworks)
         {
-            return _rcon.SendCommand($"summon firework_rocket {x} {y} {z} {fireworks.GetNBT()}");
+            return PublicRcon.Rcon.SendCommand($"summon firework_rocket {x} {y} {z} {fireworks.GetNBT()}");
+        }
+
+        public string SetBlock(int x, int y, int z, string blockId)
+        {
+            return PublicRcon.Rcon.SendCommand($"setblock {x} {y} {z} {blockId}");
+        }
+
+        public string SetBlock(Position position, BlockItem block)
+        {
+            return PublicRcon.Rcon.SendCommand($"setblock {position.X} {position.Y} {position.Z} {block.BlockId}");
         }
     }
 }

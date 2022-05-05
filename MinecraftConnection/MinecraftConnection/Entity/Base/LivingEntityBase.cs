@@ -1,28 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
-using MinecraftConnection.Extends;
+﻿using MinecraftConnection.Extends;
 
-namespace MinecraftConnection.Entity
+namespace MinecraftConnection.Entity.Base
 {
-    public class EntityBase
+    public class LivingEntityBase
     {
-        public string EntityId { get; protected set; }
+        public string EntityId { get; set; }
         public Position Postision { get; set; }
         public Rotation Rotation { get; set; }
         public Motion Motion { get; set; }
-        public double FallDistance { get; protected set; }
-        public short Fire { get; protected set; }
-        public short Air { get; protected set; }
-        public bool OnGround { get; protected set; }
-        public bool Invulnerable { get; protected set; }
-        public int PortalCooldown { get; protected set; }
+        public double FallDistance { get; set; }
+        public short Fire { get; set; }
+        public short Air { get; set; }
+        public bool OnGround { get; set; }
+        public bool Invulnerable { get; set; }
+        public int PortalCooldown { get; set; }
 
-        protected EntityBase() { }
+        protected LivingEntityBase() { }
 
-        protected EntityBase(string entityId)
+        protected LivingEntityBase(string entityId)
         {
             EntityId = entityId;
         }
@@ -79,51 +74,7 @@ namespace MinecraftConnection.Entity
         {
             PortalCooldown = PublicRcon.Rcon.SendCommand($"data get entity {EntityId} Invulnerable").DataToInt();
         }
-
-        protected void MotionToNBT()
-        {
-
-        }
-
     }
 
-    public struct Position
-    {
-        public readonly double X;
-        public readonly double Y;
-        public readonly double Z;
 
-        public Position(double x, double y, double z)
-        {
-            this.X = x;
-            this.Y = y;
-            this.Z = z;
-        }
-    }
-
-    public struct Rotation
-    {
-        public readonly double X;
-        public readonly double Y;
-
-        public Rotation(double x, double y)
-        {
-            this.X = x;
-            this.Y = y;
-        }
-    }
-
-    public struct Motion
-    {
-        public readonly double X;
-        public readonly double Y;
-        public readonly double Z;
-
-        public Motion(double x, double y, double z)
-        {
-            this.X = x;
-            this.Y = y;
-            this.Z = z;
-        }
-    }
 }

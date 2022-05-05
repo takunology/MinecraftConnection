@@ -8,10 +8,7 @@ namespace MinecraftConnection.Extends
 {
     public static class ExtendsMethods
     {
-        public static void AddMotion<T>(this T entity, Vector3 vector)
-            where T : EntityBase
-        {
-           
-        }
+        
+        
     }
 }

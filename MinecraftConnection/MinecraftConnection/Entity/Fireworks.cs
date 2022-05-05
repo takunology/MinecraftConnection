@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Linq;
-using System.Numerics;
+using MinecraftConnection.Entity.Base;
 
 namespace MinecraftConnection.Entity
 {
-    public class FireworkEntity : EntityBase
+    public class Fireworks : LivingEntityBase
     {
         private string _id = "firework_rocket";
         private int _count = 1;
@@ -19,7 +17,7 @@ namespace MinecraftConnection.Entity
         public bool Flicker { get; set; }
         public bool Trail { get; set; }
         public List<FireworkColors> Colors { get; set; } = new List<FireworkColors>();
-        public List<FireworkColors> FadeColors { get; set; } = new List<FireworkColors>();  
+        public List<FireworkColors> FadeColors { get; set; } = new List<FireworkColors>();
 
         private class FireworkNBT
         {
@@ -46,8 +44,6 @@ namespace MinecraftConnection.Entity
                     {
                         [JsonPropertyName("Flight")]
                         public int _Flight { get; set; }
-                        [JsonPropertyName("Motion")]
-                        public float[] _Motion { get; set; } = new float[3];
                         [JsonPropertyName("Explosions")]
                         public List<Explosions> _Explotions { get; set; } = new List<Explosions>();
 
@@ -83,7 +79,7 @@ namespace MinecraftConnection.Entity
                         _Fireworks = new FireworkNBT.FireworksItem.Tag.Fireworks()
                         {
                             _Flight = Flight,
-                            //_Motion = Motion,
+                            
                             _Explotions = new List<FireworkNBT.FireworksItem.Tag.Fireworks.Explosions>()
                             {
                                 new FireworkNBT.FireworksItem.Tag.Fireworks.Explosions()
@@ -105,7 +101,16 @@ namespace MinecraftConnection.Entity
             json = json.Replace("false", "0");
             json = json.Insert(json.IndexOf("\"Colors\":[") + 10, "I;");
             json = json.Insert(json.IndexOf("\"FadeColors\":[") + 14, "I;");
+            if(Motion.X != 0 || Motion.Y != 0 || Motion.Z != 0)
+            {
+                json = json.Insert(json.IndexOf("\"FireworksItem\":"), MotionInsert(Motion));
+            }
             return json;
+        }
+
+        private string MotionInsert(Motion motion)
+        {
+            return $"\"Motion\":[{motion.X}.0,{motion.Y}.0,{motion.Z}.0],";
         }
     }
 

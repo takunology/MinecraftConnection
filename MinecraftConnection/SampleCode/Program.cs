@@ -1,33 +1,21 @@
 ﻿using MinecraftConnection;
-using MinecraftConnection.Entity;
+using MinecraftConnection.Block;
 
 string address = "127.0.0.1";
 ushort port = 25575;
 string pass = "minecraft";
 MinecraftCommands command = new MinecraftCommands(address, port, pass);
 
-var player = command.GetPlayerData("Takunology");
+Position pos = new Position(-516, 62, -205);
 
-int x = -494;
-int y = 65 + 30;
-int z = -181;
-
-var fireworks = new FireworkEntity()
+ChestBlock chest = new ChestBlock(pos);
+List<ItemStack> items = new List<ItemStack>()
 {
-    LifeTime = 30,
-    Type = FireworkType.Burst,
-    Flicker = true,
-    Colors = new List<FireworkColors> { FireworkColors.YELLOW, FireworkColors.BLUE },
-    FadeColors = new List<FireworkColors> { FireworkColors.RED },
+    new ItemStack(0, "stone", 1),
+    new ItemStack(1, "oak_planks", 1),
 };
 
-Console.WriteLine(fireworks.GetNBT());
+items.ForEach(item => Console.WriteLine($"{item.Slot}\t{item.Id}\t{item.Count}"));
+chest.SetItems(items);
 
-while (true)
-{
-    string str = command.SetOffFireworks(player.Postision, fireworks);
-    player.GetPosition();
-    Console.WriteLine(str);
-    command.Wait(1000);
-}
 
