@@ -3,6 +3,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Linq;
 using MinecraftConnection.Entity.Base;
+using System;
 
 namespace MinecraftConnection.Entity
 {
@@ -14,10 +15,11 @@ namespace MinecraftConnection.Entity
         public ushort LifeTime { get; set; } = 30;
         public int Flight { get; } = 2;
         public FireworkType Type { get; set; }
-        public bool Flicker { get; set; }
-        public bool Trail { get; set; }
+        public bool Flicker { get; set; } = false;
+        public bool Trail { get; set; } = false;
         public List<FireworkColors> Colors { get; set; } = new List<FireworkColors>();
         public List<FireworkColors> FadeColors { get; set; } = new List<FireworkColors>();
+        public bool IsEmpty { get; set; } = false;
 
         private class FireworkNBT
         {
@@ -67,20 +69,26 @@ namespace MinecraftConnection.Entity
 
         public string GetNBT()
         {
-            FireworkNBT fireworkNBT = new FireworkNBT()
+            if(IsEmpty == true)
             {
-                _LifeTime = LifeTime,
-                _FireworksItem = new FireworkNBT.FireworksItem()
+                return "{\"LifeTime\":" + LifeTime + "," + MotionInsert(Motion) + "}";
+            }
+            else
+            {
+                FireworkNBT fireworkNBT = new FireworkNBT()
                 {
-                    _Count = this._count,
-                    _Id = this._id,
-                    _Tag = new FireworkNBT.FireworksItem.Tag()
+                    _LifeTime = LifeTime,
+                    _FireworksItem = new FireworkNBT.FireworksItem()
                     {
-                        _Fireworks = new FireworkNBT.FireworksItem.Tag.Fireworks()
+                        _Count = this._count,
+                        _Id = this._id,
+                        _Tag = new FireworkNBT.FireworksItem.Tag()
                         {
-                            _Flight = Flight,
-                            
-                            _Explotions = new List<FireworkNBT.FireworksItem.Tag.Fireworks.Explosions>()
+                            _Fireworks = new FireworkNBT.FireworksItem.Tag.Fireworks()
+                            {
+                                _Flight = Flight,
+
+                                _Explotions = new List<FireworkNBT.FireworksItem.Tag.Fireworks.Explosions>()
                             {
                                 new FireworkNBT.FireworksItem.Tag.Fireworks.Explosions()
                                 {
@@ -91,26 +99,77 @@ namespace MinecraftConnection.Entity
                                     _FadeColors = FadeColors.Select(x => (int)x).ToList(),
                                 }
                             }
+                            }
                         }
                     }
-                }
-            };
+                };
 
-            string json = JsonSerializer.Serialize(fireworkNBT);
-            json = json.Replace("true", "1");
-            json = json.Replace("false", "0");
-            json = json.Insert(json.IndexOf("\"Colors\":[") + 10, "I;");
-            json = json.Insert(json.IndexOf("\"FadeColors\":[") + 14, "I;");
-            if(Motion.X != 0 || Motion.Y != 0 || Motion.Z != 0)
-            {
-                json = json.Insert(json.IndexOf("\"FireworksItem\":"), MotionInsert(Motion));
+                string json = JsonSerializer.Serialize(fireworkNBT);
+                json = json.Replace("true", "1");
+                json = json.Replace("false", "0");
+                json = json.Insert(json.IndexOf("\"Colors\":[") + 10, "I;");
+                json = json.Insert(json.IndexOf("\"FadeColors\":[") + 14, "I;");
+                if (Motion.X != 0 || Motion.Y != 0 || Motion.Z != 0)
+                {
+                    json = json.Insert(json.IndexOf("\"FireworksItem\":"), MotionInsert(Motion));
+                }
+                return json;
             }
-            return json;
+            
         }
 
         private string MotionInsert(Motion motion)
         {
-            return $"\"Motion\":[{motion.X}.0,{motion.Y}.0,{motion.Z}.0],";
+            string valX = string.Format("{0:f5}", motion.X);
+            string valY = string.Format("{0:f5}", motion.Y);
+            string valZ = string.Format("{0:f5}", motion.Z);
+            return $"\"Motion\":[{valX},{valY},{valZ}],";
+
+        }
+    }
+
+    public static class FireworkOption
+    {
+        public static List<FireworkColors> RandomColor()
+        {
+            var colors = new List<FireworkColors>();
+            var rand = new Random();
+            colors.Add(SelectedFireworkColor(rand.Next(0, 16)));
+            return colors;
+        }
+
+        public static List<FireworkColors> RandomColors(byte colorCount)
+        {
+            var colors = new List<FireworkColors>();
+            var rand = new Random();
+            for (int i = 0; i < colorCount; colorCount++)
+            {
+                colors.Add(SelectedFireworkColor(rand.Next(0, 16)));
+            }
+            return colors;
+        }
+
+        private static FireworkColors SelectedFireworkColor(int val)
+        {
+            return val switch
+            {
+                0 => FireworkColors.BLACK,
+                1 => FireworkColors.BLUE,
+                2 => FireworkColors.CYAN,
+                3 => FireworkColors.GREEN,
+                4 => FireworkColors.LIME,
+                5 => FireworkColors.GRAY,
+                6 => FireworkColors.BROWN,
+                7 => FireworkColors.LIGHTBLUE,
+                8 => FireworkColors.LIGHTGRAY,
+                9 => FireworkColors.PURPLE,
+                10 => FireworkColors.RED,
+                11 => FireworkColors.MAGENTA,
+                12 => FireworkColors.PINK,
+                13 => FireworkColors.YELLOW,
+                14 => FireworkColors.ORANGE,
+                _ => FireworkColors.WHITE
+            };
         }
     }
 

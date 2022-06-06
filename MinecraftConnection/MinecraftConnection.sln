@@ -5,10 +5,6 @@ VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinecraftConnection", "MinecraftConnection\MinecraftConnection.csproj", "{B19912A9-A832-4941-BA28-3DA26A810EAD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibTest", "LibTest\LibTest.csproj", "{3FDCE900-692A-41EF-A0E6-F223557A04AB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleCode", "SampleCode\SampleCode.csproj", "{8C249D04-2140-4E65-A80D-CD7B7F112B7D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,14 +15,6 @@ Global
 		{B19912A9-A832-4941-BA28-3DA26A810EAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B19912A9-A832-4941-BA28-3DA26A810EAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B19912A9-A832-4941-BA28-3DA26A810EAD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3FDCE900-692A-41EF-A0E6-F223557A04AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3FDCE900-692A-41EF-A0E6-F223557A04AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3FDCE900-692A-41EF-A0E6-F223557A04AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3FDCE900-692A-41EF-A0E6-F223557A04AB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8C249D04-2140-4E65-A80D-CD7B7F112B7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8C249D04-2140-4E65-A80D-CD7B7F112B7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8C249D04-2140-4E65-A80D-CD7B7F112B7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8C249D04-2140-4E65-A80D-CD7B7F112B7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -51,9 +51,9 @@ namespace MinecraftConnection
             return PublicRcon.Rcon.SendCommand($"summon firework_rocket {position.X} {position.Y} {position.Z} {fireworks.GetNBT()}");
         }
 
-        public string SetOffFireworks(int x, int y, int z, Fireworks fireworks)
+        public string SetOffFireworks(double x, double y, double z, Fireworks fireworks)
         {
-            return PublicRcon.Rcon.SendCommand($"summon firework_rocket {x} {y} {z} {fireworks.GetNBT()}");
+            return PublicRcon.Rcon.SendCommand($"summon firework_rocket {(int)x} {(int)y} {(int)z} {fireworks.GetNBT()}");
         }
 
         public string SetBlock(int x, int y, int z, string blockId)
@@ -61,9 +61,9 @@ namespace MinecraftConnection
             return PublicRcon.Rcon.SendCommand($"setblock {x} {y} {z} {blockId}");
         }
 
-        public string SetBlock(Position position, BlockItem block)
+        /*public string SetBlock(Position position, BlockItem block)
         {
             return PublicRcon.Rcon.SendCommand($"setblock {position.X} {position.Y} {position.Z} {block.BlockId}");
-        }
+        }*/
     }
 }
