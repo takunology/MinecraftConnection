@@ -13,7 +13,8 @@ namespace MinecraftConnection.RCON
 {
     public class MinecraftRCON
     {
-        private const int MaximumPacketLength = 4110;
+        // 最大パケットサイズ 4096 + パケットサイズ格納用 4 Byte
+        private const ushort MaximumPacketLength = 4100;
 
         private TcpClient _client;
         private NetworkStream _networkStream;
@@ -33,7 +34,7 @@ namespace MinecraftConnection.RCON
             var packetdata = new Packet(command.Length + Encoder.HeaderLength, Interlocked.Increment(ref _lastID), PacketType.Command, command);
             Login(_password);
             SendPacket(packetdata, out response);
-            return response.Payload;
+            return response.Body;
         }
 
         private bool Login(string pass)
@@ -45,19 +46,16 @@ namespace MinecraftConnection.RCON
 
         private bool SendPacket(Packet request, out Packet response)
         {
-            // コマンド送信
+            // エンコードとリクエスト
             var encodedPacket = Encoder.EncodePacket(request);
             _networkStream.Write(encodedPacket, 0, encodedPacket.Length);
-
-            // 実行結果受け取り
+            // レスポンス
             var responcePacket = new byte[MaximumPacketLength];
             var readPacket = _networkStream.Read(responcePacket, 0, responcePacket.Length);
             Array.Resize(ref responcePacket, readPacket);
-
-            // エラーチェック
+            // レスポンスのデコード
             response = Encoder.DecodePacket(responcePacket);
-            if (request.ID != response.ID) return false;
-            return true;
+            return request.ID == response.ID ? true : false;
         }
     }
 }

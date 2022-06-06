@@ -1,130 +1,69 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using MinecraftConnection.RCON;
 using MinecraftConnection.Entity;
-using MinecraftConnection.Items;
-using MinecraftConnection.NBT;
-using MinecraftConnection.Data;
+using MinecraftConnection.Extends;
+using MinecraftConnection.Block;
 
 namespace MinecraftConnection
 {
     public partial class MinecraftCommands
     {
-        private readonly MinecraftRCON rcon;
-
         public MinecraftCommands(string address, ushort port, string password)
         {
-            rcon = new MinecraftRCON(address, port, password);
+            PublicRcon.Address = address;
+            PublicRcon.Port = port;
+            PublicRcon.Password = password;
+            PublicRcon.Rcon = new MinecraftRCON(address, port, password);
         }
     }
-    // Minecraft 標準のコマンドリスト
+    /// <summary>
+    /// Standard Minecraft commands set.
+    /// </summary>
     public partial class MinecraftCommands
     {
         public string SendCommand(string command)
         {
-            if (command.Equals("stop")) 
-                throw new System.Exception("stopコマンドは直接サーバコンソールから実行してください。");
-            return rcon.SendCommand(command);
+            if (command.Equals("stop"))
+                throw new System.Exception("The stop command can only be sent from the server console.");
+            return PublicRcon.Rcon.SendCommand(command);
         }
 
-        public string TimeSet(int time)
+        public string TimeSet(ushort time) => PublicRcon.Rcon.SendCommand($"time set {time}");
+
+        public void Wait(ushort time) => Thread.Sleep(time);
+
+        public Player GetPlayerData(string playerName) => new Player(playerName);
+
+        public string DisplayTitle(string title)
         {
-            return rcon.SendCommand($"time set {time}");
+            return PublicRcon.Rcon.SendCommand($"title @a title \"{title}\"");
         }
 
-        public string TimeSet(MinecraftTime.TimeSet Time)
+        public string SetSubTitle(string subTitle)
         {
-            return rcon.SendCommand($"time set {Time.GetHashCode()}");
+            return PublicRcon.Rcon.SendCommand($"title @a subtitle \"{subTitle}\"");
         }
 
-        public string DisplayTitle(object Text)
+        public string SetOffFireworks(Position position, Fireworks fireworks)
         {
-            return rcon.SendCommand($"title @a title \"{Text}\"");
+            return PublicRcon.Rcon.SendCommand($"summon firework_rocket {position.X} {position.Y} {position.Z} {fireworks.GetNBT()}");
         }
 
-        public string DisplayMessage(object Text)
+        public string SetOffFireworks(double x, double y, double z, Fireworks fireworks)
         {
-            return rcon.SendCommand($"say {Text}");
+            return PublicRcon.Rcon.SendCommand($"summon firework_rocket {(int)x} {(int)y} {(int)z} {fireworks.GetNBT()}");
         }
 
-        public string SetBlock(int x, int y, int z, string BlockItem)
+        public string SetBlock(int x, int y, int z, string blockId)
         {
-            return rcon.SendCommand($"setblock {x} {y} {z} {BlockItem}");
+            return PublicRcon.Rcon.SendCommand($"setblock {x} {y} {z} {blockId}");
         }
 
-        public string GiveItem(string PlayerName, string Item, int Count)
+        /*public string SetBlock(Position position, BlockItem block)
         {
-            return rcon.SendCommand($"give {PlayerName} {Item} {Count}");
-        }
-
-        public string GiveEffect(string PlayerName, Effects Effect, int Time)
-        {
-            return rcon.SendCommand($"effect give {PlayerName} {Effect} {Time}");
-        }
-
-        public string Summon(int x, int y, int z, string Entity)
-        {
-            return rcon.SendCommand($"summon {Entity} {x} {y} {z}");
-        }
-
-        public string ItemClear(string PlayerName, string Item, int Count)
-        {
-            return rcon.SendCommand($"clear {PlayerName} {Item} {Count}");
-        }
-
-        public void Wait(int Time)
-        {
-            Task.Run(async () =>
-            {
-                await Task.Delay(Time);
-            }).GetAwaiter().GetResult();
-        }
-    }
-    // MinecraftConnection 独自のコマンドリスト
-    public partial class MinecraftCommands
-    {
-        public PlayerData GetPlayerData(string PlayerName)
-        {
-            return new PlayerData(PlayerName, rcon);
-        }
-
-        public List<SlotItem> GetChestItems(int x, int y, int z)
-        {
-            ChestItem chestItem = new ChestItem(x, y, z, rcon);
-            return chestItem.GetChestItems();
-        }
-
-        public void SetChestItems(int x, int y, int z, List<SlotItem> SlotItemList)
-        {
-            ChestItem chestItem = new ChestItem(x, y, z, rcon);
-            chestItem.SetChestItems(SlotItemList);
-        }
-
-        public string SetOffFireworks(int x, int y, int z, Fireworks fireworks)
-        {
-            return rcon.SendCommand($"summon firework_rocket {x} {y} {z} {fireworks.ToNBT()}");
-        }
-
-        public string GiveEnchantedBook(string PlayerName, EnchantedBook Book, int Count)
-        {
-            return rcon.SendCommand($"give {PlayerName} enchanted_book{Book.ToNBT()} {Count}");
-        }
-
-        public string GivePotion(string PlayerName, Potion Potion, int Count)
-        {
-            return  rcon.SendCommand($"give {PlayerName} potion{Potion.ToNBT()} {Count}");
-        }
-    }
-
-    //列挙体
-    public static class MinecraftTime
-    {
-        public enum TimeSet : int
-        {
-            DAY = 1000,
-            NOON = 6000, 
-            NIGHT = 13000,
-            MIDNIGHT = 18000
-        }
+            return PublicRcon.Rcon.SendCommand($"setblock {position.X} {position.Y} {position.Z} {block.BlockId}");
+        }*/
     }
 }

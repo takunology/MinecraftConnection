@@ -3,8 +3,10 @@
 <img src="./images/logo.png" width="350" hspace="0" vspace="10">
 </div>
 
-![](https://img.shields.io/badge/Minecraft%20Version-1.15~-brightgreen)
-[![CircleCI](https://circleci.com/gh/takunology/MinecraftConnection/tree/main.svg?style=shield)](https://circleci.com/gh/takunology/MinecraftConnection/tree/main)
+![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/MinecraftConnection)
+![Nuget](https://img.shields.io/nuget/dt/MinecraftConnection?color=blue)
+![](https://img.shields.io/badge/Minecraft%20Version-1.18~-brightgreen)
+![GitHub](https://img.shields.io/github/license/takunology/MinecraftConnection)
  
 MinecraftConnectionはC#を用いてRCONでコマンドを送るためのライブラリです。マイクラによるC#プログラミングの学習や自動化に応用することができます。バニラ版（通常版）のサーバーだけでなく、プラグインを含むSpigotサーバーでも実行できます。プログラムを実行する前に、RCON 接続が可能な Minecraft サーバーを起動する必要があります。 </br>
 
@@ -21,81 +23,69 @@ enable-rcon=true
 
 追記したら保存してサーバを再起動します。また、マインクラフト本体を起動してサーバへのログインも済ませてください。</br>
 
-# 2. プロジェクト作成
-本ライブラリは `.NET Standard 2.0` 以上が対象となっています。ここでは、.NET 5 コンソールアプリケーションを用いた作成方法をについて説明します。
+# 2. プロジェクト作成 (preview)
+本ライブラリは `.NET Standard 2.1` 以上が対象となっています。ここでは、.NET 6 コンソールアプリケーションを用いた作成方法をについて説明します。
 
 NuGet パッケージマネージャにて `MinecraftConnection` をインストールするか、パッケージマネージャコンソールにて次のコマンドを実行します。
 
 ```
-Install-Package MinecraftConnection
+Install-Package MinecraftConnection -Version 2.0.0-preview1
 ```
 詳細：https://www.nuget.org/packages/MinecraftConnection
 </br>
 
 # 3. サンプルプログラム
-プログラムを実行するにはMinecraft ServerおよびMinecraft本体（サーバへのログイン済み）を起動した状態で行ってください。
+プログラムを実行するにはMinecraft ServerおよびMinecraft本体（サーバへのログイン済み）を起動した状態で行ってください。</br>
+ここではトップレベルステートメントを使用しています。
 
-例）時間を 0 に設定するプログラム
+### 3.1 時間を 0 に設定するプログラム
 
 ```cs
 using MinecraftConnection;
 
-namespace ExampleApp
-{
-    class Program
-    {
-        //接続先のIPアドレスまたはDNS名も利用可能です。
-        static string address = "127.0.0.1";
-        static ushort port = 25575;
-        static string pass = "minecraft";
-        static MinecraftCommands command = new MinecraftCommands(address, port, pass);
+//接続先のIPアドレスまたはDNS名も利用可能です。
+string address = "127.0.0.1";
+ushort port = 25575;
+string pass = "minecraft";
+MinecraftCommands command = new MinecraftCommands(address, port, pass);
 
-        static void Main(string[] args)
-        {
-            command.SendCommand("/time set 0");
-        }
-    }
-}
+command.TimeSet(0);
 ```
 </br>
-例）花火を打ち上げるプログラム
+
+### 3.2 花火を打ち上げるプログラム
 
 ```cs
 using MinecraftConnection;
-using MinecraftConnection.Items;
+using MinecraftConnection.Entity;
 
-namespace ExampleApp
+string address = "127.0.0.1";
+ushort port = 25575;
+string pass = "minecraft";
+MinecraftCommands command = new MinecraftCommands(address, port, pass);
+
+// 打ち上げたい座標を定義する
+Position pos = new Position(-516, 64, -205);
+// 花火を作る
+Fireworks fireworks = new Fireworks()
 {
-    class Program
-    {
-        static string address = "127.0.0.1";
-        static ushort port = 25575;
-        static string pass = "minecraft";
-        static MinecraftCommands command = new MinecraftCommands(address, port, pass);
-
-        static void Main(string[] args)
-        {
-            string playerName = "takunology";
-            // プレイヤーの現在地を取得する
-            var playerData = command.GetPlayerData(playerName);
-            int x = playerData.PositionX;
-            int y = playerData.PositionY;
-            int z = playerData.PositionZ;
-            // 花火の色を決める
-            List<FireworksColors> explosionColor = new List<FireworksColors>() { FireworksColors.BLUE };
-            List<FireworksColors> fadeColor = new List<FireworksColors>() { FireworksColors.CYAN };
-            // 花火玉を作る
-            Fireworks fireworks = new Fireworks(20, FireworksShapes.LargeBall, explosionColor, fadeColor).Trail();
-            // 花火を打ち上げる
-            command.SetOffFireworks(x + 10, y, z, fireworks);
-        }
-    }
-}
+    LifeTime = 30, // 花火が爆発するまでの時間
+    Type = FireworkType.LargeBall, // 花火の形状
+    Colors = FireworkOption.RandomColor(), // 花火の色（ランダム）
+    FadeColors = new List<FireworkColors> { FireworkColors.WHITE }, // 爆発後の色
+};
+// 花火を打ち上げる
+command.SetOffFireworks(pos, fireworks);
 ```
 実行結果
 
 <img src="./images/fireworks_sample.png" width="550" hspace="0" vspace="10">
 
+工夫次第で様々な花火を打ち上げることができます。試してみたい方はこちらを参考にしてください。
+
+https://zenn.dev/takunology/scraps/9462b03d13dd0a
+
+# 4. 注意事項
 RCONの遠隔操作によってサーバを停止させる危険性があるため、`stop` コマンドは使用出来ないようになっています。`SendCommand` メソッドで `stop` コマンドを実行使用とすると例外が発生し、プログラムが止まるようになっています。
 
 </br>

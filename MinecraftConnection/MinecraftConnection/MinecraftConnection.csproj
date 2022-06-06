@@ -1,10 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
+	<LangVersion>latest</LangVersion>
     <Authors>Takumi Okawa (Takunology)</Authors>
     <Company>Minecraft_with_Code_Project</Company>
-    <Version>1.1.1</Version>
+    <Version>2.0.0-preview1</Version>
     <PackageId>MinecraftConnection</PackageId>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -17,10 +18,12 @@
     <Copyright>Copyright (c) 2021 Takumi Okawa (Takunology)</Copyright>
     <PackageIconUrl />
     <PackageTags>Minecraft</PackageTags>
-    <PackageReleaseNotes>Version 1.1.1 - Fixed GetplayerData().Position
+    <PackageReleaseNotes>Version 2.0.0 - preview 1
 
-Fixed a bug that prevented the correct coordinates from being retrieved if the player name contained numbers or symbols.</PackageReleaseNotes>
+MinecraftConnection destructive changes were made. It is written differently than version 1. Documentation is still under construction.
+Starting with 2.0.0, Minecraft now supports all languages, including Japanese, Chinese, Hindi, etc., as well as English in the Minecraft title display.</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,6 +31,10 @@ Fixed a bug that prevented the correct coordinates from being retrieved if the p
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="6.0.3" />
   </ItemGroup>
 
 </Project>

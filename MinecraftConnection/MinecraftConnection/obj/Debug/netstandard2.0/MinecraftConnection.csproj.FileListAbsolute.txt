@@ -16,3 +16,4 @@ D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Debug\
 D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Debug\netstandard2.0\MinecraftConnection.csproj.CoreCompileInputs.cache
 D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Debug\netstandard2.0\MinecraftConnection.dll
 D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Debug\netstandard2.0\MinecraftConnection.pdb
+D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Debug\netstandard2.0\MinecraftConnection.GeneratedMSBuildEditorConfig.editorconfig
