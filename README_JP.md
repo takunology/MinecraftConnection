@@ -1,6 +1,6 @@
 # MinecraftConnection
 <div>
-<img src="./images/logo.png" width="350" hspace="0" vspace="10">
+<img src="https://raw.githubusercontent.com/takunology/MinecraftConnection/main/images/logo.png" width="350" hspace="0" vspace="10">
 </div>
 
 ![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/MinecraftConnection)
@@ -79,7 +79,7 @@ command.SetOffFireworks(pos, fireworks);
 ```
 実行結果
 
-<img src="./images/fireworks_sample.png" width="550" hspace="0" vspace="10">
+<img src="https://raw.githubusercontent.com/takunology/MinecraftConnection/main/images/fireworks_sample.png" width="550" hspace="0" vspace="10">
 
 工夫次第で様々な花火を打ち上げることができます。試してみたい方はこちらを参考にしてください。
 

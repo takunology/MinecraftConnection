@@ -1,6 +1,6 @@
 # MinecraftConnection
 <div>
-<img src="./images/logo.png" width="350" hspace="0" vspace="10">
+<img src="https://raw.githubusercontent.com/takunology/MinecraftConnection/main/images/logo.png" width="350" hspace="0" vspace="10">
 </div>
 
 ![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/MinecraftConnection)
@@ -83,7 +83,7 @@ command.SetOffFireworks(pos, fireworks);
 
 Result :
 
-<img src="./images/fireworks_sample.png" width="550" hspace="0" vspace="10">
+<img src="https://raw.githubusercontent.com/takunology/MinecraftConnection/main/images/fireworks_sample.png" width="550" hspace="0" vspace="10">
 
 Various fireworks can be set off depending on your ingenuity. If you would like to try it, please refer to this page.
 
