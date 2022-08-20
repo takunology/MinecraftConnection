@@ -77,6 +77,16 @@ namespace MinecraftConnection
         {
             return PublicRcon.Rcon.SendCommand($"title @a subtitle \"{subTitle}\"");
         }
+        
+        /// <summary>
+        /// Send a message to minecraft.
+        /// </summary>
+        /// <param name="message">message</param>
+        /// <returns></returns>
+        public string DisplayMessage(string message)
+        {
+            return PublicRcon.Rcon.SendCommand($"msg @a \"{message}\"");
+        }
 
         /// <summary>
         /// Fireworks are set off from the specified coordinates.
