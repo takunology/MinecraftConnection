@@ -23,13 +23,13 @@ enable-rcon=true
 
 追記したら保存してサーバを再起動します。また、マインクラフト本体を起動してサーバへのログインも済ませてください。</br>
 
-# 2. プロジェクト作成 (preview)
+# 2. プロジェクト作成
 本ライブラリは `.NET Standard 2.1` 以上が対象となっています。ここでは、.NET 6 コンソールアプリケーションを用いた作成方法をについて説明します。
 
 NuGet パッケージマネージャにて `MinecraftConnection` をインストールするか、パッケージマネージャコンソールにて次のコマンドを実行します。
 
 ```
-Install-Package MinecraftConnection -Version 2.0.0-preview1
+Install-Package MinecraftConnection
 ```
 詳細：https://www.nuget.org/packages/MinecraftConnection
 </br>

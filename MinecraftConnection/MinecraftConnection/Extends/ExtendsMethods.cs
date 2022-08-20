@@ -1,38 +1,59 @@
-﻿using MinecraftConnection.Entity;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Numerics;
-using System.Text;
 
 namespace MinecraftConnection.Extends
 {
     public static class ExtendsMethods
     {
+        /// <summary>
+        /// Sort the item stack in ascending order by Item ID.
+        /// </summary>
+        /// <param name="items">Listed Item Stacks</param>
+        /// <returns>Sorted and listed item stacks</returns>
         public static List<ItemStack> SortById(this List<ItemStack> items)
         {
             var sortedItems = items.OrderBy(x => x.Id).ToList();
             return ItemStackNumbering(ref sortedItems);
         }
 
+        /// <summary>
+        /// Sort the item stack in descending order by ID.
+        /// </summary>
+        /// <param name="items">Listed Item Stacks</param>
+        /// <returns>Sorted and listed item stacks</returns>
         public static List<ItemStack> SortByIdDescending(this List<ItemStack> items)
         {
             var sortedItems = items.OrderByDescending(x => x.Id).ToList();
             return ItemStackNumbering(ref sortedItems);
         }
 
+        /// <summary>
+        /// Sort the item stack in ascending order by Item count.
+        /// </summary>
+        /// <param name="items">Listed Item Stacks</param>
+        /// <returns>Sorted and listed item stacks</returns>
         public static List<ItemStack> SortByCount(this List<ItemStack> items)
         {
             var sortedItems = items.OrderBy(x => x.Count).ToList();
             return ItemStackNumbering(ref sortedItems);
         }
 
+        /// <summary>
+        /// Sort the item stack in descending order by Item count.
+        /// </summary>
+        /// <param name="items">Listed Item Stacks</param>
+        /// <returns>Sorted and listed item stacks</returns>
         public static List<ItemStack> SortByCountDescending(this List<ItemStack> items)
         {
-            var sortedItems = items.OrderBy(x => x.Count).ToList();
+            var sortedItems = items.OrderByDescending(x => x.Count).ToList();
             return ItemStackNumbering(ref sortedItems);
         }
 
+        /// <summary>
+        /// Sort items by ID, combining as many items as possible into one.
+        /// </summary>
+        /// <param name="items">Listed Item Stacks</param>
+        /// <returns>Sorted and listed item stacks</returns>
         public static List<ItemStack> SortItems(this List<ItemStack> items)
         {
             var groupingItems = items.OrderBy(x => x.Id).GroupBy(x => x.Id);
