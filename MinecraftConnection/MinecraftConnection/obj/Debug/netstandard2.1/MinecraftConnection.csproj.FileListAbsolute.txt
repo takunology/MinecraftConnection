@@ -1,0 +1,10 @@
+D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\bin\Debug\netstandard2.1\MinecraftConnection.deps.json
+D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\bin\Debug\netstandard2.1\MinecraftConnection.dll
+D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\bin\Debug\netstandard2.1\MinecraftConnection.pdb
+D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Debug\netstandard2.1\MinecraftConnection.csproj.AssemblyReference.cache
+D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Debug\netstandard2.1\MinecraftConnection.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Debug\netstandard2.1\MinecraftConnection.AssemblyInfoInputs.cache
+D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Debug\netstandard2.1\MinecraftConnection.AssemblyInfo.cs
+D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Debug\netstandard2.1\MinecraftConnection.csproj.CoreCompileInputs.cache
+D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Debug\netstandard2.1\MinecraftConnection.dll
+D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Debug\netstandard2.1\MinecraftConnection.pdb

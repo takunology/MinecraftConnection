@@ -81,6 +81,4 @@ namespace MinecraftConnection.RCON
             Body = body;
         }
     }
-
-
 }

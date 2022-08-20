@@ -16,11 +16,13 @@ Fixed a bug that prevented the correct coordinates from being retrieved if the p
     <tags>Minecraft</tags>
     <repository type="git" url="https://github.com/takunology/MinecraftConnection" />
     <dependencies>
-      <group targetFramework=".NETStandard2.0" />
+      <group targetFramework=".NETStandard2.1">
+        <dependency id="System.Text.Json" version="6.0.3" exclude="Build,Analyzers" />
+      </group>
     </dependencies>
   </metadata>
   <files>
-    <file src="D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\bin\Debug\netstandard2.0\MinecraftConnection.dll" target="lib\netstandard2.0\MinecraftConnection.dll" />
+    <file src="D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\bin\Debug\netstandard2.1\MinecraftConnection.dll" target="lib\netstandard2.1\MinecraftConnection.dll" />
     <file src="D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\MCLogo.png" target="MCLogo.png" />
   </files>
 </package>
