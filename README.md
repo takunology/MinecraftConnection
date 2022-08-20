@@ -1,6 +1,6 @@
 # MinecraftConnection
 <div>
-<img src="https://raw.githubusercontent.com/takunology/MinecraftConnection/main/images/logo.png" width="350" hspace="0" vspace="10">
+<img src="https://raw.githubusercontent.com/takunology/MinecraftConnection/main/images/logo.png" width="300" hspace="0" vspace="10">
 </div>
 
 ![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/MinecraftConnection)
@@ -31,7 +31,7 @@ This library is intended for `.NET Standard 2.1` and above. This section describ
 Install `MinecraftConnection` with the NuGet package manager, or run the following command in the package manager console. 
 
 ```
-Install-Package MinecraftConnection -Version 2.0.0-preview1
+Install-Package MinecraftConnection
 ```
 
 Detail：https://www.nuget.org/packages/MinecraftConnection

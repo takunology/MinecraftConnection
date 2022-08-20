@@ -19,7 +19,7 @@ namespace MinecraftConnection.Entity.Base
 
         protected LivingEntityBase(string entityId)
         {
-            EntityId = entityId;
+            this.EntityId = entityId;
         }
 
         public void GetPosition()

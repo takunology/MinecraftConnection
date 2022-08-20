@@ -379,7 +379,7 @@
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
-    "version": "2.0.0-preview1",
+    "version": "2.0.0",
     "restore": {
       "projectUniqueName": "D:\\GitHub\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection.csproj",
       "projectName": "MinecraftConnection",
@@ -442,7 +442,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

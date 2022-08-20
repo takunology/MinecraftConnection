@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "a7jPx/YzBjVPDPukqd1YMLmYWXLe3M3B0dKiWPCkGk4CYwF5ds+hVLu2OtwcKI7/y+8WIzRG8sOkBIxZqm64WQ==",
+  "success": true,
+  "projectFilePath": "D:\\GitHub\\MinecraftConnection\\MinecraftConnection\\SampleApp\\SampleApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\takun\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\takun\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
+    "C:\\Users\\takun\\.nuget\\packages\\system.text.json\\6.0.3\\system.text.json.6.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
