@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>MinecraftConnection</id>
+    <version>2.0.1</version>
+    <authors>Takumi Okawa (Takunology)</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <icon>MCLogo.png</icon>
+    <projectUrl>https://www.mcwithcode.com/</projectUrl>
+    <description>MinecraftConnection is a library for sending commands via RCON using C# to support you learn and automate your programming. It can be run on a vanilla server as well as a Spigot server, including plugins. Before running the program, you need to start a Minecraft server that allows RCON connections.</description>
+    <releaseNotes>Version 2.0.1
+
+- Add DisplayMessage() method</releaseNotes>
+    <copyright>Copyright (c) 2021 Takumi Okawa (Takunology)</copyright>
+    <tags>Minecraft</tags>
+    <repository type="git" url="https://github.com/takunology/MinecraftConnection" />
+    <dependencies>
+      <group targetFramework=".NETStandard2.1">
+        <dependency id="System.Text.Json" version="6.0.3" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\bin\Release\netstandard2.1\MinecraftConnection.dll" target="lib\netstandard2.1\MinecraftConnection.dll" />
+    <file src="D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\MCLogo.png" target="MCLogo.png" />
+  </files>
+</package>
