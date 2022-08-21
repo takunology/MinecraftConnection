@@ -126,6 +126,30 @@ namespace MinecraftConnection
         }
 
         /// <summary>
+        /// Places the block at the specified coordinates.
+        /// </summary>
+        /// <param name="x">Coordinate x</param>
+        /// <param name="y">Coordinate y</param>
+        /// <param name="z">Coordinate z</param>
+        /// <param name="blockId">Block ID</param>
+        /// <returns></returns>
+        public string SetBlock(double x, double y, double z, string blockId)
+        {
+            return SetBlock((int)x, (int)y, (int)z, blockId);
+        }
+
+        /// <summary>
+        /// Places the block at the specified coordinates.
+        /// </summary>
+        /// <param name="position">Block Position</param>
+        /// <param name="blockId">Block ID</param>
+        /// <returns></returns>
+        public string SetBlock(Position position, string blockId)
+        {
+            return SetBlock(position.X, position.Y, position.Z, blockId);
+        }
+
+        /// <summary>
         /// Get the items in the chest placed at the specified coordinates.
         /// </summary>
         /// <param name="position">Chest Coordinates</param>
