@@ -15,11 +15,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Copyright (c) 2021 Takumi Okawa (Takunology)")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute(@"MinecraftConnection is a library for sending commands via RCON using C# to support you learn and automate your programming. It can be run on a vanilla server as well as a Spigot server, including plugins. Before running the program, you need to start a Minecraft server that allows RCON connections.")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("2.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("2.0.0")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("2.0.2.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("2.0.2")]
 [assembly: System.Reflection.AssemblyProductAttribute("MinecraftConnection")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MinecraftConnection")]
-[assembly: System.Reflection.AssemblyVersionAttribute("2.0.0.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("2.0.2.0")]
 [assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/takunology/MinecraftConnection")]
 
 // MSBuild WriteCodeFragment クラスによって生成されました。

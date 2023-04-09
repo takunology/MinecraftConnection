@@ -5,7 +5,7 @@
 	<LangVersion>latest</LangVersion>
     <Authors>Takumi Okawa (Takunology)</Authors>
     <Company>Minecraft_with_Code_Project</Company>
-    <Version>2.0.1</Version>
+    <Version>2.0.2</Version>
     <PackageId>MinecraftConnection</PackageId>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -18,14 +18,20 @@
     <Copyright>Copyright (c) 2021 Takumi Okawa (Takunology)</Copyright>
     <PackageIconUrl />
     <PackageTags>Minecraft</PackageTags>
-    <PackageReleaseNotes>Version 2.0.1
+    <PackageReleaseNotes>Version 2.0.2
 
-- Add DisplayMessage() method</PackageReleaseNotes>
+- Fixed RandomColors() method in FireworkOption class
+- Added SetBlock method overload</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="MCLogo.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>

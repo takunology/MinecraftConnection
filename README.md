@@ -41,7 +41,7 @@ Detail：https://www.nuget.org/packages/MinecraftConnection
 To run the program, start Minecraft Server and Minecraft itself (already logged in to the server). </br>
 Top-level statements are used here.
 
-### 3.1 Set the time to 0
+## 3.1 Set the time to 0
 
 ```cs
 using MinecraftConnection;
@@ -56,7 +56,7 @@ command.TimeSet(0);
 ```
 </br>
 
-### 3.2 Set off fireworks
+## 3.2 Set off fireworks
 
 ```cs
 using MinecraftConnection;
@@ -88,7 +88,34 @@ Result :
 Various fireworks can be set off depending on your ingenuity. If you would like to try it, please refer to this page.
 
 https://zenn.dev/takunology/scraps/9462b03d13dd0a
-## 4. Caution
+
+## 3.3 Sorting items in a chest
+You can retrieve items in a chest and sort them by ID or by count.</br>
+The following source code allows you to sort items by name by using the `SortById()` method on the retrieved item data. The `MinecraftConnection.Extends` directive declaration is required to use the sorting method.
+
+```cs
+using MinecraftConnection;
+using MinecraftConnection.Extends;
+
+string address = "127.0.0.1";
+ushort port = 25575;
+string pass = "minecraft";
+MinecraftCommands command = new MinecraftCommands(address, port, pass);
+
+// Declare the coordinates of the "Chest block" or "Shulker box".
+var pos = new Position(-502, 63, -213);
+// Get the items in the chest.
+var chestitems = command.GetChestItems(pos);
+// Sort the acquired items and overwrite them in the chest again.
+command.SetChestItems(pos, chestitems.SortByIdDescending());
+```
+
+Result:
+
+<img src="https://raw.githubusercontent.com/takunology/MinecraftConnection/main/images/sort.gif" width="550" hspace="0" vspace="10">
+
+
+# 4. Caution
 The stop command is disabled due to the risk of stopping the server by RCON remote control. Executing the stop command in SendCommand method will raise an exception.
 
 </br>
