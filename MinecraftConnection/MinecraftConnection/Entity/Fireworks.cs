@@ -4,6 +4,7 @@ using System.Text.Json.Serialization;
 using System.Linq;
 using MinecraftConnection.Entity.Base;
 using System;
+using System.Collections.ObjectModel;
 
 namespace MinecraftConnection.Entity
 {
@@ -17,8 +18,8 @@ namespace MinecraftConnection.Entity
         public FireworkType Type { get; set; }
         public bool Flicker { get; set; } = false;
         public bool Trail { get; set; } = false;
-        public List<FireworkColors> Colors { get; set; } = new List<FireworkColors>();
-        public List<FireworkColors> FadeColors { get; set; } = new List<FireworkColors>();
+        public IList<FireworkColors> Colors { get; set; } = new List<FireworkColors>();
+        public IList<FireworkColors> FadeColors { get; set; } = new List<FireworkColors>();
         public bool IsEmpty { get; set; } = false;
 
         private class FireworkNBT
@@ -142,7 +143,7 @@ namespace MinecraftConnection.Entity
         {
             var colors = new List<FireworkColors>();
             var rand = new Random();
-            for (int i = 0; i < colorCount; colorCount++)
+            for (int i = 0; i < colorCount; i++)
             {
                 colors.Add(SelectedFireworkColor(rand.Next(0, 16)));
             }

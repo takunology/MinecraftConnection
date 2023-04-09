@@ -38,7 +38,7 @@ Install-Package MinecraftConnection
 プログラムを実行するにはMinecraft ServerおよびMinecraft本体（サーバへのログイン済み）を起動した状態で行ってください。</br>
 ここではトップレベルステートメントを使用しています。
 
-### 3.1 時間を 0 に設定するプログラム
+## 3.1 時間を 0 に設定するプログラム
 
 ```cs
 using MinecraftConnection;
@@ -53,7 +53,7 @@ command.TimeSet(0);
 ```
 </br>
 
-### 3.2 花火を打ち上げるプログラム
+## 3.2 花火を打ち上げるプログラム
 
 ```cs
 using MinecraftConnection;
@@ -84,6 +84,31 @@ command.SetOffFireworks(pos, fireworks);
 工夫次第で様々な花火を打ち上げることができます。試してみたい方はこちらを参考にしてください。
 
 https://zenn.dev/takunology/scraps/9462b03d13dd0a
+
+## 3.3 チェスト内のアイテムを並べ替える
+チェストに入ったアイテムを取得して、それをID順や数量順に並べ替えることができます。 </br>
+下記のソースコードでは取得したアイテムデータに対して `SortById()` メソッドを使用することで、アイテムを名前順に並べ替えることができます。並べ替えるメソッドを使用するには `MinecraftConnection.Extends` のディレクティブ宣言が必要です。
+
+```cs
+using MinecraftConnection;
+using MinecraftConnection.Extends;
+
+string address = "127.0.0.1";
+ushort port = 25575;
+string pass = "minecraft";
+MinecraftCommands command = new MinecraftCommands(address, port, pass);
+
+// チェストブロックまたはシュルカーボックスの座標を宣言する
+var pos = new Position(-502, 63, -213);
+// チェスト内に入っているアイテムを取得する
+var chestitems = command.GetChestItems(pos);
+// 取得したアイテム並び替えて、再度そのチェストに上書きする
+command.SetChestItems(pos, chestitems.SortByIdDescending());
+```
+
+実行結果
+
+<img src="https://raw.githubusercontent.com/takunology/MinecraftConnection/main/images/sort.gif" width="550" hspace="0" vspace="10">
 
 # 4. 注意事項
 RCONの遠隔操作によってサーバを停止させる危険性があるため、`stop` コマンドは使用出来ないようになっています。`SendCommand` メソッドで `stop` コマンドを実行使用とすると例外が発生し、プログラムが止まるようになっています。

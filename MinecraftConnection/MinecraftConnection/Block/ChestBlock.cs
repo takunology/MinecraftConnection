@@ -57,7 +57,7 @@ namespace MinecraftConnection.Block
 
             return items;
         }
-
+        
         public void SetItems(List<ItemStack> items)
         {
             string result = PublicRcon.Rcon.SendCommand($"data get block {Position.X} {Position.Y} {Position.Z}");
