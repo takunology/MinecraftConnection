@@ -5,7 +5,7 @@ namespace MinecraftConnection.Entity.Base
     public class LivingEntityBase
     {
         public string EntityId { get; set; }
-        public Position Postision { get; set; }
+        public Position Position { get; set; }
         public Rotation Rotation { get; set; }
         public Motion Motion { get; set; }
         public double FallDistance { get; set; }
@@ -27,7 +27,7 @@ namespace MinecraftConnection.Entity.Base
             double posX = PublicRcon.Rcon.SendCommand($"data get entity {EntityId} Pos[0]").DataToDouble();
             double posY = PublicRcon.Rcon.SendCommand($"data get entity {EntityId} Pos[1]").DataToDouble();
             double posZ = PublicRcon.Rcon.SendCommand($"data get entity {EntityId} Pos[2]").DataToDouble();
-            this.Postision = new Position(posX, posY, posZ);
+            this.Position = new Position(posX, posY, posZ);
         }
 
         public void GetRotation()
