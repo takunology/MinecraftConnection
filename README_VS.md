@@ -1,7 +1,5 @@
 # MinecraftConnection
-<div>
-<img src="https://raw.githubusercontent.com/takunology/MinecraftConnection/main/images/logo.png" width="300" hspace="0" vspace="10">
-</div>
+![](https://raw.githubusercontent.com/takunology/MinecraftConnection/main/images/logo.png)
 
 ![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/MinecraftConnection)
 ![Nuget](https://img.shields.io/nuget/dt/MinecraftConnection?color=blue)
@@ -23,7 +21,7 @@ rcon.password=minecraft
 enable-rcon=true
 ```
 
-After adding it save the file and restart the server.   Launch Minecraft launcher and log in to the server. </br>
+After adding it save the file and restart the server.   Launch Minecraft launcher and log in to the server.
 
 # 2. Create Project
 This library is intended for `.NET Standard 2.1` and above. This section describes how to create a .NET 6 console application. 
@@ -34,17 +32,10 @@ Install `MinecraftConnection` with the NuGet package manager, or run the followi
 Install-Package MinecraftConnection
 ```
 
-dotnet command:
-
-```
-dotnet add package MinecraftConnection
-```
-
 Detail：https://www.nuget.org/packages/MinecraftConnection
-</br>
 
 # 3. Sample programs
-To run the program, start Minecraft Server and Minecraft itself (already logged in to the server). </br>
+To run the program, start Minecraft Server and Minecraft itself (already logged in to the server).
 Top-level statements are used here.
 
 ## 3.1 Set the time to 0
@@ -60,7 +51,6 @@ MinecraftCommands command = new MinecraftCommands(address, port, pass);
 
 command.TimeSet(0);
 ```
-</br>
 
 ## 3.2 Set off fireworks
 
@@ -89,14 +79,14 @@ command.SetOffFireworks(pos, fireworks);
 
 Result :
 
-<img src="https://raw.githubusercontent.com/takunology/MinecraftConnection/main/images/fireworks_sample.png" width="550" hspace="0" vspace="10">
+![](https://raw.githubusercontent.com/takunology/MinecraftConnection/main/images/fireworks_sample.png)
 
 Various fireworks can be set off depending on your ingenuity. If you would like to try it, please refer to this page.
 
 https://zenn.dev/takunology/scraps/9462b03d13dd0a
 
 ## 3.3 Sorting items in a chest
-You can retrieve items in a chest and sort them by ID or by count.</br>
+You can retrieve items in a chest and sort them by ID or by count.
 The following source code allows you to sort items by name by using the `SortById()` method on the retrieved item data. The `MinecraftConnection.Extends` directive declaration is required to use the sorting method.
 
 ```cs
@@ -118,57 +108,9 @@ command.SetChestItems(pos, chestitems.SortByIdDescending());
 
 Result:
 
-<img src="https://raw.githubusercontent.com/takunology/MinecraftConnection/main/images/sort.gif" width="550" hspace="0" vspace="10">
-
-## 3.4 Play sound
-The `PlaySound()` method can be used to play Minecraft sound effects. Sound effects are stored in the `Sound` enumeration.
-
-```cs
-ushort sub = 230;
-ushort main = 230;
-
-for(int i = 0; i < 3; i++)
-{
-    command.PlaySound(Sound.Bell);
-    command.Wait(430);
-}
-
-command.PlaySound(Sound.CowBell);
-command.Wait(430);
-
-for (int i = 0; i < 4; i++)
-{
-    command.PlaySound(Sound.BaseDrum);
-    command.Wait(sub);
-    command.PlaySound(Sound.Hat);
-    command.Wait(main);
-
-    command.PlaySound(Sound.BaseDrum);
-    command.PlaySound(Sound.Snare);
-    command.Wait(sub);
-    command.PlaySound(Sound.Hat);
-    command.Wait(main);
-
-    command.PlaySound(Sound.BaseDrum);
-    command.Wait(sub);
-    command.PlaySound(Sound.Hat);
-    command.Wait(main);
-    
-    command.PlaySound(Sound.BaseDrum);
-    command.PlaySound(Sound.Snare);
-    command.Wait(sub);
-    command.PlaySound(Sound.Hat);
-    command.Wait(main);
-}
-```
-
-Running example at X (Twitter)
-
-https://twitter.com/takunology_net/status/1695049583615963590?s=20
+![](https://raw.githubusercontent.com/takunology/MinecraftConnection/main/images/sort.gif)
 
 # 4. Caution
 The stop command is disabled due to the risk of stopping the server by RCON remote control. Executing the stop command in SendCommand method will raise an exception.
-
-</br>
 
 Project Detail: https://www.mcwithcode.com/

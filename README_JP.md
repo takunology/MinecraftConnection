@@ -31,6 +31,13 @@ NuGet パッケージマネージャにて `MinecraftConnection` をインスト
 ```
 Install-Package MinecraftConnection
 ```
+
+dotnet コマンドを使用する場合：
+
+```
+dotnet add package MinecraftConnection
+```
+
 詳細：https://www.nuget.org/packages/MinecraftConnection
 </br>
 
@@ -109,6 +116,53 @@ command.SetChestItems(pos, chestitems.SortByIdDescending());
 実行結果
 
 <img src="https://raw.githubusercontent.com/takunology/MinecraftConnection/main/images/sort.gif" width="550" hspace="0" vspace="10">
+
+## 3.4 音楽を奏でる
+`PlaySound()` メソッドを使用することでマインクラフトの効果音を再生することができます。効果音は `Sound` 列挙体に格納されています。
+
+```cs
+ushort sub = 230;
+ushort main = 230;
+
+// 4つ打ちドラム
+for(int i = 0; i < 3; i++)
+{
+    command.PlaySound(Sound.Bell);
+    command.Wait(430);
+}
+
+command.PlaySound(Sound.CowBell);
+command.Wait(430);
+
+for (int i = 0; i < 4; i++)
+{
+    command.PlaySound(Sound.BaseDrum);
+    command.Wait(sub);
+    command.PlaySound(Sound.Hat);
+    command.Wait(main);
+
+    command.PlaySound(Sound.BaseDrum);
+    command.PlaySound(Sound.Snare);
+    command.Wait(sub);
+    command.PlaySound(Sound.Hat);
+    command.Wait(main);
+
+    command.PlaySound(Sound.BaseDrum);
+    command.Wait(sub);
+    command.PlaySound(Sound.Hat);
+    command.Wait(main);
+    
+    command.PlaySound(Sound.BaseDrum);
+    command.PlaySound(Sound.Snare);
+    command.Wait(sub);
+    command.PlaySound(Sound.Hat);
+    command.Wait(main);
+}
+```
+
+実行例はX(Twitter)にて
+
+https://twitter.com/takunology_net/status/1695049583615963590?s=20
 
 # 4. 注意事項
 RCONの遠隔操作によってサーバを停止させる危険性があるため、`stop` コマンドは使用出来ないようになっています。`SendCommand` メソッドで `stop` コマンドを実行使用とすると例外が発生し、プログラムが止まるようになっています。

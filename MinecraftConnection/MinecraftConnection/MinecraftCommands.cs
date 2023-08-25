@@ -46,6 +46,31 @@ namespace MinecraftConnection
         public string TimeSet(ushort time) => PublicRcon.Rcon.SendCommand($"time set {time}");
 
         /// <summary>
+        /// Sets the time in Minecraft.
+        /// </summary>
+        /// <param name="time">Any time</param>
+        /// <returns>Result of command execution</returns>
+        public string TimeSet(Time time) => PublicRcon.Rcon.SendCommand($"time set {time.GetHashCode()}");
+
+        /// <summary>
+        /// Teleports any entity to the specified coordinates.
+        /// </summary>
+        /// <param name="entityName">Entity ID or Player ID</param>
+        /// <param name="x">Coordinate x</param>
+        /// <param name="y">Coordinate y</param>
+        /// <param name="z">Coordinate z</param>
+        /// <returns></returns>
+        public string Teleport(string entityName, int x, int y, int z) => PublicRcon.Rcon.SendCommand($"tp {entityName} {x} {y} {z}");
+
+        /// <summary>
+        /// Teleports any entity to the specified coordinates.
+        /// </summary>
+        /// <param name="entityName">Entity ID or Player ID</param>
+        /// <param name="position">Coordinates to be teleport</param>
+        /// <returns></returns>
+        public string Teleport(string entityName, Position position) => PublicRcon.Rcon.SendCommand($"tp {entityName} {position.X} {position.Y} {position.Z}");
+
+        /// <summary>
         /// Wait for a specified period of time.
         /// </summary>
         /// <param name="time">Any time</param>
@@ -195,6 +220,27 @@ namespace MinecraftConnection
         {
             var chestItems = new ChestBlock(x, y, z);
             chestItems.SetItems(items);
+        }
+
+        /// <summary>
+        /// Play Minecraft sound effects.
+        /// </summary>
+        /// <param name="sound">Type of sound effects</param>
+        public void PlaySound(Sound sound)
+        {
+            var playSound = new PlaySound(sound);
+            SendCommand(playSound.MakeCommand());
+        }
+
+        /// <summary>
+        /// Play Minecraft sound effects.
+        /// </summary>
+        /// <param name="sound">Type of sound effects</param>
+        /// <param name="pitch">Sound height (up to 2.0)</param>
+        public void PlaySound(Sound sound, double pitch)
+        {
+            var playSound = new PlaySound(sound);
+            SendCommand(playSound.MakeCommand(pitch));
         }
     }
 }
