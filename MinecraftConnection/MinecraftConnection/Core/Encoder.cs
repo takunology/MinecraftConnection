@@ -1,9 +1,9 @@
 ﻿/*
- * コマンドを送信するためのパケットと種類について
+ * Minecraft server packets details
  * https://wiki.vg/RCON
- * このコードは willroberts 氏のコードを参考にしています。
+ * This code is reference from willroberts. 
  * https://github.com/willroberts/minecraft-client-csharp
- * ストリーム部分は ScottKaye 氏のコードを参考にしています。
+ * A part of Encoder is reference from ScottKaye.
  * https://github.com/ScottKaye/CoreRCON
  */
 
@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace MinecraftConnection.RCON
+namespace MinecraftConnection.Core
 {
     public class Encoder
     {
@@ -20,14 +20,14 @@ namespace MinecraftConnection.RCON
 
         public static byte[] EncodePacket(Packet packet)
         {
-            // Body 以外の Byte 数を取得
+            // Get from byte size without Body packet.
             var Bytes = new List<byte>();
             Bytes.AddRange(BitConverter.GetBytes(packet.Length));
             Bytes.AddRange(BitConverter.GetBytes(packet.ID));
             Bytes.AddRange(BitConverter.GetBytes(packet.Type.GetHashCode()));
-            // null 終端文字列を生成
+            // Generate a null-terminated string.
             var body = Encoding.UTF8.GetBytes(packet.Body + "\0");
-            // パケットをストリームへ書き込み
+            // Write a packet to the stream 
             using (var stream = new MemoryStream(Bytes.Count + body.Length))
             {
                 stream.Write(BitConverter.GetBytes(9 + body.Length), 0, 4);

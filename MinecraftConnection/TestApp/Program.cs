@@ -1,54 +1,38 @@
 ﻿using MinecraftConnection;
-using MinecraftConnection.Extends;
+using MinecraftConnection.Entity;
 
 namespace TestApp
 {
     internal class Program
     {
         static string address = "127.0.0.1";
-        static ushort port = 25575;
+        static int port = 25575;
         static string pass = "minecraft";
-        static MinecraftCommands command = new MinecraftCommands(address, port, pass);
 
         static void Main(string[] args)
         {
-            ushort sub = 230;
-            ushort main = 230;
-
-            // 4つ打ちドラム
-            for(int i = 0; i < 3; i++)
+            using var command = new MinecraftCommand(address, port, pass);
+            var fw = new FireworkRocket()
             {
-                command.PlaySound(Sound.Bell);
-                command.Wait(430);
-            }
+                LifeTime = 0,
+                HasTrail = true,
+                Shape = FireworkShape.Burst
+            };
 
-            command.PlaySound(Sound.CowBell);
-            command.Wait(430);
-
-            for (int i = 0; i < 4; i++)
+            var empty = new FireworkRocket()
             {
-                command.PlaySound(Sound.BaseDrum);
-                command.Wait(sub);
-                command.PlaySound(Sound.Hat);
-                command.Wait(main);
+                LifeTime = 20,
+                IsEmpty = true
+            };
 
-                command.PlaySound(Sound.BaseDrum);
-                command.PlaySound(Sound.Snare);
-                command.Wait(sub);
-                command.PlaySound(Sound.Hat);
-                command.Wait(main);
-
-                command.PlaySound(Sound.BaseDrum);
-                command.Wait(sub);
-                command.PlaySound(Sound.Hat);
-                command.Wait(main);
-                
-                command.PlaySound(Sound.BaseDrum);
-                command.PlaySound(Sound.Snare);
-                command.Wait(sub);
-                command.PlaySound(Sound.Hat);
-                command.Wait(main);
+            for (int i = 0; i < 1000; i++)
+            {
+                empty.Motion = new Motion(2, -0.2, 0.0);
+                Console.WriteLine(empty.GetNBT());
+                command.Summon(empty, 51, 75, 600);
+                Thread.Sleep(10);
             }
+            
         }
     }
 }

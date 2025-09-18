@@ -38,10 +38,12 @@ namespace MinecraftConnection
 
         public Motion(double x, double y, double z)
         {
-            this.X = x;
-            this.Y = y;
-            this.Z = z;
+            X = x;
+            Y = y;
+            Z = z;
         }
+
+        public override string ToString() => $"[{X},{Y},{Z}]";
     }
 
     public struct ItemStack

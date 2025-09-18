@@ -6,5 +6,6 @@ D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Releas
 D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Release\netstandard2.1\MinecraftConnection.AssemblyInfoInputs.cache
 D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Release\netstandard2.1\MinecraftConnection.AssemblyInfo.cs
 D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Release\netstandard2.1\MinecraftConnection.csproj.CoreCompileInputs.cache
+D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Release\netstandard2.1\MinecraftConnection.sourcelink.json
 D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Release\netstandard2.1\MinecraftConnection.dll
 D:\GitHub\MinecraftConnection\MinecraftConnection\MinecraftConnection\obj\Release\netstandard2.1\MinecraftConnection.pdb
