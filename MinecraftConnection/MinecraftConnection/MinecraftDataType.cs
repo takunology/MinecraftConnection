@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MinecraftConnection
+﻿namespace MinecraftConnection
 {
     public struct Position
     {
