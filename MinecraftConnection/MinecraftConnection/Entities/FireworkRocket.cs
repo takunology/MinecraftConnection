@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MinecraftConnection.Entity
+namespace MinecraftConnection.Entities
 {
     public class FireworkRocket : IEntity
     {
-        public string EntityName { get; private set; } = "firework_rocket";
+        public string Id { get; private set; } = "firework_rocket";
         public int LifeTime { get; set; } = 0;
         public int Count { get; set; } = 1;
         public int FlightDuration { get; set; } = 2;
@@ -40,7 +40,7 @@ namespace MinecraftConnection.Entity
             else
             {
                 string explosions = $"{{shape:\"{ToSnakeCase(Shape)}\",has_twinkle:{(HasTwinkle ? 1 : 0)},has_trail:{(HasTrail ? 1 : 0)},colors:[I;{string.Join(",", Colors.Select(c => (int)c))}],fade_colors:[I;{string.Join(",", FadeColors.Select(c => (int)c))}]}}";
-                return $"{{LifeTime:{LifeTime},FireworksItem:{{id:{EntityName},count:{Count},components:{{fireworks:{{flight_duration:{FlightDuration},explosions:[{explosions}]}}}}}},Motion:{Motion}}}";
+                return $"{{LifeTime:{LifeTime},FireworksItem:{{id:{Id},count:{Count},components:{{fireworks:{{flight_duration:{FlightDuration},explosions:[{explosions}]}}}}}},Motion:{Motion}}}";
             }
                 
         }
