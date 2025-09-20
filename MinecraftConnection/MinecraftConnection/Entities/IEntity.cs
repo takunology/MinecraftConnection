@@ -2,7 +2,7 @@
 {
     public interface IEntity
     {
+        Position Position { get; }
         string Id { get; }
-        string GetNBT();
     }
 }

@@ -10,7 +10,6 @@ namespace MinecraftConnection.Blocks
         public string Id { get; set; }
         public Position Position { get; set; } = new ();
         public List<ItemStack> Items { get; set; } = [];
-        public Dictionary<string, JsonElement> ExtraData { get; set; } = [];
     }
 
     public static class BlockParser
@@ -54,13 +53,7 @@ namespace MinecraftConnection.Blocks
             if (root.TryGetProperty("Items", out var itemsProp) && itemsProp.ValueKind == JsonValueKind.Array)
             {
                 block.Items.Clear();
-                block.Items.AddRange(NbtDeserializer.DeserializeItems(itemsProp.GetRawText()));
-            }
-
-            foreach (var prop in root.EnumerateObject())
-            {
-                if (prop.Name is not ("id" or "x" or "y" or "z" or "Items"))
-                    block.ExtraData[prop.Name] = prop.Value.Clone();
+                block.Items.AddRange(NbtDeserializer.ToItemStackList(itemsProp));
             }
 
             return block;

@@ -1,49 +1,59 @@
-﻿using System;
+﻿using MinecraftConnection.Entities;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace MinecraftConnection.Tools
 {
     public static class NbtSerializer
     {
-        public static string Serialize(object value)
+        public static string Serialize(object? obj)
         {
-            return value switch
+            return obj switch
             {
-                ItemStack item => SerializeItem(item),
-                List<ItemStack> items => SerializeItems(items),
-                Position pos => SerializeVector(pos.X, pos.Y, pos.Z),
-                Motion mot => SerializeVector(mot.X, mot.Y, mot.Z),
-                Rotation rot => SerializeVector(rot.X, rot.Y),
-                IEnumerable<object> list => $"[{string.Join(",", list.Select(Serialize))}]",
+                null => "null",
+                int i => i.ToString(),
+                bool b => b ? "1" : "0",
                 string s => $"\"{s}\"",
-                int or float or double => value.ToString(),
-                _ => throw new NotSupportedException($"Unsupported type: {value.GetType().Name}"),
+                Enum e => ToSnakeCase(e),
+                Motion m => ToMotionArray(m),
+                Position p => ToPositionArray(p),
+                Rotation r => ToRotationArray(r),
+                NbtIntArray arr => "[I;" + string.Join(",", arr.Values) + "]",
+                Dictionary<string, object?> dict =>
+                    "{" + string.Join(",", dict.Select(kv => $"{kv.Key}:{Serialize(kv.Value)}")) + "}",
+                ItemStack item => Serialize(item.ToNbt()),
+                IEnumerable e => "[" + string.Join(",", e.Cast<object>().Select(Serialize)) + "]",
+                _ => throw new NotSupportedException($"Type {obj.GetType()} not supported in NbtSerializer")
             };
         }
 
-        public static T Deserialize<T>(string nbt)
-        {
-            throw new NotImplementedException();
-        }
+        public static string ToSnakeCase(Enum value) 
+            => string.Concat(value.ToString().Select((c, i) =>
+            i > 0 && char.IsUpper(c) ? "_" + char.ToLower(c) : char.ToLower(c).ToString()));
 
-        private static string SerializeItem(ItemStack item)
-        {
-            return $"{{Slot:{item.Slot}b,id:\"{item.Id}\",count:{item.Count}b}}";
-        }
+        public static string ToColorArrayString(List<FireworkColor> colors) 
+            => "[I;" + string.Join(",", colors.Select(c => (int)c)) + "]";
 
-        private static string SerializeItems(List<ItemStack> items)
-        {
-            var itemStrings = items.Select(item =>
-                $"{{Slot:{item.Slot}b,id:\"{item.Id}\",count:{item.Count}b}}"
-            );
-            return $"[{string.Join(",", itemStrings)}]";
-        }
+        public static NbtIntArray ToColorArray(List<FireworkColor> colors)
+            => new(colors.Select(c => (int)c).ToList());
 
-        private static string SerializeVector(params double[] values)
-        {
-            return $"[{string.Join(",", values)}]";
-        }
+        public static int BoolToInt(bool value) => value ? 1 : 0;
+
+        private static string ToMotionArray(Motion m)
+            => $"[{m.X}d,{m.Y}d,{m.Z}d]";
+
+        private static string ToPositionArray(Position p)
+            => $"[{p.X}d,{p.Y}d,{p.Z}d]";
+
+        private static string ToRotationArray(Rotation r)
+            => $"[{r.X}f,{r.Y}f]";
+    }
+
+    public class NbtIntArray
+    {
+        public List<int> Values { get; }
+        public NbtIntArray(List<int> values) => Values = values;
     }
 }

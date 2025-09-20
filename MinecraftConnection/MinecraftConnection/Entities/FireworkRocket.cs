@@ -1,13 +1,14 @@
-﻿using System;
+﻿using MinecraftConnection.Tools;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace MinecraftConnection.Entities
 {
-    public class FireworkRocket : IEntity
+    public class FireworkRocket : Entity
     {
-        public string Id { get; private set; } = "firework_rocket";
+        public override string Id  => "firework_rocket";
         public int LifeTime { get; set; } = 0;
         public int Count { get; set; } = 1;
         public int FlightDuration { get; set; } = 2;
@@ -16,33 +17,49 @@ namespace MinecraftConnection.Entities
         public bool HasTrail { get; set; } = false;
         public List<FireworkColor> Colors { get; set; } = new ();
         public List<FireworkColor> FadeColors { get; set; } = new ();
-        public Motion Motion { get; set; } = new Motion (0, 0, 0);
         public bool IsEmpty { get; set; } = false;
 
-        private string ToSnakeCase(FireworkShape shape)
-        {
-            return shape switch
-            {
-                FireworkShape.SmallBall => "small_ball",
-                FireworkShape.LargeBall => "large_ball",
-                FireworkShape.Creeper => "creeper",
-                FireworkShape.Star => "star",
-                _ => "burst"
-            };
-        }
-
-        public string GetNBT()
+        public override string GetNbt()
         {
             if (IsEmpty)
             {
-                return $"{{LifeTime:{LifeTime},Motion:{Motion}}}";
+                return NbtSerializer.Serialize(new Dictionary<string, object?>
+                {
+                    { "LifeTime", LifeTime },
+                    { "Motion", Motion }
+                });
             }
             else
             {
-                string explosions = $"{{shape:\"{ToSnakeCase(Shape)}\",has_twinkle:{(HasTwinkle ? 1 : 0)},has_trail:{(HasTrail ? 1 : 0)},colors:[I;{string.Join(",", Colors.Select(c => (int)c))}],fade_colors:[I;{string.Join(",", FadeColors.Select(c => (int)c))}]}}";
-                return $"{{LifeTime:{LifeTime},FireworksItem:{{id:{Id},count:{Count},components:{{fireworks:{{flight_duration:{FlightDuration},explosions:[{explosions}]}}}}}},Motion:{Motion}}}";
+                var explosion = new Dictionary<string, object?>
+                {
+                    { "shape", NbtSerializer.ToSnakeCase(Shape) },
+                    { "has_twinkle", NbtSerializer.BoolToInt(HasTwinkle) },
+                    { "has_trail", NbtSerializer.BoolToInt(HasTrail) },
+                    { "colors", NbtSerializer.ToColorArray(Colors) },
+                    { "fade_colors", NbtSerializer.ToColorArray(FadeColors) }
+                };
+
+                var fireworks = new Dictionary<string, object?>
+                {
+                    { "flight_duration", FlightDuration },
+                    { "explosions", new List<Dictionary<string, object?>> { explosion } }
+                };
+
+                var item = new Dictionary<string, object?>
+                {
+                    { "id", Id },
+                    { "count", Count },
+                    { "components", new Dictionary<string, object?> { { "fireworks", fireworks } } }
+                };
+
+                return NbtSerializer.Serialize(new Dictionary<string, object?>
+                {
+                    { "LifeTime", LifeTime },
+                    { "FireworksItem", item },
+                    { "Motion", Motion }
+                });
             }
-                
         }
     }
 
