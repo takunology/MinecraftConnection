@@ -1,54 +1,30 @@
 ﻿using MinecraftConnection;
-using MinecraftConnection.Extends;
+using MinecraftConnection.Entities;
+using MinecraftConnection.Tools;
 
 namespace TestApp
 {
     internal class Program
     {
         static string address = "127.0.0.1";
-        static ushort port = 25575;
+        static int port = 25575;
         static string pass = "minecraft";
-        static MinecraftCommands command = new MinecraftCommands(address, port, pass);
 
         static void Main(string[] args)
         {
-            ushort sub = 230;
-            ushort main = 230;
+            using var command = new MinecraftCommand(address, port, pass);
 
-            // 4つ打ちドラム
-            for(int i = 0; i < 3; i++)
+            var player = command.DataGetEntity("takunology");
+            Console.WriteLine(player.Name);
+            Console.WriteLine($"{player.Position.X} {player.Position.Y} {player.Position.Z}");
+
+            var fw = new FireworkRocket
             {
-                command.PlaySound(Sound.Bell);
-                command.Wait(430);
-            }
+                LifeTime = 20,
+                Colors = FireworkOption.GetRandomColors()
+            };
 
-            command.PlaySound(Sound.CowBell);
-            command.Wait(430);
-
-            for (int i = 0; i < 4; i++)
-            {
-                command.PlaySound(Sound.BaseDrum);
-                command.Wait(sub);
-                command.PlaySound(Sound.Hat);
-                command.Wait(main);
-
-                command.PlaySound(Sound.BaseDrum);
-                command.PlaySound(Sound.Snare);
-                command.Wait(sub);
-                command.PlaySound(Sound.Hat);
-                command.Wait(main);
-
-                command.PlaySound(Sound.BaseDrum);
-                command.Wait(sub);
-                command.PlaySound(Sound.Hat);
-                command.Wait(main);
-                
-                command.PlaySound(Sound.BaseDrum);
-                command.PlaySound(Sound.Snare);
-                command.Wait(sub);
-                command.PlaySound(Sound.Hat);
-                command.Wait(main);
-            }
+            command.Summon(fw, player.Position.X, player.Position.Y + 3, player.Position.Z);
         }
     }
 }
