@@ -2,12 +2,30 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 
 namespace MinecraftConnection.Tools
 {
     public static class NbtDeserializer
     {
-        public static object DeserializeValue(JsonElement element, Type targetType) =>
+        public static string NormalizeToJson(string input)
+        {
+            int start = input.IndexOf('{');
+            if (start == -1) return string.Empty;
+            input = input.Substring(start).Replace("\"", "");
+
+            input = Regex.Replace(input, @"(\w+):", "\"$1\":");
+            input = Regex.Replace(input, @"(\d+)([bBsSlLfFdD])", "$1");
+            input = Regex.Replace(input, @"\[I;([^\]]+)\]", "[$1]");
+            input = Regex.Replace(input, "\"minecraft", "minecraft");
+            input = Regex.Replace(input, "minecraft\"", "minecraft");
+            input = Regex.Replace(input, @"minecraft:[\w_]+", "\"$0\"");
+            input = Regex.Replace(input, @":\s*([a-zA-Z_]+)(?=[,\}\]])", ": \"$1\"");
+
+            return input;
+        }
+
+        public static object Deserialize(JsonElement element, Type targetType) =>
             targetType switch
             {
                 Type t when t == typeof(Position) =>
@@ -31,7 +49,7 @@ namespace MinecraftConnection.Tools
                 Type t when t == typeof(double) => element.GetDouble(),
                 Type t when t == typeof(string) => element.GetString() ?? "",
                 Type t when Nullable.GetUnderlyingType(t) is Type underlyingType =>
-                    element.ValueKind == JsonValueKind.Null ? null : DeserializeValue(element, underlyingType),
+                    element.ValueKind == JsonValueKind.Null ? null : Deserialize(element, underlyingType),
                 _ => throw new NotSupportedException($"DeserializeValue: 型 {targetType} は未対応です")
             };
 
