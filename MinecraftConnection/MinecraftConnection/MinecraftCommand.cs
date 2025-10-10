@@ -4,6 +4,9 @@ using MinecraftConnection.Entities;
 using MinecraftConnection.Tools;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace MinecraftConnection
@@ -44,13 +47,22 @@ namespace MinecraftConnection
         public async Task<string> EffectAsync(string target, string effectId, int time, int amplifire) => await SendCommandAsync($"effect {target} {effectId} {time} {amplifire}");
         public async Task<string> GiveAsync(string target, string itemId, int count) => await SendCommandAsync($"give {target} {itemId} {count}");
         public async Task<string> ClearAsync(string target, string itemId, int count) => await SendCommandAsync($"clear {target} {itemId} {count}");
-        public async Task<string> DataGetEntityAsync(string entityId) => await SendCommandAsync($"data get entity {entityId}");
+        public T DataGetEntity<T>(string entityId) where T : Entity, new()
+        {
+            string nbt = SendCommand($"data get entity {entityId}");
+            string json = NbtDeserializer.NormalizeToJson(nbt);
+            return EntityParser.Parse(json) as T;
+        }
         public async Task<string> DataModifyEntityAsync(string entityId, string nbtKey, object nbtValue)
         {
             string nbt = NbtSerializer.Serialize(nbtValue);
             return await SendCommandAsync($"data modify entity {entityId} {nbtKey} set value {nbt}");
         }
-        public async Task<string> DataGetBlockAsync(double x, double y, double z) => await SendCommandAsync($"data get block {x} {y} {z}");
+        public async Task<Block> DataGetBlockAsync(double x, double y, double z)
+        {
+            var data = await SendCommandAsync($"data get block {x} {y} {z}");
+            return BlockParser.Parse(data);
+        }
         public async Task<string> DataModifyBlockAsync(double x, double y, double z, string nbtKey, object nbtValue)
         {
             string nbt = NbtSerializer.Serialize(nbtValue);
@@ -70,14 +82,22 @@ namespace MinecraftConnection
         public string Effect(string target, string effectId, int time, int amplifire) => SendCommand($"effect {target} {effectId} {time} {amplifire}");
         public string Give(string target, string itemId, int Count) => SendCommand($"give {target} {itemId} {Count}");
         public string Clear(string target, string itemId, int Count) => SendCommand($"clear {target} {itemId} {Count}");
-        public string DataGetEntity(string entityId) => SendCommand($"data get entity {entityId}");
+        public async Task<T> DataGetEntityAsync<T>(string entityId) where T : Entity, new()
+        {
+            string nbt = await SendCommandAsync($"data get entity {entityId}");
+            string json = NbtDeserializer.NormalizeToJson(nbt);
+            return EntityParser.Parse(json) as T;
+        }
         public string DataModifyEntity(string entityId, string nbtKey, object nbtValue)
         {
             string nbt = NbtSerializer.Serialize(nbtValue);
             return SendCommand($"data modify entity {entityId} {nbtKey} set value {nbt}");
-            
         }
-        public string DataGetBlock(double x, double y, double z) => SendCommand($"data get block {x} {y} {z}");
+        public Block DataGetBlock(double x, double y, double z)
+        {
+            var nbt = SendCommand($"data get block {x} {y} {z}");
+            return BlockParser.Parse(nbt);
+        }
         public string DataModifyBlock(double x, double y, double z, string nbtKey, object nbtValue)
         {
             string nbt = NbtSerializer.Serialize(nbtValue);

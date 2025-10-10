@@ -8,7 +8,7 @@ namespace MinecraftConnection.Entities
 {
     public class FireworkRocket : Entity
     {
-        public override string Id  => "firework_rocket";
+        public string Id  => "firework_rocket";
         public int LifeTime { get; set; } = 0;
         public int Count { get; set; } = 1;
         public int FlightDuration { get; set; } = 2;
@@ -17,6 +17,7 @@ namespace MinecraftConnection.Entities
         public bool HasTrail { get; set; } = false;
         public List<FireworkColor> Colors { get; set; } = new ();
         public List<FireworkColor> FadeColors { get; set; } = new ();
+        public Motion Motion { get; set; } = new Motion();
         public bool IsEmpty { get; set; } = false;
 
         public override string GetNbt()
