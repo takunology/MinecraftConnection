@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MinecraftConnection
 {
-    public enum Time
+    public enum Time : int
     {
         Day = 1000,
         Noon = 6000,

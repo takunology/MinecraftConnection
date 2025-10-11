@@ -37,6 +37,7 @@ namespace MinecraftConnection
         }
         public async Task<string> SayAsync(string message) => await SendCommandAsync($"say {message}");
         public async Task<string> TimeSetAsync(int value) => await SendCommandAsync($"time set {value}");
+        public async Task<string> TimeSetAsync(Time value) => await SendCommandAsync($"time set {(int)value}");
         public async Task<string> TpAsync(double x, double y, double z) => await SendCommandAsync($"tp {x} {y} {z}");
         public async Task<string> SummonAsync(string entityId, double x, double y, double z) => await SendCommandAsync($"summon {entityId} {x} {y} {z}");
         public async Task<string> SummonAsync(FireworkRocket fireworkRocket, double x, double y, double z) => await SendCommandAsync($"summon {fireworkRocket.Id} {x} {y} {z} {fireworkRocket.GetNbt()}");
@@ -44,7 +45,7 @@ namespace MinecraftConnection
         public async Task<string> SubTitleAsync(string subTitle) => await SendCommandAsync($"title @a subtitle {subTitle}");
         public async Task<string> SetBlockAsync(double x, double y, double z, string BlockId) => await SendCommandAsync($"setblock {x} {y} {z} {BlockId}");
         public async Task<string> FillAsync(double x1, double y1, double z1, double x2, double y2, double z2, string BlockId) => await SendCommandAsync($"fill {x1} {y1} {z1} {x2} {y2} {z2} {BlockId}");
-        public async Task<string> EffectAsync(string target, string effectId, int time, int amplifire) => await SendCommandAsync($"effect {target} {effectId} {time} {amplifire}");
+        public async Task<string> EffectAsync(string target, string effectId, int time, int amplifire) => await SendCommandAsync($"effect give {target} {effectId} {time} {amplifire}");
         public async Task<string> GiveAsync(string target, string itemId, int count) => await SendCommandAsync($"give {target} {itemId} {count}");
         public async Task<string> ClearAsync(string target, string itemId, int count) => await SendCommandAsync($"clear {target} {itemId} {count}");
         public T DataGetEntity<T>(string entityId) where T : Entity, new()
@@ -72,6 +73,7 @@ namespace MinecraftConnection
         public string SendCommand(string command) => SendCommandAsync(command).GetAwaiter().GetResult();
         public string Say(string message) => SendCommand($"say {message}");
         public string TimeSet(int value) => SendCommand($"time set {value}");
+        public string TimeSet(Time value) => SendCommand($"time set {(int)value}");
         public string Tp(double x, double y, double z) => SendCommand($"tp {x} {y} {z}");
         public string Summon(string entityId, double x, double y, double z) => SendCommand($"summon {entityId} {x} {y} {z}");
         public string Summon(Entity entity, double x, double y, double z) => SendCommand($"summon {entity.Id} {x} {y} {z} {entity.GetNbt()}");
@@ -79,7 +81,7 @@ namespace MinecraftConnection
         public string SubTitle(string subTitle) => SendCommand($"title @a subtitle {subTitle}");
         public string SetBlock(double x, double y, double z, string BlockId) => SendCommand($"setblock {x} {y} {z} {BlockId}");
         public string Fill(double x1, double y1, double z1, double x2, double y2, double z2, string BlockId) => SendCommand($"fill {x1} {y1} {z1} {x2} {y2} {z2} {BlockId}");
-        public string Effect(string target, string effectId, int time, int amplifire) => SendCommand($"effect {target} {effectId} {time} {amplifire}");
+        public string Effect(string target, string effectId, int time, int amplifire) => SendCommand($"effect give {target} {effectId} {time} {amplifire}");
         public string Give(string target, string itemId, int Count) => SendCommand($"give {target} {itemId} {Count}");
         public string Clear(string target, string itemId, int Count) => SendCommand($"clear {target} {itemId} {Count}");
         public async Task<T> DataGetEntityAsync<T>(string entityId) where T : Entity, new()

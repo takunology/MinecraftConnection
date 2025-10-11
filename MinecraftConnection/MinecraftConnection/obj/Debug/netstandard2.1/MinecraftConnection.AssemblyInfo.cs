@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Copyright (c) 2023 Takumi Okawa (Takunology)")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute(@"MinecraftConnection is a library for sending commands via RCON using C# to support you learn and automate your programming. It can be run on a vanilla server as well as a Spigot server, including plugins. Before running the program, you need to start a Minecraft server that allows RCON connections.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("3.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("3.0.0-beta+d164fe294560c81b21661ead884040a6242e05cd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("3.0.0-beta+c70c4deb5393c65c1d459188734c0e70a6d16875")]
 [assembly: System.Reflection.AssemblyProductAttribute("MinecraftConnection")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MinecraftConnection")]
 [assembly: System.Reflection.AssemblyVersionAttribute("3.0.0.0")]

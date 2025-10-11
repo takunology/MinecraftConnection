@@ -6,7 +6,7 @@ namespace MinecraftConnection.Entities
 {
     public class Player : Entity
     {
-        public new string Id { get; set; } = "minecraft:player";
+        public override string Id { get; } = "minecraft:player";
 
         public string Name { get; set; } = "";
         public double Health { get; set; }

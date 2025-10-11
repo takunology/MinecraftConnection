@@ -8,7 +8,7 @@ namespace MinecraftConnection.Entities
 {
     public abstract class Entity
     {
-        public string? Id { get; }
+        public abstract string? Id { get; }
         public Position Position { get; set; } = new Position();
 
         public abstract string GetNbt();

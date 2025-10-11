@@ -6,7 +6,7 @@ namespace MinecraftConnection.Entities
 {
     public class Villager : Entity
     {
-        public new string Id { get; set; } = "minecraft:villager";
+        public override string Id { get; } = "minecraft:villager";
 
         public string Profession { get; set; } = "";
         public int Level { get; set; }

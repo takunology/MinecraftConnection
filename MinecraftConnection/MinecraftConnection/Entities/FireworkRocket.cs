@@ -8,7 +8,7 @@ namespace MinecraftConnection.Entities
 {
     public class FireworkRocket : Entity
     {
-        public string Id  => "firework_rocket";
+        public override string Id  => "firework_rocket";
         public int LifeTime { get; set; } = 0;
         public int Count { get; set; } = 1;
         public int FlightDuration { get; set; } = 2;

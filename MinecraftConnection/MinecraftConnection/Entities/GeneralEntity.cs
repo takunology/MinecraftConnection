@@ -6,7 +6,7 @@ namespace MinecraftConnection.Entities
 {
     public class GeneralEntity : Entity
     {
-        public string Id { get; }
+        public override string Id { get; }
         public Motion Motion { get; set; } = new();
         public string Nbt { get; set; }
 
