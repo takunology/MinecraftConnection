@@ -5,7 +5,7 @@
   },
   "projects": {
     "D:\\GitHub\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection.csproj": {
-      "version": "2.1.0",
+      "version": "3.0.0-beta",
       "restore": {
         "projectUniqueName": "D:\\GitHub\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection.csproj",
         "projectName": "MinecraftConnection",
@@ -28,7 +28,8 @@
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "D:\\GitHub\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection\\bin\\Release": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/mcwithcode/index.json": {}
         },
         "frameworks": {
           "netstandard2.1": {
@@ -40,7 +41,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "netstandard2.1": {
@@ -48,7 +55,7 @@
           "dependencies": {
             "System.Text.Json": {
               "target": "Package",
-              "version": "[6.0.3, )"
+              "version": "[9.0.9, )"
             }
           },
           "imports": [
@@ -67,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     }

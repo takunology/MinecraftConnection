@@ -10,8 +10,9 @@
 *.userosscache
 *.sln.docstates
 
-# TestApp
-./TestApp
+# TestApps
+/TestApp
+/GuiApp
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
