@@ -224,7 +224,7 @@ public sealed partial class MainWindow : Window
 
 Result:
 
-<img src="https://raw.githubusercontent.com/takunology/MinecraftConnection/main/images/gui.gif" width="550" hspace="0" vspace="10">
+![](https://raw.githubusercontent.com/takunology/MinecraftConnection/main/images/gui.gif)
 
 For detailed implementation steps, see:
 https://zenn.dev/takunology/scraps/075d57bfcc5aaa
