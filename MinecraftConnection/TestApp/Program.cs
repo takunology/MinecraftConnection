@@ -15,7 +15,8 @@ namespace TestApp
         static void Main(string[] args)
         {
             //AsyncTest();
-            CommandTest();
+            //CommandTest();
+            FireworksTest();
         }
 
         static async Task AsyncTest() 
@@ -163,7 +164,7 @@ namespace TestApp
             using var command = new MinecraftCommand(address, port, pass);
             var fw = new FireworkRocket
             {
-                LifeTime = 50,
+                LifeTime = 30,
                 Colors = FireworkOption.GetRandomColors(),
                 Shape = FireworkShape.LargeBall,
                 FlightDuration = 2
